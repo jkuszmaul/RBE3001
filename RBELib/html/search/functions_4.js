@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['initadc',['InitADC',['../_a_d_c_8h.html#a4f43508a97b9a32ce47ee4e068d25656',1,'ADC.h']]],
-  ['initaltcom',['InitAltCom',['../_set_servo_8h.html#a24bb3d67c6059b08786a75364c5d2ff2',1,'InitAltCom(unsigned long baudrate):&#160;SetServo.c'],['../_set_servo_8c.html#a24bb3d67c6059b08786a75364c5d2ff2',1,'InitAltCom(unsigned long baudrate):&#160;SetServo.c']]],
-  ['initrbelib',['initRBELib',['../_debug_8h.html#af447ccfe0edd5c2eee6ff9aba36bd6f9',1,'initRBELib():&#160;Debug.c'],['../_debug_8c.html#af447ccfe0edd5c2eee6ff9aba36bd6f9',1,'initRBELib():&#160;Debug.c']]],
-  ['inittimer',['InitTimer',['../timer_8h.html#a7b3d0fca6acf75b987e114e3fdcd6055',1,'timer.h']]]
+  ['getaccel',['getAccel',['../_periph_8h.html#a664961c139fdb66c6fd0fb0e997df433',1,'Periph.h']]],
+  ['getadc',['getADC',['../_a_d_c_8h.html#a9f560657fb624f98de3161651f3d4385',1,'getADC(int channel):&#160;ADC.c'],['../_a_d_c_8c.html#a9f560657fb624f98de3161651f3d4385',1,'getADC(int channel):&#160;ADC.c']]],
+  ['getchardebug',['getCharDebug',['../_u_s_a_r_t_debug_8h.html#aeaa27830bd87dcec2dd03213b02f22aa',1,'getCharDebug(void):&#160;USARTDebug.c'],['../_u_s_a_r_t_debug_8c.html#a6653563b8e7c5134da2d944ff8ef2f73',1,'getCharDebug():&#160;USARTDebug.c']]],
+  ['getpinsval',['getPinsVal',['../ports_8h.html#a85e9d6d0f75513f3f961c41861299430',1,'ports.h']]],
+  ['gotoangles',['gotoAngles',['../motors_8h.html#af29dc743a43c233ac843475727db132f',1,'motors.h']]],
+  ['gotoxy',['gotoXY',['../motors_8h.html#aa294b49bfcc17cf4b490fb020e359851',1,'motors.h']]]
 ];

@@ -17,17 +17,21 @@
 #ifndef ADC_H_
 #define ADC_H_
 
+int globalADC;
+
 /**
  * @brief Initializes the ADC and make one channel active.
  * You can choose to use either interrupts or polling to read
  * the desired channel.
  *
  * @param channel The ADC channel to initialize.
+ * @param free Whether to run in free running mode (0 for not, 1 for yes).
  *
  * @todo Create the corresponding function to initialize the ADC
  * using the channel parameter.
+ * @todo Test implemented function.
  */
-void initADC(int channel);
+void initADC(int channel, int free);
 
 /**
  * @brief Disables ADC functionality and clears any saved values (globals).

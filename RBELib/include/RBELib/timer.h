@@ -19,7 +19,17 @@
 /**
  * @brief Timer Clear Timer on Compare (CTC) mode.
  */
-#define CTC	1
+#define CTC 2
+
+/**
+ * @brief A function pointer which takes no arguments and returns void.
+ */
+typedef void (*Callback)();
+
+enum PreScale {
+  k1=1,
+  k1024=5,
+};
 
 /**
  * @brief Initializes the specified timer in the specified mode. This
@@ -29,13 +39,19 @@
  *
  * @param timer The number of the timer to be initialized (0-2).
  * @param mode The mode to initialize the specified timer in.
- * @param comp Only used in CTC mode. The value that the
- * timer counts to before it triggers an interrupt and resets.
+ * @param comp Only used in CTC mode. The period, in microseconds, based on the
+ * clock and prescale.
  *
- * @todo Create a function that initializes the desired timer in a given mode and set the compare value
+ * @todo Create a function that initializes the desired timer in a given mode
+ *and set the compare value
  * (as appropriate).
  */
-void initTimer(int timer, int mode, unsigned int comp);
+void initTimer(int timer, int mode, unsigned long comp);
+
+unsigned getTimer(int timer);
+
+void initPWM(unsigned char timer);
+void setPWM(unsigned char timer, unsigned int top, unsigned int comp);
 
 /**
  * @brief Only used when the specified timer is in CTC mode. Changes
@@ -46,6 +62,16 @@ void initTimer(int timer, int mode, unsigned int comp);
  *
  * @todo Create a function that will set a new compare value for the given timer.
  */
-void setCompValue(unsigned char timer, unsigned short int comp);
+void setCompValue(unsigned char timer, unsigned long comp);
+
+/**
+ * @brief Sets the appropriate interrupt vector to the given callback location.
+ *
+ * @param timer The timer to set the interrupt on (0-2).
+ * @param callback The function callback to set for the interrupt vector.
+ *
+ * @todo Test.
+ */
+void setTimerInterrupt(unsigned char timer, Callback callback);
 
 #endif /* TIMER_H_ */

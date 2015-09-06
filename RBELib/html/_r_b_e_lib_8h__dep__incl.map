@@ -1,4 +1,5 @@
 <map id="include/RBELib/RBELib.h" name="include/RBELib/RBELib.h">
-<area shape="rect" id="node2" href="$_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,80,192,107"/>
-<area shape="rect" id="node3" href="$_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="217,80,309,107"/>
+<area shape="rect" id="node2" href="$_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,80,195,107"/>
+<area shape="rect" id="node3" href="$_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,80,312,107"/>
+<area shape="rect" id="node4" href="$_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,80,475,107"/>
 </map>

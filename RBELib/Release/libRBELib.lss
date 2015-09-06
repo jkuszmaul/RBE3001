@@ -4,14 +4,26 @@ SetServo.o:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000e6  00000000  00000000  00000034  2**0
-                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  1 .data         00000014  00000000  00000000  0000011a  2**0
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000000  00000000  00000000  0000012e  2**0
+  2 .bss          00000000  00000000  00000000  00000034  2**0
                   ALLOC
+  3 .text.initAltCom 00000038  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  4 .text.setCharDebug 0000000e  00000000  00000000  0000006c  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  5 .text.coPrintf 00000018  00000000  00000000  0000007a  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .rodata.str1.1 00000014  00000000  00000000  00000092  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  7 .text.setServo 0000005c  00000000  00000000  000000a6  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .comment      00000012  00000000  00000000  00000102  2**0
+                  CONTENTS, READONLY
 
-Disassembly of section .text:
+Disassembly of section .text.initAltCom:
 
 00000000 <initAltCom>:
    0:	9b 01       	movw	r18, r22
@@ -29,7 +41,7 @@ Disassembly of section .text:
   18:	91 e0       	ldi	r25, 0x01	; 1
   1a:	0e 94 00 00 	call	0	; 0x0 <initAltCom>
   1e:	21 50       	subi	r18, 0x01	; 1
-  20:	30 40       	sbci	r19, 0x00	; 0
+  20:	31 09       	sbc	r19, r1
   22:	30 93 c5 00 	sts	0x00C5, r19
   26:	20 93 c4 00 	sts	0x00C4, r18
   2a:	88 e1       	ldi	r24, 0x18	; 24
@@ -38,120 +50,750 @@ Disassembly of section .text:
   32:	80 93 c2 00 	sts	0x00C2, r24
   36:	08 95       	ret
 
+Disassembly of section .text.setCharDebug:
+
 00000038 <setCharDebug>:
-  38:	98 2f       	mov	r25, r24
-  3a:	80 91 c0 00 	lds	r24, 0x00C0
-  3e:	85 ff       	sbrs	r24, 5
-  40:	00 c0       	rjmp	.+0      	; 0x42 <setCharDebug+0xa>
-  42:	90 93 c6 00 	sts	0x00C6, r25
-  46:	08 95       	ret
+  38:	90 91 c0 00 	lds	r25, 0x00C0
+  3c:	95 ff       	sbrs	r25, 5
+  3e:	00 c0       	rjmp	.+0      	; 0x40 <setCharDebug+0x8>
+  40:	80 93 c6 00 	sts	0x00C6, r24
+  44:	08 95       	ret
 
-00000048 <coPrintf>:
-  48:	fc 01       	movw	r30, r24
-  4a:	00 c0       	rjmp	.+0      	; 0x4c <coPrintf+0x4>
-  4c:	80 91 c0 00 	lds	r24, 0x00C0
-  50:	85 ff       	sbrs	r24, 5
-  52:	00 c0       	rjmp	.+0      	; 0x54 <coPrintf+0xc>
-  54:	90 93 c6 00 	sts	0x00C6, r25
-  58:	31 96       	adiw	r30, 0x01	; 1
-  5a:	90 81       	ld	r25, Z
-  5c:	99 23       	and	r25, r25
-  5e:	01 f4       	brne	.+0      	; 0x60 <coPrintf+0x18>
-  60:	08 95       	ret
+Disassembly of section .text.coPrintf:
 
-00000062 <setServo>:
-  62:	0f 93       	push	r16
-  64:	1f 93       	push	r17
-  66:	df 93       	push	r29
-  68:	cf 93       	push	r28
-  6a:	cd b7       	in	r28, 0x3d	; 61
-  6c:	de b7       	in	r29, 0x3e	; 62
-  6e:	64 97       	sbiw	r28, 0x14	; 20
-  70:	0f b6       	in	r0, 0x3f	; 63
-  72:	f8 94       	cli
-  74:	de bf       	out	0x3e, r29	; 62
-  76:	0f be       	out	0x3f, r0	; 63
-  78:	cd bf       	out	0x3d, r28	; 61
-  7a:	2d b7       	in	r18, 0x3d	; 61
-  7c:	3e b7       	in	r19, 0x3e	; 62
-  7e:	28 50       	subi	r18, 0x08	; 8
-  80:	30 40       	sbci	r19, 0x00	; 0
-  82:	0f b6       	in	r0, 0x3f	; 63
-  84:	f8 94       	cli
-  86:	3e bf       	out	0x3e, r19	; 62
-  88:	0f be       	out	0x3f, r0	; 63
-  8a:	2d bf       	out	0x3d, r18	; 61
-  8c:	ed b7       	in	r30, 0x3d	; 61
-  8e:	fe b7       	in	r31, 0x3e	; 62
-  90:	31 96       	adiw	r30, 0x01	; 1
-  92:	8e 01       	movw	r16, r28
-  94:	0f 5f       	subi	r16, 0xFF	; 255
-  96:	1f 4f       	sbci	r17, 0xFF	; 255
-  98:	ad b7       	in	r26, 0x3d	; 61
-  9a:	be b7       	in	r27, 0x3e	; 62
-  9c:	12 96       	adiw	r26, 0x02	; 2
-  9e:	1c 93       	st	X, r17
-  a0:	0e 93       	st	-X, r16
-  a2:	11 97       	sbiw	r26, 0x01	; 1
-  a4:	20 e0       	ldi	r18, 0x00	; 0
-  a6:	30 e0       	ldi	r19, 0x00	; 0
-  a8:	33 83       	std	Z+3, r19	; 0x03
-  aa:	22 83       	std	Z+2, r18	; 0x02
-  ac:	95 83       	std	Z+5, r25	; 0x05
-  ae:	84 83       	std	Z+4, r24	; 0x04
-  b0:	77 83       	std	Z+7, r23	; 0x07
-  b2:	66 83       	std	Z+6, r22	; 0x06
-  b4:	0e 94 00 00 	call	0	; 0x0 <initAltCom>
-  b8:	2d b7       	in	r18, 0x3d	; 61
-  ba:	3e b7       	in	r19, 0x3e	; 62
-  bc:	28 5f       	subi	r18, 0xF8	; 248
-  be:	3f 4f       	sbci	r19, 0xFF	; 255
-  c0:	0f b6       	in	r0, 0x3f	; 63
-  c2:	f8 94       	cli
-  c4:	3e bf       	out	0x3e, r19	; 62
-  c6:	0f be       	out	0x3f, r0	; 63
-  c8:	2d bf       	out	0x3d, r18	; 61
-  ca:	c8 01       	movw	r24, r16
-  cc:	0e 94 00 00 	call	0	; 0x0 <initAltCom>
-  d0:	64 96       	adiw	r28, 0x14	; 20
-  d2:	0f b6       	in	r0, 0x3f	; 63
-  d4:	f8 94       	cli
-  d6:	de bf       	out	0x3e, r29	; 62
-  d8:	0f be       	out	0x3f, r0	; 63
-  da:	cd bf       	out	0x3d, r28	; 61
-  dc:	cf 91       	pop	r28
-  de:	df 91       	pop	r29
-  e0:	1f 91       	pop	r17
-  e2:	0f 91       	pop	r16
-  e4:	08 95       	ret
+0000007e <coPrintf>:
+  7e:	cf 93       	push	r28
+  80:	df 93       	push	r29
+  82:	ec 01       	movw	r28, r24
+  84:	89 91       	ld	r24, Y+
+  86:	88 23       	and	r24, r24
+  88:	01 f0       	breq	.+0      	; 0x8a <coPrintf+0xc>
+  8a:	0e 94 00 00 	call	0	; 0x0 <__tmp_reg__>
+  8e:	00 c0       	rjmp	.+0      	; 0x90 <coPrintf+0x12>
+  90:	df 91       	pop	r29
+  92:	cf 91       	pop	r28
+  94:	08 95       	ret
+
+Disassembly of section .text.setServo:
+
+0000023c <setServo>:
+ 23c:	0f 93       	push	r16
+ 23e:	1f 93       	push	r17
+ 240:	cf 93       	push	r28
+ 242:	df 93       	push	r29
+ 244:	cd b7       	in	r28, 0x3d	; 61
+ 246:	de b7       	in	r29, 0x3e	; 62
+ 248:	64 97       	sbiw	r28, 0x14	; 20
+ 24a:	0f b6       	in	r0, 0x3f	; 63
+ 24c:	f8 94       	cli
+ 24e:	de bf       	out	0x3e, r29	; 62
+ 250:	0f be       	out	0x3f, r0	; 63
+ 252:	cd bf       	out	0x3d, r28	; 61
+ 254:	7f 93       	push	r23
+ 256:	6f 93       	push	r22
+ 258:	9f 93       	push	r25
+ 25a:	8f 93       	push	r24
+ 25c:	80 e0       	ldi	r24, 0x00	; 0
+ 25e:	90 e0       	ldi	r25, 0x00	; 0
+ 260:	9f 93       	push	r25
+ 262:	8f 93       	push	r24
+ 264:	8e 01       	movw	r16, r28
+ 266:	0f 5f       	subi	r16, 0xFF	; 255
+ 268:	1f 4f       	sbci	r17, 0xFF	; 255
+ 26a:	1f 93       	push	r17
+ 26c:	0f 93       	push	r16
+ 26e:	0e 94 00 00 	call	0	; 0x0 <__tmp_reg__>
+ 272:	c8 01       	movw	r24, r16
+ 274:	0e 94 00 00 	call	0	; 0x0 <__tmp_reg__>
+ 278:	0f b6       	in	r0, 0x3f	; 63
+ 27a:	f8 94       	cli
+ 27c:	de bf       	out	0x3e, r29	; 62
+ 27e:	0f be       	out	0x3f, r0	; 63
+ 280:	cd bf       	out	0x3d, r28	; 61
+ 282:	64 96       	adiw	r28, 0x14	; 20
+ 284:	0f b6       	in	r0, 0x3f	; 63
+ 286:	f8 94       	cli
+ 288:	de bf       	out	0x3e, r29	; 62
+ 28a:	0f be       	out	0x3f, r0	; 63
+ 28c:	cd bf       	out	0x3d, r28	; 61
+ 28e:	df 91       	pop	r29
+ 290:	cf 91       	pop	r28
+ 292:	1f 91       	pop	r17
+ 294:	0f 91       	pop	r16
+ 296:	08 95       	ret
+
+ADC.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .rodata.str1.1 00000030  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .text.initADC 0000008e  00000000  00000000  00000064  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  5 .text.clearADC 0000000c  00000000  00000000  000000f2  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text.getADC  00000024  00000000  00000000  000000fe  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text.changeADC 00000012  00000000  00000000  00000122  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .comment      00000012  00000000  00000000  00000134  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text.initADC:
+
+00000000 <initADC>:
+   0:	f8 94       	cli
+  32:	88 30       	brne	.+0      	; 0x34 <initADC+0x4>
+  34:	91 05 04 f0 	lds	r24, 0x007B
+  38:	00 c0       	rjmp	.+0      	; 0x3a <initADC+0xa>
+  3a:	90 91       	ldi	r24, 0x00	; 0
+  3c:	7c 00 90 64 	sts	0x007B, r24
+  40:	98 2b 90 93 	sts	0x0079, r1
+  44:	7c 00 20 91 	sts	0x0078, r1
+  48:	7a 00       	or	r22, r23
+  4a:	24 68       	breq	.+0      	; 0x4c <initADC+0x1c>
+  4c:	cb 01 35 e0 	lds	r24, 0x007A
+  50:	88 0f       	ori	r24, 0x40	; 64
+  52:	99 1f 3a 95 	sts	0x007A, r24
+  56:	01 f4       	sei
+  58:	28 2b 20 93 	lds	r18, 0x007B
+  5c:	7a 00 61 15 	lds	r25, 0x007A
+  60:	71 05 01 f4 	lds	r24, 0x007C
+  64:	80 91       	push	r1
+  66:	7b 00       	push	r18
+  68:	00 c0       	push	r1
+  6a:	80 e0       	push	r25
+  6c:	80 93       	push	r1
+  6e:	7b 00       	push	r24
+  70:	10 92       	ldi	r24, 0x00	; 0
+  72:	79 00       	ldi	r25, 0x00	; 0
+  74:	10 92       	push	r25
+  76:	78 00       	push	r24
+  78:	67 2b 01 f0 	call	0	; 0x0 <__tmp_reg__>
+  7c:	80 91       	in	r24, 0x3d	; 61
+  7e:	7a 00       	in	r25, 0x3e	; 62
+  80:	80 64       	adiw	r24, 0x08	; 8
+  82:	80 93       	in	r0, 0x3f	; 63
+  84:	7a 00       	cli
+  86:	78 94       	out	0x3e, r25	; 62
+  88:	20 91       	out	0x3f, r0	; 63
+  8a:	7b 00       	out	0x3d, r24	; 61
+  8c:	90 91       	ret
+  8e:	7a 00       	Address 0x000000000000008e is out of bounds.
+.word	0xffff	; ????
+  90:	80 91       	Address 0x0000000000000090 is out of bounds.
+.word	0xffff	; ????
+  92:	7c 00       	Address 0x0000000000000092 is out of bounds.
+.word	0xffff	; ????
+  94:	1f 92       	Address 0x0000000000000094 is out of bounds.
+.word	0xffff	; ????
+  96:	2f 93       	Address 0x0000000000000096 is out of bounds.
+.word	0xffff	; ????
+  98:	1f 92       	Address 0x0000000000000098 is out of bounds.
+.word	0xffff	; ????
+  9a:	9f 93       	Address 0x000000000000009a is out of bounds.
+.word	0xffff	; ????
+  9c:	1f 92       	Address 0x000000000000009c is out of bounds.
+.word	0xffff	; ????
+  9e:	8f 93       	Address 0x000000000000009e is out of bounds.
+.word	0xffff	; ????
+  a0:	80 e0       	Address 0x00000000000000a0 is out of bounds.
+.word	0xffff	; ????
+  a2:	90 e0       	Address 0x00000000000000a2 is out of bounds.
+.word	0xffff	; ????
+  a4:	9f 93       	Address 0x00000000000000a4 is out of bounds.
+.word	0xffff	; ????
+  a6:	8f 93       	Address 0x00000000000000a6 is out of bounds.
+.word	0xffff	; ????
+  a8:	0e 94       	Address 0x00000000000000a8 is out of bounds.
+.word	0xffff	; ????
+  aa:	00 00       	Address 0x00000000000000aa is out of bounds.
+.word	0xffff	; ????
+  ac:	8d b7       	Address 0x00000000000000ac is out of bounds.
+.word	0xffff	; ????
+  ae:	9e b7       	Address 0x00000000000000ae is out of bounds.
+.word	0xffff	; ????
+  b0:	08 96       	Address 0x00000000000000b0 is out of bounds.
+.word	0xffff	; ????
+  b2:	0f b6       	Address 0x00000000000000b2 is out of bounds.
+.word	0xffff	; ????
+  b4:	f8 94       	Address 0x00000000000000b4 is out of bounds.
+.word	0xffff	; ????
+  b6:	9e bf       	Address 0x00000000000000b6 is out of bounds.
+.word	0xffff	; ????
+  b8:	0f be       	Address 0x00000000000000b8 is out of bounds.
+.word	0xffff	; ????
+  ba:	8d bf       	Address 0x00000000000000ba is out of bounds.
+.word	0xffff	; ????
+  bc:	08 95       	Address 0x00000000000000bc is out of bounds.
+.word	0xffff	; ????
+
+Disassembly of section .text.clearADC:
+
+000000ee <clearADC>:
+  ee:	ea e7       	ldi	r30, 0x7A	; 122
+  f0:	f0 e0       	ldi	r31, 0x00	; 0
+  f2:	80 81       	ld	r24, Z
+  f4:	8f 77       	andi	r24, 0x7F	; 127
+  f6:	80 83       	st	Z, r24
+  f8:	08 95       	ret
+
+Disassembly of section .text.getADC:
+
+000001e8 <getADC>:
+ 1e8:	10 92 79 00 	sts	0x0079, r1
+ 1ec:	10 92 78 00 	sts	0x0078, r1
+ 1f0:	80 91 7a 00 	lds	r24, 0x007A
+ 1f4:	80 64       	ori	r24, 0x40	; 64
+ 1f6:	80 93 7a 00 	sts	0x007A, r24
+ 1fa:	80 91 7a 00 	lds	r24, 0x007A
+ 1fe:	86 fd       	sbrc	r24, 6
+ 200:	00 c0       	rjmp	.+0      	; 0x202 <getADC+0x1a>
+ 202:	80 91 78 00 	lds	r24, 0x0078
+ 206:	90 91 79 00 	lds	r25, 0x0079
+ 20a:	08 95       	ret
+
+Disassembly of section .text.changeADC:
+
+000003f4 <changeADC>:
+ 3f4:	88 30       	cpi	r24, 0x08	; 8
+ 3f6:	91 05       	cpc	r25, r1
+ 3f8:	04 f4       	brge	.+0      	; 0x3fa <changeADC+0x6>
+ 3fa:	90 91 7c 00 	lds	r25, 0x007C
+ 3fe:	98 2b       	or	r25, r24
+ 400:	90 93 7c 00 	sts	0x007C, r25
+ 404:	08 95       	ret
 
 Debug.o:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000024  00000000  00000000  00000034  2**0
-                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  1 .data         0000000e  00000000  00000000  00000058  2**0
-                  CONTENTS, ALLOC, LOAD, RELOC, DATA
-  2 .bss          00000000  00000000  00000000  00000066  2**0
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
                   ALLOC
+  3 .text.printfRBE 0000000a  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  4 .text.initRBELib 00000018  00000000  00000000  0000003e  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  5 .data.RBEOut  0000000e  00000000  00000000  00000056  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, DATA
+  6 .comment      00000012  00000000  00000000  00000064  2**0
+                  CONTENTS, READONLY
 
-Disassembly of section .text:
+Disassembly of section .text.printfRBE:
 
-00000000 <initRBELib>:
-   0:	80 e0       	ldi	r24, 0x00	; 0
-   2:	90 e0       	ldi	r25, 0x00	; 0
-   4:	90 93 00 00 	sts	0x0000, r25
-   8:	80 93 00 00 	sts	0x0000, r24
-   c:	60 e0       	ldi	r22, 0x00	; 0
-   e:	72 ec       	ldi	r23, 0xC2	; 194
-  10:	81 e0       	ldi	r24, 0x01	; 1
-  12:	90 e0       	ldi	r25, 0x00	; 0
-  14:	0e 94 00 00 	call	0	; 0x0 <initRBELib>
-  18:	08 95       	ret
+00000000 <printfRBE>:
+   0:	0e 94 00 00 	call	0	; 0x0 <printfRBE>
+   4:	80 e0       	ldi	r24, 0x00	; 0
+   6:	90 e0       	ldi	r25, 0x00	; 0
+   8:	08 95       	ret
 
-0000001a <printfRBE>:
-  1a:	0e 94 00 00 	call	0	; 0x0 <initRBELib>
-  1e:	80 e0       	ldi	r24, 0x00	; 0
-  20:	90 e0       	ldi	r25, 0x00	; 0
-  22:	08 95       	ret
+Disassembly of section .text.initRBELib:
+
+0000000a <initRBELib>:
+   a:	80 e0       	ldi	r24, 0x00	; 0
+   c:	90 e0       	ldi	r25, 0x00	; 0
+   e:	90 93 00 00 	sts	0x0000, r25
+  12:	80 93 00 00 	sts	0x0000, r24
+  16:	60 e0       	ldi	r22, 0x00	; 0
+  18:	72 ec       	ldi	r23, 0xC2	; 194
+  1a:	81 e0       	ldi	r24, 0x01	; 1
+  1c:	90 e0       	ldi	r25, 0x00	; 0
+  1e:	0c 94 00 00 	jmp	0	; 0x0 <__tmp_reg__>
+
+USARTDebug.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .text.debugUSARTInit 00000038  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  4 .text.putCharDebug 0000000e  00000000  00000000  0000006c  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  5 .text.getCharDebug 0000000e  00000000  00000000  0000007a  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .comment      00000012  00000000  00000000  00000088  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text.debugUSARTInit:
+
+00000000 <debugUSARTInit>:
+   0:	9b 01       	movw	r18, r22
+   2:	ac 01       	movw	r20, r24
+   4:	84 e0       	ldi	r24, 0x04	; 4
+   6:	22 0f       	add	r18, r18
+   8:	33 1f       	adc	r19, r19
+   a:	44 1f       	adc	r20, r20
+   c:	55 1f       	adc	r21, r21
+   e:	8a 95       	dec	r24
+  10:	01 f4       	brne	.+0      	; 0x12 <debugUSARTInit+0x12>
+  12:	60 e0       	ldi	r22, 0x00	; 0
+  14:	70 e4       	ldi	r23, 0x40	; 64
+  16:	89 e1       	ldi	r24, 0x19	; 25
+  18:	91 e0       	ldi	r25, 0x01	; 1
+  1a:	0e 94 00 00 	call	0	; 0x0 <debugUSARTInit>
+  1e:	21 50       	subi	r18, 0x01	; 1
+  20:	31 09       	sbc	r19, r1
+  22:	30 93 cd 00 	sts	0x00CD, r19
+  26:	20 93 cc 00 	sts	0x00CC, r18
+  2a:	88 e1       	ldi	r24, 0x18	; 24
+  2c:	80 93 c9 00 	sts	0x00C9, r24
+  30:	86 e0       	ldi	r24, 0x06	; 6
+  32:	80 93 ca 00 	sts	0x00CA, r24
+  36:	08 95       	ret
+
+Disassembly of section .text.putCharDebug:
+
+00000038 <putCharDebug>:
+  38:	90 91 c8 00 	lds	r25, 0x00C8
+  3c:	95 ff       	sbrs	r25, 5
+  3e:	00 c0       	rjmp	.+0      	; 0x40 <putCharDebug+0x8>
+  40:	80 93 ce 00 	sts	0x00CE, r24
+  44:	08 95       	ret
+
+Disassembly of section .text.getCharDebug:
+
+0000007e <getCharDebug>:
+  7e:	80 91 c8 00 	lds	r24, 0x00C8
+  82:	87 ff       	sbrs	r24, 7
+  84:	00 c0       	rjmp	.+0      	; 0x86 <getCharDebug+0x8>
+  86:	80 91 ce 00 	lds	r24, 0x00CE
+  8a:	08 95       	ret
+
+timer.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .rodata.str1.1 0000000b  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .text.initTimer 000000fc  00000000  00000000  0000003f  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  5 .text.getTimer 0000002c  00000000  00000000  0000013b  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text.initPWM 00000032  00000000  00000000  00000167  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text.setPWM  0000002e  00000000  00000000  00000199  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text.setCompValue 00000044  00000000  00000000  000001c7  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text.setTimerInterrupt 0000002a  00000000  00000000  0000020b  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text.__vector_16 00000052  00000000  00000000  00000235  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text.__vector_13 00000052  00000000  00000000  00000287  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .text.__vector_9 00000052  00000000  00000000  000002d9  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .bss.timer2   00000002  00000000  00000000  0000032b  2**0
+                  ALLOC
+ 14 .bss.timer1   00000002  00000000  00000000  0000032b  2**0
+                  ALLOC
+ 15 .bss.timer0   00000002  00000000  00000000  0000032b  2**0
+                  ALLOC
+ 16 .comment      00000012  00000000  00000000  0000032b  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text.initTimer:
+
+00000000 <initTimer>:
+   0:	ef 92       	push	r14
+   d:	ff 92       	.word	0x00d0	; ????
+   f:	0f 93       	rjmp	.-1120   	; 0xfffffbb1 <__SREG__+0xfffffb72>
+  11:	1f 93       	rcall	.-658    	; 0xfffffd81 <__SREG__+0xfffffd42>
+  13:	cf 93       	ldd	r11, Z+31	; 0x1f
+  15:	df 93       	andi	r16, 0xB1	; 177
+  17:	00 d0       	std	Z+25, r16	; 0x19
+  19:	00 d0       	ldd	r11, Z+7	; 0x07
+  1b:	cd b7       	std	Y+24, r22	; 0x18
+  1d:	de b7       	std	Y+39, r11	; 0x27
+  1f:	8c 01       	in	r14, 0x01	; 1
+  21:	7b 01       	add	r14, r16
+  23:	8f b7       	.word	0x0094	; ????
+  25:	80 68       	and	r0, r0
+  27:	8f bf       	cpi	r30, 0x7D	; 125
+  29:	a2 e1       	sbci	r30, 0x00	; 0
+  2b:	b0 e0       	subi	r30, 0x00	; 0
+  2d:	0e 94       	add	r14, r16
+  2f:	00 00       	.word	0x0094	; ????
+  31:	20 ed       	and	r16, r0
+  33:	37 e0       	cpi	r21, 0x10	; 16
+  35:	40 e0       	sbci	r16, 0x19	; 25
+  37:	50 e0       	subi	r16, 0x19	; 25
+  39:	0e 94       	subi	r16, 0xF9	; 249
+  3b:	00 00       	sbci	r25, 0xF3	; 243
+  3d:	21 50       	cpi	r25, 0xF3	; 243
+  3f:	31 09       	mov	r25, r19
+  41:	41 09       	ldd	r9, Z+3	; 0x03
+  43:	51 09 5f 93 	lds	r14, 0x9FE0
+  47:	4f 93       	std	Z+27, r25	; 0x1b
+  49:	3f 93       	or	r25, r3
+  4b:	2f 93       	cpi	r24, 0xA3	; 163
+  4d:	80 e0       	sbci	r24, 0xB3	; 179
+  4f:	90 e0       	subi	r24, 0xC3	; 195
+  51:	9f 93       	add	r8, r19
+  53:	8f 93       	.word	0x0094	; ????
+  55:	29 83       	add	r16, r16
+  57:	3a 83       	add	r25, r16
+  59:	4b 83       	add	r25, r16
+  5b:	5c 83       	add	r25, r16
+  5d:	0e 94       	add	r25, r16
+  5f:	00 00       	add	r25, r16
+  61:	0f 90       	or	r25, r0
+  63:	0f 90       	cpi	r24, 0xA1	; 161
+  65:	0f 90       	movw	r16, r2
+  67:	0f 90       	cpse	r19, r0
+  69:	0f 90       	movw	r0, r10
+  6b:	0f 90       	muls	r31, r16
+  6d:	29 81       	cpse	r19, r0
+  6f:	3a 81       	movw	r0, r10
+  71:	01 30       	movw	r30, r0
+  73:	11 05       	movw	r4, r22
+  75:	01 f0       	rjmp	.+4072   	; 0x105f <setCompValue+0x68d>
+  77:	02 30       	sbci	r16, 0x61	; 97
+  79:	11 05       	ldd	r14, Z+16	; 0x10
+  7b:	01 f0       	sbic	0x01, 7	; 1
+  7d:	01 2b       	sbci	r17, 0xAF	; 175
+  7f:	01 f4       	movw	r18, r10
+  81:	c7 01       	std	Z+28, r15	; 0x1c
+  83:	46 e0       	ldd	r2, Y+9	; 0x09
+  85:	88 0f       	ldd	r27, Y+13	; 0x0d
+  87:	99 1f       	ldd	r30, Z+8	; 0x08
+  89:	4a 95       	eor	r27, r29
+  8b:	01 f4       	ldd	r11, Y+5	; 0x05
+  8d:	8e 29       	ori	r25, 0xE1	; 225
+  8f:	84 bd       	st	Z, r0
+  91:	85 e0       	ld	r6, Z
+  93:	85 bd       	ori	r25, 0xE3	; 227
+  95:	27 bd       	nop
+  97:	80 91       	std	Z+24, r12	; 0x18
+  99:	6e 00       	std	Y+5, r2	; 0x05
+  9b:	82 60       	ldd	r9, Z+21	; 0x15
+  9d:	80 93       	ldd	r0, Y+23	; 0x17
+  9f:	6e 00       	ldd	r0, Y+7	; 0x07
+  a1:	00 c0       	ldd	r7, Y+4	; 0x04
+  a3:	8e 2d       	ldd	r9, Z+3	; 0x03
+  a5:	82 95       	ldd	r16, Z+24	; 0x18
+  a7:	88 0f       	ld	r14, Z
+  a9:	88 0f       	ldd	r25, Z+3	; 0x03
+  ab:	80 7c       	cpi	r16, 0x00	; 0
+  ad:	80 93       	ldd	r25, Z+19	; 0x13
+  af:	80 00       	and	r0, r0
+  b1:	8d e0       	ldd	r9, Z+19	; 0x13
+  b3:	80 93       	ld	r0, Z
+  b5:	81 00       	ori	r25, 0xF1	; 241
+  b7:	30 93       	st	Z, r0
+  b9:	89 00       	ld	r6, Z
+  bb:	20 93       	ori	r25, 0xF3	; 243
+  bd:	88 00       	nop
+  bf:	80 91       	rjmp	.+3968   	; 0x1041 <setCompValue+0x66f>
+  c1:	6f 00       	cpi	r16, 0x61	; 97
+  c3:	82 60       	ldd	r14, Z+16	; 0x10
+  c5:	80 93       	sbic	0x01, 7	; 1
+  c7:	6f 00       	cpi	r17, 0xAF	; 175
+  c9:	00 c0       	movw	r18, r10
+  cb:	c7 01       	std	Z+28, r15	; 0x1c
+  cd:	36 e0       	ldd	r2, Y+1	; 0x01
+  cf:	88 0f       	in	r9, 0x03	; 3
+  d1:	99 1f       	ldd	r16, Z+8	; 0x08
+  d3:	3a 95       	ld	r14, Z
+  d5:	01 f4       	in	r25, 0x03	; 3
+  d7:	8e 29       	and	r0, r0
+  d9:	80 93       	in	r25, 0x13	; 19
+  db:	b0 00       	ld	r0, Z
+  dd:	85 e0       	andi	r25, 0x01	; 1
+  df:	80 93       	st	Z, r0
+  e1:	b1 00       	ld	r6, Z
+  e3:	20 93       	andi	r25, 0x03	; 3
+  e5:	b3 00       	add	r16, r16
+  e7:	80 91       	add	r25, r16
+  e9:	70 00       	add	r25, r16
+  eb:	82 60       	add	r25, r16
+  ed:	80 93       	rcall	.-224    	; 0xf <initTimer+0x4>
+  ef:	70 00       	rjmp	.-222    	; 0x13 <initTimer+0x8>
+  f1:	0f 90       	adc	r25, r17
+  f3:	0f 90       	add	r25, r17
+  f5:	0f 90       	sbrs	r25, 1
+  f7:	0f 90       	ldi	r25, 0xF0	; 240
+  f9:	df 91       	sbc	r9, r0
+  fb:	cf 91       	Address 0x00000000000000fb is out of bounds.
+.word	0xffff	; ????
+  fd:	1f 91       	Address 0x00000000000000fd is out of bounds.
+.word	0xffff	; ????
+  ff:	0f 91       	Address 0x00000000000000ff is out of bounds.
+.word	0xffff	; ????
+ 101:	ff 90       	Address 0x0000000000000101 is out of bounds.
+.word	0xffff	; ????
+ 103:	ef 90       	Address 0x0000000000000103 is out of bounds.
+.word	0xffff	; ????
+ 105:	08 95       	Address 0x0000000000000105 is out of bounds.
+.word	0xffff	; ????
+
+Disassembly of section .text.getTimer:
+
+00000112 <getTimer>:
+ 112:	81 30       	cpi	r24, 0x01	; 1
+ 114:	91 05       	cpc	r25, r1
+ 116:	01 f0       	breq	.+0      	; 0x118 <getTimer+0x6>
+ 118:	82 30       	cpi	r24, 0x02	; 2
+ 11a:	91 05       	cpc	r25, r1
+ 11c:	01 f0       	breq	.+0      	; 0x11e <getTimer+0xc>
+ 11e:	89 2b       	or	r24, r25
+ 120:	01 f4       	brne	.+0      	; 0x122 <getTimer+0x10>
+ 122:	26 b5       	in	r18, 0x26	; 38
+ 124:	00 c0       	rjmp	.+0      	; 0x126 <getTimer+0x14>
+ 126:	20 91 84 00 	lds	r18, 0x0084
+ 12a:	30 91 85 00 	lds	r19, 0x0085
+ 12e:	00 c0       	rjmp	.+0      	; 0x130 <getTimer+0x1e>
+ 130:	20 91 b2 00 	lds	r18, 0x00B2
+ 134:	30 e0       	ldi	r19, 0x00	; 0
+ 136:	00 c0       	rjmp	.+0      	; 0x138 <getTimer+0x26>
+ 138:	08 95       	ret
+ 13a:	c9 01       	movw	r24, r18
+ 13c:	08 95       	ret
+
+Disassembly of section .text.initPWM:
+
+00000250 <initPWM>:
+ 250:	81 30       	cpi	r24, 0x01	; 1
+ 252:	01 f0       	breq	.+0      	; 0x254 <initPWM+0x4>
+ 254:	00 f0       	brcs	.+0      	; 0x256 <initPWM+0x6>
+ 256:	82 30       	cpi	r24, 0x02	; 2
+ 258:	01 f0       	breq	.+0      	; 0x25a <initPWM+0xa>
+ 25a:	08 95       	ret
+ 25c:	81 e6       	ldi	r24, 0x61	; 97
+ 25e:	84 bd       	out	0x24, r24	; 36
+ 260:	8d e0       	ldi	r24, 0x0D	; 13
+ 262:	85 bd       	out	0x25, r24	; 37
+ 264:	08 95       	ret
+ 266:	83 ea       	ldi	r24, 0xA3	; 163
+ 268:	80 93 80 00 	sts	0x0080, r24
+ 26c:	85 e1       	ldi	r24, 0x15	; 21
+ 26e:	80 93 81 00 	sts	0x0081, r24
+ 272:	08 95       	ret
+ 274:	81 e6       	ldi	r24, 0x61	; 97
+ 276:	80 93 b0 00 	sts	0x00B0, r24
+ 27a:	8d e0       	ldi	r24, 0x0D	; 13
+ 27c:	80 93 b1 00 	sts	0x00B1, r24
+ 280:	08 95       	ret
+
+Disassembly of section .text.setPWM:
+
+000004d2 <setPWM>:
+ 4d2:	81 30       	cpi	r24, 0x01	; 1
+ 4d4:	01 f0       	breq	.+0      	; 0x4d6 <setPWM+0x4>
+ 4d6:	00 f0       	brcs	.+0      	; 0x4d8 <setPWM+0x6>
+ 4d8:	82 30       	cpi	r24, 0x02	; 2
+ 4da:	01 f0       	breq	.+0      	; 0x4dc <setPWM+0xa>
+ 4dc:	08 95       	ret
+ 4de:	67 bd       	out	0x27, r22	; 39
+ 4e0:	48 bd       	out	0x28, r20	; 40
+ 4e2:	08 95       	ret
+ 4e4:	70 93 89 00 	sts	0x0089, r23
+ 4e8:	60 93 88 00 	sts	0x0088, r22
+ 4ec:	50 93 8b 00 	sts	0x008B, r21
+ 4f0:	40 93 8a 00 	sts	0x008A, r20
+ 4f4:	08 95       	ret
+ 4f6:	60 93 b3 00 	sts	0x00B3, r22
+ 4fa:	40 93 b4 00 	sts	0x00B4, r20
+ 4fe:	08 95       	ret
+
+Disassembly of section .text.setCompValue:
+
+000009d2 <setCompValue>:
+ 9d2:	cf 93       	push	r28
+ 9d4:	c8 2f       	mov	r28, r24
+ 9d6:	a2 e1       	ldi	r26, 0x12	; 18
+ 9d8:	b0 e0       	ldi	r27, 0x00	; 0
+ 9da:	9a 01       	movw	r18, r20
+ 9dc:	ab 01       	movw	r20, r22
+ 9de:	0e 94 00 00 	call	0	; 0x0 <__tmp_reg__>
+ 9e2:	28 ee       	ldi	r18, 0xE8	; 232
+ 9e4:	33 e0       	ldi	r19, 0x03	; 3
+ 9e6:	40 e0       	ldi	r20, 0x00	; 0
+ 9e8:	50 e0       	ldi	r21, 0x00	; 0
+ 9ea:	0e 94 00 00 	call	0	; 0x0 <__tmp_reg__>
+ 9ee:	21 50       	subi	r18, 0x01	; 1
+ 9f0:	31 09       	sbc	r19, r1
+ 9f2:	41 09       	sbc	r20, r1
+ 9f4:	51 09       	sbc	r21, r1
+ 9f6:	c1 30       	cpi	r28, 0x01	; 1
+ 9f8:	01 f0       	breq	.+0      	; 0x9fa <setCompValue+0x28>
+ 9fa:	00 f0       	brcs	.+0      	; 0x9fc <setCompValue+0x2a>
+ 9fc:	c2 30       	cpi	r28, 0x02	; 2
+ 9fe:	01 f4       	brne	.+0      	; 0xa00 <setCompValue+0x2e>
+ a00:	20 93 b3 00 	sts	0x00B3, r18
+ a04:	00 c0       	rjmp	.+0      	; 0xa06 <setCompValue+0x34>
+ a06:	27 bd       	out	0x27, r18	; 39
+ a08:	00 c0       	rjmp	.+0      	; 0xa0a <setCompValue+0x38>
+ a0a:	30 93 89 00 	sts	0x0089, r19
+ a0e:	20 93 88 00 	sts	0x0088, r18
+ a12:	cf 91       	pop	r28
+ a14:	08 95       	ret
+
+Disassembly of section .text.setTimerInterrupt:
+
+000013e8 <setTimerInterrupt>:
+    13e8:	81 30       	cpi	r24, 0x01	; 1
+    13ea:	01 f0       	breq	.+0      	; 0x13ec <setTimerInterrupt+0x4>
+    13ec:	00 f0       	brcs	.+0      	; 0x13ee <setTimerInterrupt+0x6>
+    13ee:	82 30       	cpi	r24, 0x02	; 2
+    13f0:	01 f0       	breq	.+0      	; 0x13f2 <setTimerInterrupt+0xa>
+    13f2:	08 95       	ret
+    13f4:	70 93 00 00 	sts	0x0000, r23
+    13f8:	60 93 00 00 	sts	0x0000, r22
+    13fc:	08 95       	ret
+    13fe:	70 93 00 00 	sts	0x0000, r23
+    1402:	60 93 00 00 	sts	0x0000, r22
+    1406:	08 95       	ret
+    1408:	70 93 00 00 	sts	0x0000, r23
+    140c:	60 93 00 00 	sts	0x0000, r22
+    1410:	08 95       	ret
+
+Disassembly of section .text.__vector_16:
+
+000027fa <__vector_16>:
+    27fa:	1f 92       	push	r1
+    27fc:	0f 92       	push	r0
+    27fe:	0f b6       	in	r0, 0x3f	; 63
+    2800:	0f 92       	push	r0
+    2802:	11 24       	eor	r1, r1
+    2804:	2f 93       	push	r18
+    2806:	3f 93       	push	r19
+    2808:	4f 93       	push	r20
+    280a:	5f 93       	push	r21
+    280c:	6f 93       	push	r22
+    280e:	7f 93       	push	r23
+    2810:	8f 93       	push	r24
+    2812:	9f 93       	push	r25
+    2814:	af 93       	push	r26
+    2816:	bf 93       	push	r27
+    2818:	ef 93       	push	r30
+    281a:	ff 93       	push	r31
+    281c:	e0 91 00 00 	lds	r30, 0x0000
+    2820:	f0 91 00 00 	lds	r31, 0x0000
+    2824:	30 97       	sbiw	r30, 0x00	; 0
+    2826:	01 f0       	breq	.+0      	; 0x2828 <__vector_16+0x2e>
+    2828:	09 95       	icall
+    282a:	ff 91       	pop	r31
+    282c:	ef 91       	pop	r30
+    282e:	bf 91       	pop	r27
+    2830:	af 91       	pop	r26
+    2832:	9f 91       	pop	r25
+    2834:	8f 91       	pop	r24
+    2836:	7f 91       	pop	r23
+    2838:	6f 91       	pop	r22
+    283a:	5f 91       	pop	r21
+    283c:	4f 91       	pop	r20
+    283e:	3f 91       	pop	r19
+    2840:	2f 91       	pop	r18
+    2842:	0f 90       	pop	r0
+    2844:	0f be       	out	0x3f, r0	; 63
+    2846:	0f 90       	pop	r0
+    2848:	1f 90       	pop	r1
+    284a:	18 95       	reti
+
+Disassembly of section .text.__vector_13:
+
+00005046 <__vector_13>:
+    5046:	1f 92       	push	r1
+    5048:	0f 92       	push	r0
+    504a:	0f b6       	in	r0, 0x3f	; 63
+    504c:	0f 92       	push	r0
+    504e:	11 24       	eor	r1, r1
+    5050:	2f 93       	push	r18
+    5052:	3f 93       	push	r19
+    5054:	4f 93       	push	r20
+    5056:	5f 93       	push	r21
+    5058:	6f 93       	push	r22
+    505a:	7f 93       	push	r23
+    505c:	8f 93       	push	r24
+    505e:	9f 93       	push	r25
+    5060:	af 93       	push	r26
+    5062:	bf 93       	push	r27
+    5064:	ef 93       	push	r30
+    5066:	ff 93       	push	r31
+    5068:	e0 91 00 00 	lds	r30, 0x0000
+    506c:	f0 91 00 00 	lds	r31, 0x0000
+    5070:	30 97       	sbiw	r30, 0x00	; 0
+    5072:	01 f0       	breq	.+0      	; 0x5074 <__vector_13+0x2e>
+    5074:	09 95       	icall
+    5076:	ff 91       	pop	r31
+    5078:	ef 91       	pop	r30
+    507a:	bf 91       	pop	r27
+    507c:	af 91       	pop	r26
+    507e:	9f 91       	pop	r25
+    5080:	8f 91       	pop	r24
+    5082:	7f 91       	pop	r23
+    5084:	6f 91       	pop	r22
+    5086:	5f 91       	pop	r21
+    5088:	4f 91       	pop	r20
+    508a:	3f 91       	pop	r19
+    508c:	2f 91       	pop	r18
+    508e:	0f 90       	pop	r0
+    5090:	0f be       	out	0x3f, r0	; 63
+    5092:	0f 90       	pop	r0
+    5094:	1f 90       	pop	r1
+    5096:	18 95       	reti
+
+Disassembly of section .text.__vector_9:
+
+0000a0de <__vector_9>:
+    a0de:	1f 92       	push	r1
+    a0e0:	0f 92       	push	r0
+    a0e2:	0f b6       	in	r0, 0x3f	; 63
+    a0e4:	0f 92       	push	r0
+    a0e6:	11 24       	eor	r1, r1
+    a0e8:	2f 93       	push	r18
+    a0ea:	3f 93       	push	r19
+    a0ec:	4f 93       	push	r20
+    a0ee:	5f 93       	push	r21
+    a0f0:	6f 93       	push	r22
+    a0f2:	7f 93       	push	r23
+    a0f4:	8f 93       	push	r24
+    a0f6:	9f 93       	push	r25
+    a0f8:	af 93       	push	r26
+    a0fa:	bf 93       	push	r27
+    a0fc:	ef 93       	push	r30
+    a0fe:	ff 93       	push	r31
+    a100:	e0 91 00 00 	lds	r30, 0x0000
+    a104:	f0 91 00 00 	lds	r31, 0x0000
+    a108:	30 97       	sbiw	r30, 0x00	; 0
+    a10a:	01 f0       	breq	.+0      	; 0xa10c <__vector_9+0x2e>
+    a10c:	09 95       	icall
+    a10e:	ff 91       	pop	r31
+    a110:	ef 91       	pop	r30
+    a112:	bf 91       	pop	r27
+    a114:	af 91       	pop	r26
+    a116:	9f 91       	pop	r25
+    a118:	8f 91       	pop	r24
+    a11a:	7f 91       	pop	r23
+    a11c:	6f 91       	pop	r22
+    a11e:	5f 91       	pop	r21
+    a120:	4f 91       	pop	r20
+    a122:	3f 91       	pop	r19
+    a124:	2f 91       	pop	r18
+    a126:	0f 90       	pop	r0
+    a128:	0f be       	out	0x3f, r0	; 63
+    a12a:	0f 90       	pop	r0
+    a12c:	1f 90       	pop	r1
+    a12e:	18 95       	reti

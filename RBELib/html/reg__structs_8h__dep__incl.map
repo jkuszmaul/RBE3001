@@ -1,5 +1,6 @@
 <map id="include/RBELib/reg_structs.h" name="include/RBELib/reg_structs.h">
-<area shape="rect" id="node2" href="$_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="95,95,265,121"/>
-<area shape="rect" id="node3" href="$_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,169,192,196"/>
-<area shape="rect" id="node4" href="$_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="217,169,309,196"/>
+<area shape="rect" id="node2" href="$_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="179,96,351,123"/>
+<area shape="rect" id="node3" href="$_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,171,195,197"/>
+<area shape="rect" id="node4" href="$_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,171,312,197"/>
+<area shape="rect" id="node5" href="$_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,171,475,197"/>
 </map>
