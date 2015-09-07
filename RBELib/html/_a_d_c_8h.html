@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('_a_d_c_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,7 +111,15 @@ $(document).ready(function(){initNavTree('_a_d_c_8h.html','');});
 
 <p>The header file and function prototypes for the ADC.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;<a class="el" href="util_8h_source.html">RBELib/util.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for ADC.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_a_d_c_8h__incl.png" border="0" usemap="#include_2_r_b_e_lib_2_a_d_c_8h" alt=""/></div>
+<map name="include_2_r_b_e_lib_2_a_d_c_8h" id="include_2_r_b_e_lib_2_a_d_c_8h">
+<area shape="rect" id="node2" href="util_8h.html" title="Useful definitions and constants; has things useful to all files. " alt="" coords="33,80,132,107"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_a_d_c_8h__dep__incl.png" border="0" usemap="#include_2_r_b_e_lib_2_a_d_c_8hdep" alt=""/></div>
@@ -123,9 +131,9 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a63cb9d54e7f8593bdc164512c312836b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c_8h.html#a63cb9d54e7f8593bdc164512c312836b">initADC</a> (int channel, int free)</td></tr>
-<tr class="memdesc:a63cb9d54e7f8593bdc164512c312836b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ADC and make one channel active. You can choose to use either interrupts or polling to read the desired channel.  <a href="#a63cb9d54e7f8593bdc164512c312836b">More...</a><br/></td></tr>
-<tr class="separator:a63cb9d54e7f8593bdc164512c312836b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c2a3351c429e7ad5ed4458495f56852"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c_8h.html#a9c2a3351c429e7ad5ed4458495f56852">initADC</a> (int channel, int free, int interrupts)</td></tr>
+<tr class="memdesc:a9c2a3351c429e7ad5ed4458495f56852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ADC and make one channel active. You can choose to use either interrupts or polling to read the desired channel.  <a href="#a9c2a3351c429e7ad5ed4458495f56852">More...</a><br/></td></tr>
+<tr class="separator:a9c2a3351c429e7ad5ed4458495f56852"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3eef680fc13f11498db80fb145cab8f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c_8h.html#a3eef680fc13f11498db80fb145cab8f9">clearADC</a> (int channel)</td></tr>
 <tr class="memdesc:a3eef680fc13f11498db80fb145cab8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables ADC functionality and clears any saved values (globals).  <a href="#a3eef680fc13f11498db80fb145cab8f9">More...</a><br/></td></tr>
 <tr class="separator:a3eef680fc13f11498db80fb145cab8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,6 +143,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a8174ca24b578eaf4f82f44d6ce44edb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c_8h.html#a8174ca24b578eaf4f82f44d6ce44edb0">changeADC</a> (int channel)</td></tr>
 <tr class="memdesc:a8174ca24b578eaf4f82f44d6ce44edb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the channel the ADC is sampling if using interrupts.  <a href="#a8174ca24b578eaf4f82f44d6ce44edb0">More...</a><br/></td></tr>
 <tr class="separator:a8174ca24b578eaf4f82f44d6ce44edb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd2751a0c4ae955ba04fecb437e5e3ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c_8h.html#acd2751a0c4ae955ba04fecb437e5e3ee">setADCInterrupt</a> (<a class="el" href="util_8h.html#a2ea70e584dc7d96d23100e22c4a51695">Callback</a> callback)</td></tr>
+<tr class="memdesc:acd2751a0c4ae955ba04fecb437e5e3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the function to be called when an ADC interrupt is triggered. This function does not itself enable ADC interrupts.  <a href="#acd2751a0c4ae955ba04fecb437e5e3ee">More...</a><br/></td></tr>
+<tr class="separator:acd2751a0c4ae955ba04fecb437e5e3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The header file and function prototypes for the ADC. </p>
@@ -172,9 +183,11 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Create a way to switch ADC channels if you are using interrupts. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Create a way to switch ADC channels if you are using interrupts. </dd></dl>
 
-<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00031">31</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
+<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00060">60</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
+
+<p>Referenced by <a class="el" href="_a_d_c_8c_source.html#l00044">getADC()</a>.</p>
 
 </div>
 </div>
@@ -195,13 +208,12 @@ Functions</h2></td></tr>
 <p>Disables ADC functionality and clears any saved values (globals). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">channel</td><td>The ADC channel to disable.</td></tr>
+    <tr><td class="paramname">channel</td><td>The ADC channel to disable. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Create the corresponding function to clear the last ADC calculation register and disconnect the input to the ADC if desired. </dd></dl>
 
-<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00012">12</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
+<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00039">39</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
 
 </div>
 </div>
@@ -220,6 +232,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Run a conversion on and get the analog value from one ADC channel if using polling. </p>
+<p>This will both chage the ADC channel in ADMUX and turn off any automatic triggers that may have been set on the ADC. Interrupts are not affected.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">channel</td><td>The ADC channel to run a conversion on. </td></tr>
@@ -227,13 +240,24 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>adcVal The 8-10 bit value returned by the ADC conversion. The precision depends on your settings and how much accuracy you desire.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Create the corresponding function to obtain the value of the last calculation if you are using polling. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Create the corresponding function to obtain the value of the last calculation if you are using polling. </dd></dl>
 
-<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00016">16</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
+<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00044">44</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
+
+<p>References <a class="el" href="_a_d_c_8c_source.html#l00060">changeADC()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_a_d_c_8h_a9f560657fb624f98de3161651f3d4385_cgraph.png" border="0" usemap="#_a_d_c_8h_a9f560657fb624f98de3161651f3d4385_cgraph" alt=""/></div>
+<map name="_a_d_c_8h_a9f560657fb624f98de3161651f3d4385_cgraph" id="_a_d_c_8h_a9f560657fb624f98de3161651f3d4385_cgraph">
+<area shape="rect" id="node2" href="_a_d_c_8c.html#a8174ca24b578eaf4f82f44d6ce44edb0" title="Change the channel the ADC is sampling if using interrupts. " alt="" coords="123,5,216,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a63cb9d54e7f8593bdc164512c312836b"></a>
+<a class="anchor" id="a9c2a3351c429e7ad5ed4458495f56852"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -247,7 +271,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>free</em>&#160;</td>
+          <td class="paramname"><em>free</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>interrupts</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -261,15 +291,40 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">channel</td><td>The ADC channel to initialize. </td></tr>
-    <tr><td class="paramname">free</td><td>Whether to run in free running mode (0 for not, 1 for yes).</td></tr>
+    <tr><td class="paramname">free</td><td>Whether to run in free running mode (0 for not, 1 for yes). </td></tr>
+    <tr><td class="paramname">interrupts</td><td>Whether or not to enable interrupts for the ADC (0=no, 1=yes).</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">Create the corresponding function to initialize the ADC using the channel parameter. </p>
-<p class="enddd">Test implemented function. </p>
-</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Allow user to select different precisions. </dd></dl>
 
-<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00004">4</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
+<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00005">5</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acd2751a0c4ae955ba04fecb437e5e3ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setADCInterrupt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="util_8h.html#a2ea70e584dc7d96d23100e22c4a51695">Callback</a>&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the function to be called when an ADC interrupt is triggered. This function does not itself enable ADC interrupts. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>The function to call when an ADC interrupt is triggered. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00074">74</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
 
 </div>
 </div>
@@ -279,7 +334,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_58942166834761cfd2ca6b530feb6b8f.html">RBELib</a></li><li class="navelem"><a class="el" href="_a_d_c_8h.html">ADC.h</a></li>
-    <li class="footer">Generated on Fri Sep 4 2015 14:45:00 for RBELib by
+    <li class="footer">Generated on Sun Sep 6 2015 13:36:34 for RBELib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

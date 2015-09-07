@@ -12,6 +12,9 @@
 
 #ifndef TIMER_H_
 #define TIMER_H_
+
+#include "RBELib/util.h"
+
 /**
  * @brief Timer normal mode.
  */
@@ -22,12 +25,13 @@
 #define CTC 2
 
 /**
- * @brief A function pointer which takes no arguments and returns void.
+ * The bitmasks corresponding to different prescalings. See p100.
  */
-typedef void (*Callback)();
-
 enum PreScale {
   k1=1,
+  k8=2,
+  k64=3,
+  k256=4,
   k1024=5,
 };
 
@@ -38,19 +42,39 @@ enum PreScale {
  * for the Timers that can be experimented with.
  *
  * @param timer The number of the timer to be initialized (0-2).
- * @param mode The mode to initialize the specified timer in.
+ * @param mode 0 if normal, 2 if CTC mode. No other modes currently supported.
  * @param comp Only used in CTC mode. The period, in microseconds, based on the
  * clock and prescale.
  *
- * @todo Create a function that initializes the desired timer in a given mode
- *and set the compare value
- * (as appropriate).
+ * @todo Support different prescale modes.
  */
 void initTimer(int timer, int mode, unsigned long comp);
 
+/**
+ * @brief Get the current value of the timer's counter.
+ *
+ * @param The timer to get the count for.
+ * @return TCNTn, the count of the timer. Returns 0 if invalid timer number.
+ */
 unsigned getTimer(int timer);
 
+/**
+ * @brief Initialize PWM for a given timer.
+ * @param timer The number of timer to use.
+ */
 void initPWM(unsigned char timer);
+
+/**
+ * @brief Set the PWM on a given timer.
+ * For a given timer, this will cause the timer to count up to TOP and then back
+ * down again. When counting up, the pin output OCnB (n=timer) will be set high
+ * until the timer compares equal to comp, at which point it will be toggled low
+ * and then toggled high again when counting down.
+ * The PWM signal itself is output on the OCnB pin.
+ * @param timer The timer to set the PWM for.
+ * @param top The timer value to count up (TOP) before counting down again.
+ * @param comp The value at which to toggle OCnB.
+ */
 void setPWM(unsigned char timer, unsigned int top, unsigned int comp);
 
 /**

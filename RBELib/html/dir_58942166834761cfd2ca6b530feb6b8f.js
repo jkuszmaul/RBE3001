@@ -15,5 +15,6 @@ var dir_58942166834761cfd2ca6b530feb6b8f =
     [ "SlaveSelects.h", "_slave_selects_8h.html", "_slave_selects_8h" ],
     [ "SPI.h", "_s_p_i_8h.html", "_s_p_i_8h" ],
     [ "timer.h", "timer_8h.html", "timer_8h" ],
-    [ "USARTDebug.h", "_u_s_a_r_t_debug_8h.html", "_u_s_a_r_t_debug_8h" ]
+    [ "USARTDebug.h", "_u_s_a_r_t_debug_8h.html", "_u_s_a_r_t_debug_8h" ],
+    [ "util.h", "util_8h.html", "util_8h" ]
 ];

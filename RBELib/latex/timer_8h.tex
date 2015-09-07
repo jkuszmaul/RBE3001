@@ -6,6 +6,14 @@
 The header file and function prototypes for Timers 0-\/2.  
 
 
+{\ttfamily \#include \char`\"{}R\-B\-E\-Lib/util.\-h\char`\"{}}\\*
+Include dependency graph for timer.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{timer_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -18,21 +26,34 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \item 
 \#define \hyperlink{timer_8h_a1291f416b069313021b519eea62d5bf1}{N\-O\-R\-M\-A\-L}~0
 \begin{DoxyCompactList}\small\item\em Timer normal mode. \end{DoxyCompactList}\item 
-\#define \hyperlink{timer_8h_ab51dc0e200a87209307849efeb202198}{C\-T\-C}~1
+\#define \hyperlink{timer_8h_ab51dc0e200a87209307849efeb202198}{C\-T\-C}~2
 \begin{DoxyCompactList}\small\item\em Timer Clear Timer on Compare (C\-T\-C) mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Typedefs}
+\subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-typedef void($\ast$ \hyperlink{timer_8h_a2ea70e584dc7d96d23100e22c4a51695}{Callback} )()
-\begin{DoxyCompactList}\small\item\em A function pointer which takes no arguments and returns void. \end{DoxyCompactList}\end{DoxyCompactItemize}
+enum \hyperlink{timer_8h_af5f7d1bbe6f869f42ab3ca06902464ef}{Pre\-Scale} \{ \\*
+\hyperlink{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efa8eff64c74e8a1744163cada25ca8087e}{k1} =1, 
+\hyperlink{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efa2976a208fe2c0b21aed2cdd901e3ea0e}{k8} =2, 
+\hyperlink{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efae93f9ffb2cf8a30fc2267631a747976f}{k64} =3, 
+\hyperlink{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efae93ac2791f037979f5c72a127ec0a074}{k256} =4, 
+\\*
+\hyperlink{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efa73539c00a07e5a0797e5b9d4bbe15964}{k1024} =5
+ \}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{timer_8h_a467daa2177a6f16447a9ada6303c849a}{init\-Timer} (int timer, int mode, unsigned int comp)
+void \hyperlink{timer_8h_a656bb5d0e209ac041910cbdbf43c7dd9}{init\-Timer} (int timer, int mode, unsigned long comp)
 \begin{DoxyCompactList}\small\item\em Initializes the specified timer in the specified mode. This header file provides constants for N\-O\-R\-M\-A\-L operation mode and C\-T\-C operation mode, however there are many more modes of operation for the Timers that can be experimented with. \end{DoxyCompactList}\item 
-void \hyperlink{timer_8h_a7641a7bb79d647d59112ed4d20e01aeb}{set\-Comp\-Value} (unsigned char timer, unsigned short int comp)
+unsigned \hyperlink{timer_8h_aa28521980109ae7dcbf41077420d2855}{get\-Timer} (int timer)
+\begin{DoxyCompactList}\small\item\em Get the current value of the timer's counter. \end{DoxyCompactList}\item 
+void \hyperlink{timer_8h_a1479422bfc0204296fd16ae7dd7ae915}{init\-P\-W\-M} (unsigned char timer)
+\begin{DoxyCompactList}\small\item\em Initialize P\-W\-M for a given timer. \end{DoxyCompactList}\item 
+void \hyperlink{timer_8h_a737f1e37beda175262f2319dce8c6e16}{set\-P\-W\-M} (unsigned char timer, unsigned int top, unsigned int comp)
+\begin{DoxyCompactList}\small\item\em Set the P\-W\-M on a given timer. For a given timer, this will cause the timer to count up to T\-O\-P and then back down again. When counting up, the pin output O\-Cn\-B (n=timer) will be set high until the timer compares equal to comp, at which point it will be toggled low and then toggled high again when counting down. The P\-W\-M signal itself is output on the O\-Cn\-B pin. \end{DoxyCompactList}\item 
+void \hyperlink{timer_8h_a3aa09ed8f7935a36b02d8cfb0d69821e}{set\-Comp\-Value} (unsigned char timer, unsigned long comp)
 \begin{DoxyCompactList}\small\item\em Only used when the specified timer is in C\-T\-C mode. Changes the value of the comparison register to the new specified value. \end{DoxyCompactList}\item 
-void \hyperlink{timer_8h_a6c16a31642845dad0390aa67d2462f40}{set\-Timer\-Interrupt} (unsigned char timer, \hyperlink{timer_8h_a2ea70e584dc7d96d23100e22c4a51695}{Callback} callback)
+void \hyperlink{timer_8h_a6c16a31642845dad0390aa67d2462f40}{set\-Timer\-Interrupt} (unsigned char timer, \hyperlink{util_8h_a2ea70e584dc7d96d23100e22c4a51695}{Callback} callback)
 \begin{DoxyCompactList}\small\item\em Sets the appropriate interrupt vector to the given callback location. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -58,14 +79,14 @@ Definition in file \hyperlink{timer_8h_source}{timer.\-h}.
 \subsection{Macro Definition Documentation}
 \hypertarget{timer_8h_ab51dc0e200a87209307849efeb202198}{\index{timer.\-h@{timer.\-h}!C\-T\-C@{C\-T\-C}}
 \index{C\-T\-C@{C\-T\-C}!timer.h@{timer.\-h}}
-\subsubsection[{C\-T\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-T\-C~1}}\label{timer_8h_ab51dc0e200a87209307849efeb202198}
+\subsubsection[{C\-T\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-T\-C~2}}\label{timer_8h_ab51dc0e200a87209307849efeb202198}
 
 
 Timer Clear Timer on Compare (C\-T\-C) mode. 
 
 
 
-Definition at line 22 of file timer.\-h.
+Definition at line 25 of file timer.\-h.
 
 \hypertarget{timer_8h_a1291f416b069313021b519eea62d5bf1}{\index{timer.\-h@{timer.\-h}!N\-O\-R\-M\-A\-L@{N\-O\-R\-M\-A\-L}}
 \index{N\-O\-R\-M\-A\-L@{N\-O\-R\-M\-A\-L}!timer.h@{timer.\-h}}
@@ -76,34 +97,88 @@ Timer normal mode.
 
 
 
-Definition at line 18 of file timer.\-h.
+Definition at line 21 of file timer.\-h.
 
 
 
-\subsection{Typedef Documentation}
-\hypertarget{timer_8h_a2ea70e584dc7d96d23100e22c4a51695}{\index{timer.\-h@{timer.\-h}!Callback@{Callback}}
-\index{Callback@{Callback}!timer.h@{timer.\-h}}
-\subsubsection[{Callback}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ Callback)()}}\label{timer_8h_a2ea70e584dc7d96d23100e22c4a51695}
+\subsection{Enumeration Type Documentation}
+\hypertarget{timer_8h_af5f7d1bbe6f869f42ab3ca06902464ef}{\index{timer.\-h@{timer.\-h}!Pre\-Scale@{Pre\-Scale}}
+\index{Pre\-Scale@{Pre\-Scale}!timer.h@{timer.\-h}}
+\subsubsection[{Pre\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Pre\-Scale}}}\label{timer_8h_af5f7d1bbe6f869f42ab3ca06902464ef}
+The bitmasks corresponding to different prescalings. See p100. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{k1@{k1}!timer.\-h@{timer.\-h}}\index{timer.\-h@{timer.\-h}!k1@{k1}}\item[{\em 
+\hypertarget{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efa8eff64c74e8a1744163cada25ca8087e}{k1}\label{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efa8eff64c74e8a1744163cada25ca8087e}
+}]\index{k8@{k8}!timer.\-h@{timer.\-h}}\index{timer.\-h@{timer.\-h}!k8@{k8}}\item[{\em 
+\hypertarget{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efa2976a208fe2c0b21aed2cdd901e3ea0e}{k8}\label{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efa2976a208fe2c0b21aed2cdd901e3ea0e}
+}]\index{k64@{k64}!timer.\-h@{timer.\-h}}\index{timer.\-h@{timer.\-h}!k64@{k64}}\item[{\em 
+\hypertarget{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efae93f9ffb2cf8a30fc2267631a747976f}{k64}\label{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efae93f9ffb2cf8a30fc2267631a747976f}
+}]\index{k256@{k256}!timer.\-h@{timer.\-h}}\index{timer.\-h@{timer.\-h}!k256@{k256}}\item[{\em 
+\hypertarget{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efae93ac2791f037979f5c72a127ec0a074}{k256}\label{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efae93ac2791f037979f5c72a127ec0a074}
+}]\index{k1024@{k1024}!timer.\-h@{timer.\-h}}\index{timer.\-h@{timer.\-h}!k1024@{k1024}}\item[{\em 
+\hypertarget{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efa73539c00a07e5a0797e5b9d4bbe15964}{k1024}\label{timer_8h_af5f7d1bbe6f869f42ab3ca06902464efa73539c00a07e5a0797e5b9d4bbe15964}
+}]\end{description}
+\end{Desc}
 
 
-A function pointer which takes no arguments and returns void. 
-
-
-
-Definition at line 27 of file timer.\-h.
+Definition at line 30 of file timer.\-h.
 
 
 
 \subsection{Function Documentation}
-\hypertarget{timer_8h_a467daa2177a6f16447a9ada6303c849a}{\index{timer.\-h@{timer.\-h}!init\-Timer@{init\-Timer}}
+\hypertarget{timer_8h_aa28521980109ae7dcbf41077420d2855}{\index{timer.\-h@{timer.\-h}!get\-Timer@{get\-Timer}}
+\index{get\-Timer@{get\-Timer}!timer.h@{timer.\-h}}
+\subsubsection[{get\-Timer}]{\setlength{\rightskip}{0pt plus 5cm}unsigned get\-Timer (
+\begin{DoxyParamCaption}
+\item[{int}]{timer}
+\end{DoxyParamCaption}
+)}}\label{timer_8h_aa28521980109ae7dcbf41077420d2855}
+
+
+Get the current value of the timer's counter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & timer to get the count for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\-C\-N\-Tn, the count of the timer. Returns 0 if invalid timer number. 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file timer.\-c.
+
+\hypertarget{timer_8h_a1479422bfc0204296fd16ae7dd7ae915}{\index{timer.\-h@{timer.\-h}!init\-P\-W\-M@{init\-P\-W\-M}}
+\index{init\-P\-W\-M@{init\-P\-W\-M}!timer.h@{timer.\-h}}
+\subsubsection[{init\-P\-W\-M}]{\setlength{\rightskip}{0pt plus 5cm}void init\-P\-W\-M (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{timer}
+\end{DoxyParamCaption}
+)}}\label{timer_8h_a1479422bfc0204296fd16ae7dd7ae915}
+
+
+Initialize P\-W\-M for a given timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & The number of timer to use. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 79 of file timer.\-c.
+
+\hypertarget{timer_8h_a656bb5d0e209ac041910cbdbf43c7dd9}{\index{timer.\-h@{timer.\-h}!init\-Timer@{init\-Timer}}
 \index{init\-Timer@{init\-Timer}!timer.h@{timer.\-h}}
 \subsubsection[{init\-Timer}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Timer (
 \begin{DoxyParamCaption}
 \item[{int}]{timer, }
 \item[{int}]{mode, }
-\item[{unsigned int}]{comp}
+\item[{unsigned long}]{comp}
 \end{DoxyParamCaption}
-)}}\label{timer_8h_a467daa2177a6f16447a9ada6303c849a}
+)}}\label{timer_8h_a656bb5d0e209ac041910cbdbf43c7dd9}
 
 
 Initializes the specified timer in the specified mode. This header file provides constants for N\-O\-R\-M\-A\-L operation mode and C\-T\-C operation mode, however there are many more modes of operation for the Timers that can be experimented with. 
@@ -112,25 +187,27 @@ Initializes the specified timer in the specified mode. This header file provides
 \begin{DoxyParams}{Parameters}
 {\em timer} & The number of the timer to be initialized (0-\/2). \\
 \hline
-{\em mode} & The mode to initialize the specified timer in. \\
+{\em mode} & 0 if normal, 2 if C\-T\-C mode. No other modes currently supported. \\
 \hline
-{\em comp} & Only used in C\-T\-C mode. The value that the timer counts to before it triggers an interrupt and resets.\\
+{\em comp} & Only used in C\-T\-C mode. The period, in microseconds, based on the clock and prescale.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000026}{Todo}]Create a function that initializes the desired timer in a given mode and set the compare value (as appropriate). \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000025}{Todo}]Support different prescale modes. \end{DoxyRefDesc}
 
 
-Definition at line 4 of file timer.\-c.
+Timer 0\-: 8-\/bit, P\-W\-M, Chapter 13 page 86. Timer 1\-: 16-\/bit, P\-W\-M, Chapter 14, page 104; page 125 register descriptions. Timer 2\-: 8-\/bit, P\-W\-M, Chapter 15, page 132. 
 
-\hypertarget{timer_8h_a7641a7bb79d647d59112ed4d20e01aeb}{\index{timer.\-h@{timer.\-h}!set\-Comp\-Value@{set\-Comp\-Value}}
+Definition at line 14 of file timer.\-c.
+
+\hypertarget{timer_8h_a3aa09ed8f7935a36b02d8cfb0d69821e}{\index{timer.\-h@{timer.\-h}!set\-Comp\-Value@{set\-Comp\-Value}}
 \index{set\-Comp\-Value@{set\-Comp\-Value}!timer.h@{timer.\-h}}
 \subsubsection[{set\-Comp\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void set\-Comp\-Value (
 \begin{DoxyParamCaption}
 \item[{unsigned char}]{timer, }
-\item[{unsigned short int}]{comp}
+\item[{unsigned long}]{comp}
 \end{DoxyParamCaption}
-)}}\label{timer_8h_a7641a7bb79d647d59112ed4d20e01aeb}
+)}}\label{timer_8h_a3aa09ed8f7935a36b02d8cfb0d69821e}
 
 
 Only used when the specified timer is in C\-T\-C mode. Changes the value of the comparison register to the new specified value. 
@@ -143,7 +220,37 @@ Only used when the specified timer is in C\-T\-C mode. Changes the value of the 
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000027}{Todo}]Create a function that will set a new compare value for the given timer. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000026}{Todo}]Create a function that will set a new compare value for the given timer. \end{DoxyRefDesc}
+
+
+Definition at line 122 of file timer.\-c.
+
+\hypertarget{timer_8h_a737f1e37beda175262f2319dce8c6e16}{\index{timer.\-h@{timer.\-h}!set\-P\-W\-M@{set\-P\-W\-M}}
+\index{set\-P\-W\-M@{set\-P\-W\-M}!timer.h@{timer.\-h}}
+\subsubsection[{set\-P\-W\-M}]{\setlength{\rightskip}{0pt plus 5cm}void set\-P\-W\-M (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{timer, }
+\item[{unsigned int}]{top, }
+\item[{unsigned int}]{comp}
+\end{DoxyParamCaption}
+)}}\label{timer_8h_a737f1e37beda175262f2319dce8c6e16}
+
+
+Set the P\-W\-M on a given timer. For a given timer, this will cause the timer to count up to T\-O\-P and then back down again. When counting up, the pin output O\-Cn\-B (n=timer) will be set high until the timer compares equal to comp, at which point it will be toggled low and then toggled high again when counting down. The P\-W\-M signal itself is output on the O\-Cn\-B pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & The timer to set the P\-W\-M for. \\
+\hline
+{\em top} & The timer value to count up (T\-O\-P) before counting down again. \\
+\hline
+{\em comp} & The value at which to toggle O\-Cn\-B. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 102 of file timer.\-c.
+
 \hypertarget{timer_8h_a6c16a31642845dad0390aa67d2462f40}{\index{timer.\-h@{timer.\-h}!set\-Timer\-Interrupt@{set\-Timer\-Interrupt}}
 \index{set\-Timer\-Interrupt@{set\-Timer\-Interrupt}!timer.h@{timer.\-h}}
 \subsubsection[{set\-Timer\-Interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void set\-Timer\-Interrupt (
@@ -164,8 +271,8 @@ Sets the appropriate interrupt vector to the given callback location.
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000028}{Todo}]Test. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000027}{Todo}]Test. \end{DoxyRefDesc}
 
 
-Definition at line 7 of file timer.\-c.
+Definition at line 143 of file timer.\-c.
 

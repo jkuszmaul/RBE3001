@@ -13,8 +13,10 @@ var indexSectionsWithContent =
   3: "_cdeghiprs",
   4: "_kp",
   5: "c",
-  6: "abcdefhilnostuw",
-  7: "3bdt"
+  6: "p",
+  7: "k",
+  8: "abcdefhilnostuw",
+  9: "3bdt"
 };
 
 var indexSectionNames =
@@ -25,8 +27,10 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "typedefs",
-  6: "defines",
-  7: "pages"
+  6: "enums",
+  7: "enumvalues",
+  8: "defines",
+  9: "pages"
 };
 
 function convertToId(search)

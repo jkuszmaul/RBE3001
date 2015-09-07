@@ -5,7 +5,7 @@
  *
  * @author cwrus
  * @date Jun 28, 2012
- * 
+ *
  * @author Eric Willcox
  * @date July 9, 2014
  */
@@ -13,7 +13,7 @@
 #ifndef SETSERVO_H_
 #define SETSERVO_H_
 
-#define CLK 18432000
+#include "RBELib/util.h"
 
 
 /**
@@ -25,7 +25,7 @@ void setServo(int Pin, int Value);
 
 /**
  * @brief Used to initialize UART0 for communication with the coprocessor. It should never be called manually.
- * 
+ *
  * @param baudrate Baud rate of the communication line in bps.
  */
 void initAltCom(unsigned long baudrate);

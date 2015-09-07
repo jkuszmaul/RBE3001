@@ -132,143 +132,167 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   2 .bss          00000000  00000000  00000000  00000034  2**0
                   ALLOC
-  3 .rodata.str1.1 00000030  00000000  00000000  00000034  2**0
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .text.initADC 0000008e  00000000  00000000  00000064  2**0
+  3 .text.initADC 0000006e  00000000  00000000  00000034  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  5 .text.clearADC 0000000c  00000000  00000000  000000f2  2**0
+  4 .text.clearADC 00000014  00000000  00000000  000000a2  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  6 .text.getADC  00000024  00000000  00000000  000000fe  2**0
+  5 .text.changeADC 0000001c  00000000  00000000  000000b6  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  7 .text.changeADC 00000012  00000000  00000000  00000122  2**0
+  6 .text.getADC  0000002a  00000000  00000000  000000d2  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  8 .comment      00000012  00000000  00000000  00000134  2**0
+  7 .text.setADCInterrupt 0000000a  00000000  00000000  000000fc  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text.__vector_24 00000052  00000000  00000000  00000106  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .bss.g_ADCCallback 00000002  00000000  00000000  00000158  2**0
+                  ALLOC
+ 10 .comment      00000012  00000000  00000000  00000158  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text.initADC:
 
 00000000 <initADC>:
    0:	f8 94       	cli
-  32:	88 30       	brne	.+0      	; 0x34 <initADC+0x4>
-  34:	91 05 04 f0 	lds	r24, 0x007B
-  38:	00 c0       	rjmp	.+0      	; 0x3a <initADC+0xa>
-  3a:	90 91       	ldi	r24, 0x00	; 0
-  3c:	7c 00 90 64 	sts	0x007B, r24
-  40:	98 2b 90 93 	sts	0x0079, r1
-  44:	7c 00 20 91 	sts	0x0078, r1
-  48:	7a 00       	or	r22, r23
-  4a:	24 68       	breq	.+0      	; 0x4c <initADC+0x1c>
-  4c:	cb 01 35 e0 	lds	r24, 0x007A
-  50:	88 0f       	ori	r24, 0x40	; 64
-  52:	99 1f 3a 95 	sts	0x007A, r24
-  56:	01 f4       	sei
-  58:	28 2b 20 93 	lds	r18, 0x007B
-  5c:	7a 00 61 15 	lds	r25, 0x007A
-  60:	71 05 01 f4 	lds	r24, 0x007C
-  64:	80 91       	push	r1
-  66:	7b 00       	push	r18
-  68:	00 c0       	push	r1
-  6a:	80 e0       	push	r25
-  6c:	80 93       	push	r1
-  6e:	7b 00       	push	r24
-  70:	10 92       	ldi	r24, 0x00	; 0
-  72:	79 00       	ldi	r25, 0x00	; 0
-  74:	10 92       	push	r25
-  76:	78 00       	push	r24
-  78:	67 2b 01 f0 	call	0	; 0x0 <__tmp_reg__>
-  7c:	80 91       	in	r24, 0x3d	; 61
-  7e:	7a 00       	in	r25, 0x3e	; 62
-  80:	80 64       	adiw	r24, 0x08	; 8
-  82:	80 93       	in	r0, 0x3f	; 63
-  84:	7a 00       	cli
-  86:	78 94       	out	0x3e, r25	; 62
-  88:	20 91       	out	0x3f, r0	; 63
-  8a:	7b 00       	out	0x3d, r24	; 61
-  8c:	90 91       	ret
-  8e:	7a 00       	Address 0x000000000000008e is out of bounds.
-.word	0xffff	; ????
-  90:	80 91       	Address 0x0000000000000090 is out of bounds.
-.word	0xffff	; ????
-  92:	7c 00       	Address 0x0000000000000092 is out of bounds.
-.word	0xffff	; ????
-  94:	1f 92       	Address 0x0000000000000094 is out of bounds.
-.word	0xffff	; ????
-  96:	2f 93       	Address 0x0000000000000096 is out of bounds.
-.word	0xffff	; ????
-  98:	1f 92       	Address 0x0000000000000098 is out of bounds.
-.word	0xffff	; ????
-  9a:	9f 93       	Address 0x000000000000009a is out of bounds.
-.word	0xffff	; ????
-  9c:	1f 92       	Address 0x000000000000009c is out of bounds.
-.word	0xffff	; ????
-  9e:	8f 93       	Address 0x000000000000009e is out of bounds.
-.word	0xffff	; ????
-  a0:	80 e0       	Address 0x00000000000000a0 is out of bounds.
-.word	0xffff	; ????
-  a2:	90 e0       	Address 0x00000000000000a2 is out of bounds.
-.word	0xffff	; ????
-  a4:	9f 93       	Address 0x00000000000000a4 is out of bounds.
-.word	0xffff	; ????
-  a6:	8f 93       	Address 0x00000000000000a6 is out of bounds.
-.word	0xffff	; ????
-  a8:	0e 94       	Address 0x00000000000000a8 is out of bounds.
-.word	0xffff	; ????
-  aa:	00 00       	Address 0x00000000000000aa is out of bounds.
-.word	0xffff	; ????
-  ac:	8d b7       	Address 0x00000000000000ac is out of bounds.
-.word	0xffff	; ????
-  ae:	9e b7       	Address 0x00000000000000ae is out of bounds.
-.word	0xffff	; ????
-  b0:	08 96       	Address 0x00000000000000b0 is out of bounds.
-.word	0xffff	; ????
-  b2:	0f b6       	Address 0x00000000000000b2 is out of bounds.
-.word	0xffff	; ????
-  b4:	f8 94       	Address 0x00000000000000b4 is out of bounds.
-.word	0xffff	; ????
-  b6:	9e bf       	Address 0x00000000000000b6 is out of bounds.
-.word	0xffff	; ????
-  b8:	0f be       	Address 0x00000000000000b8 is out of bounds.
-.word	0xffff	; ????
-  ba:	8d bf       	Address 0x00000000000000ba is out of bounds.
-.word	0xffff	; ????
-  bc:	08 95       	Address 0x00000000000000bc is out of bounds.
-.word	0xffff	; ????
+   2:	88 30       	cpi	r24, 0x08	; 8
+   4:	91 05       	cpc	r25, r1
+   6:	04 f4       	brge	.+0      	; 0x8 <initADC+0x8>
+   8:	91 b1       	in	r25, 0x01	; 1
+   a:	21 e0       	ldi	r18, 0x01	; 1
+   c:	30 e0       	ldi	r19, 0x00	; 0
+   e:	08 2e       	mov	r0, r24
+  10:	00 c0       	rjmp	.+0      	; 0x12 <initADC+0x12>
+  12:	22 0f       	add	r18, r18
+  14:	0a 94       	dec	r0
+  16:	02 f4       	brpl	.+0      	; 0x18 <initADC+0x18>
+  18:	20 95       	com	r18
+  1a:	29 23       	and	r18, r25
+  1c:	21 b9       	out	0x01, r18	; 1
+  1e:	80 64       	ori	r24, 0x40	; 64
+  20:	80 93 7c 00 	sts	0x007C, r24
+  24:	20 91 7a 00 	lds	r18, 0x007A
+  28:	27 60       	ori	r18, 0x07	; 7
+  2a:	cb 01       	movw	r24, r22
+  2c:	35 e0       	ldi	r19, 0x05	; 5
+  2e:	88 0f       	add	r24, r24
+  30:	99 1f       	adc	r25, r25
+  32:	3a 95       	dec	r19
+  34:	01 f4       	brne	.+0      	; 0x36 <initADC+0x36>
+  36:	80 68       	ori	r24, 0x80	; 128
+  38:	e3 e0       	ldi	r30, 0x03	; 3
+  3a:	44 0f       	add	r20, r20
+  3c:	55 1f       	adc	r21, r21
+  3e:	ea 95       	dec	r30
+  40:	01 f4       	brne	.+0      	; 0x42 <initADC+0x42>
+  42:	84 2b       	or	r24, r20
+  44:	28 2b       	or	r18, r24
+  46:	20 93 7a 00 	sts	0x007A, r18
+  4a:	61 15       	cp	r22, r1
+  4c:	71 05       	cpc	r23, r1
+  4e:	01 f4       	brne	.+0      	; 0x50 <initADC+0x50>
+  50:	80 91 7b 00 	lds	r24, 0x007B
+  54:	00 c0       	rjmp	.+0      	; 0x56 <initADC+0x56>
+  56:	80 e0       	ldi	r24, 0x00	; 0
+  58:	80 93 7b 00 	sts	0x007B, r24
+  5c:	67 2b       	or	r22, r23
+  5e:	01 f0       	breq	.+0      	; 0x60 <initADC+0x60>
+  60:	80 91 7a 00 	lds	r24, 0x007A
+  64:	80 64       	ori	r24, 0x40	; 64
+  66:	80 93 7a 00 	sts	0x007A, r24
+  6a:	78 94       	sei
+  6c:	08 95       	ret
 
 Disassembly of section .text.clearADC:
 
-000000ee <clearADC>:
-  ee:	ea e7       	ldi	r30, 0x7A	; 122
-  f0:	f0 e0       	ldi	r31, 0x00	; 0
-  f2:	80 81       	ld	r24, Z
-  f4:	8f 77       	andi	r24, 0x7F	; 127
-  f6:	80 83       	st	Z, r24
-  f8:	08 95       	ret
-
-Disassembly of section .text.getADC:
-
-000001e8 <getADC>:
- 1e8:	10 92 79 00 	sts	0x0079, r1
- 1ec:	10 92 78 00 	sts	0x0078, r1
- 1f0:	80 91 7a 00 	lds	r24, 0x007A
- 1f4:	80 64       	ori	r24, 0x40	; 64
- 1f6:	80 93 7a 00 	sts	0x007A, r24
- 1fa:	80 91 7a 00 	lds	r24, 0x007A
- 1fe:	86 fd       	sbrc	r24, 6
- 200:	00 c0       	rjmp	.+0      	; 0x202 <getADC+0x1a>
- 202:	80 91 78 00 	lds	r24, 0x0078
- 206:	90 91 79 00 	lds	r25, 0x0079
- 20a:	08 95       	ret
+0000006e <clearADC>:
+  6e:	ea e7       	ldi	r30, 0x7A	; 122
+  70:	f0 e0       	ldi	r31, 0x00	; 0
+  72:	80 81       	ld	r24, Z
+  74:	8f 77       	andi	r24, 0x7F	; 127
+  76:	80 83       	st	Z, r24
+  78:	10 92 79 00 	sts	0x0079, r1
+  7c:	10 92 78 00 	sts	0x0078, r1
+  80:	08 95       	ret
 
 Disassembly of section .text.changeADC:
 
-000003f4 <changeADC>:
- 3f4:	88 30       	cpi	r24, 0x08	; 8
- 3f6:	91 05       	cpc	r25, r1
- 3f8:	04 f4       	brge	.+0      	; 0x3fa <changeADC+0x6>
- 3fa:	90 91 7c 00 	lds	r25, 0x007C
- 3fe:	98 2b       	or	r25, r24
- 400:	90 93 7c 00 	sts	0x007C, r25
- 404:	08 95       	ret
+000000f0 <changeADC>:
+  f0:	88 30       	cpi	r24, 0x08	; 8
+  f2:	91 05       	cpc	r25, r1
+  f4:	04 f4       	brge	.+0      	; 0xf6 <changeADC+0x6>
+  f6:	90 91 7c 00 	lds	r25, 0x007C
+  fa:	90 7e       	andi	r25, 0xE0	; 224
+  fc:	90 93 7c 00 	sts	0x007C, r25
+ 100:	90 91 7c 00 	lds	r25, 0x007C
+ 104:	98 2b       	or	r25, r24
+ 106:	90 93 7c 00 	sts	0x007C, r25
+ 10a:	08 95       	ret
+
+Disassembly of section .text.getADC:
+
+000001fc <getADC>:
+ 1fc:	20 91 7a 00 	lds	r18, 0x007A
+ 200:	2f 7d       	andi	r18, 0xDF	; 223
+ 202:	20 93 7a 00 	sts	0x007A, r18
+ 206:	0e 94 00 00 	call	0	; 0x0 <__tmp_reg__>
+ 20a:	80 91 7a 00 	lds	r24, 0x007A
+ 20e:	80 64       	ori	r24, 0x40	; 64
+ 210:	80 93 7a 00 	sts	0x007A, r24
+ 214:	80 91 7a 00 	lds	r24, 0x007A
+ 218:	86 fd       	sbrc	r24, 6
+ 21a:	00 c0       	rjmp	.+0      	; 0x21c <getADC+0x20>
+ 21c:	80 91 78 00 	lds	r24, 0x0078
+ 220:	90 91 79 00 	lds	r25, 0x0079
+ 224:	08 95       	ret
+
+Disassembly of section .text.setADCInterrupt:
+
+00000422 <setADCInterrupt>:
+ 422:	90 93 00 00 	sts	0x0000, r25
+ 426:	80 93 00 00 	sts	0x0000, r24
+ 42a:	08 95       	ret
+
+Disassembly of section .text.__vector_24:
+
+0000084e <__vector_24>:
+ 84e:	1f 92       	push	r1
+ 850:	0f 92       	push	r0
+ 852:	0f b6       	in	r0, 0x3f	; 63
+ 854:	0f 92       	push	r0
+ 856:	11 24       	eor	r1, r1
+ 858:	2f 93       	push	r18
+ 85a:	3f 93       	push	r19
+ 85c:	4f 93       	push	r20
+ 85e:	5f 93       	push	r21
+ 860:	6f 93       	push	r22
+ 862:	7f 93       	push	r23
+ 864:	8f 93       	push	r24
+ 866:	9f 93       	push	r25
+ 868:	af 93       	push	r26
+ 86a:	bf 93       	push	r27
+ 86c:	ef 93       	push	r30
+ 86e:	ff 93       	push	r31
+ 870:	e0 91 00 00 	lds	r30, 0x0000
+ 874:	f0 91 00 00 	lds	r31, 0x0000
+ 878:	30 97       	sbiw	r30, 0x00	; 0
+ 87a:	01 f0       	breq	.+0      	; 0x87c <__vector_24+0x2e>
+ 87c:	09 95       	icall
+ 87e:	ff 91       	pop	r31
+ 880:	ef 91       	pop	r30
+ 882:	bf 91       	pop	r27
+ 884:	af 91       	pop	r26
+ 886:	9f 91       	pop	r25
+ 888:	8f 91       	pop	r24
+ 88a:	7f 91       	pop	r23
+ 88c:	6f 91       	pop	r22
+ 88e:	5f 91       	pop	r21
+ 890:	4f 91       	pop	r20
+ 892:	3f 91       	pop	r19
+ 894:	2f 91       	pop	r18
+ 896:	0f 90       	pop	r0
+ 898:	0f be       	out	0x3f, r0	; 63
+ 89a:	0f 90       	pop	r0
+ 89c:	1f 90       	pop	r1
+ 89e:	18 95       	reti
 
 Debug.o:     file format elf32-avr
 

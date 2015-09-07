@@ -3,7 +3,6 @@
 #include <avr/interrupt.h>
 
 static const int prescale = k1024;
-#define CLK 18432000UL
 static const unsigned long kClk = CLK / 1024; // Hz
 
 /**
@@ -12,12 +11,12 @@ static const unsigned long kClk = CLK / 1024; // Hz
  * Timer 2: 8-bit, PWM, Chapter 15, page 132.
  */
 void initTimer(int timer, int mode, unsigned long comp) {
-  SREG |= 1 << 7;
+  // Disable interrupts until setup is done.
+  cli();
   // Because comp is in microseconds, we must divide by a net of 1000000, while
   // trying to avoid allowing overflow in the multiplication or excessive
   // truncation in the division.
-  comp = ((kClk / 1000) * comp) / 1000 / 2 - 1;
-  printf("comp: %lu\n", comp);
+  comp = ((kClk / 1000) * comp) / 1000 - 1;
   // The only differences between cases is the numbers in the register names.
   switch (timer) {
     case 0:
@@ -31,9 +30,10 @@ void initTimer(int timer, int mode, unsigned long comp) {
       TIMSK0 |= 1 << OCIE0A;
       break;
     case 1:
-      // Set timer to CTC mode as appropriate, p125.
+      // Set timer to toggle OC1A on compare match, p125.
       TCCR1A = mode << COM1A0;
       // Set pre-scaling to CLKI/O / 1024. p128.
+      // Also, set mode (WGM1) to CTC using OCR1A. p127.
       TCCR1B = prescale << CS10 | 1 << WGM12;
       // Set comparison.
       OCR1A = comp;
@@ -54,39 +54,48 @@ void initTimer(int timer, int mode, unsigned long comp) {
       // Fall through.
       break;
   }
+
+  // Re-enable interrupts.
+  sei();
 }
 
 unsigned getTimer(int timer) {
   switch (timer) {
     case 0:
-      return TCNT0;
+      return TCNT0; // p101.
       break;
     case 1:
-      return TCNT1;
+      return TCNT1; // p129.
       break;
     case 2:
-      return TCNT2;
+      return TCNT2; // p150.
       break;
     default:
-      // Fall through.
+      return 0;
       break;
   }
 }
 
 void initPWM(unsigned char timer) {
-  // Set to toggle OC0A on match and set WGM0 to Phase Correct PWM Mode with
+  // Set to toggle OCnA on match and set WGMn to Phase Correct PWM Mode with
   // OCRA as TOP.
-  // WGM is stored in both TCCR0A and TCCR0B; See pages 99 and 100.
+  // WGM is stored in both TCCRnA and TCCRnB.
   switch (timer) {
     case 0:
+      OC0B_DDR |= 1 << OC0B_BIT; // See page 75.
+      // See pages 97-101.
       TCCR0A = (1 << COM0A0) | (1 << COM0B1) | (1 << WGM00);
       TCCR0B = (1 << WGM02) | (prescale << CS00);
       break;
     case 1:
+      OC1B_DDR |= 1 << OC1B_BIT; // See page 80.
+      // See pages 125-128.
       TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (3 << WGM10);
       TCCR1B = (1 << WGM13) | (prescale << CS10);
       break;
     case 2:
+      OC2B_DDR |= 1 << OC2B_BIT; // See page 80.
+      // See pages 146-150.
       TCCR2A = (1 << COM2A0) | (1 << COM2B1) | (1 << WGM20);
       TCCR2B = (1 << WGM22) | (prescale << CS20);
       break;
@@ -152,6 +161,9 @@ void setTimerInterrupt(unsigned char timer, Callback callback) {
   }
 }
 
+// Declare the ISRs that the hardware will actually call for each comparison
+// vector. Within each ISR, we check to see if a callback has been set and then
+// call it if it has.
 ISR(TIMER0_COMPA_vect) {
   if (timer0) timer0();
 }
