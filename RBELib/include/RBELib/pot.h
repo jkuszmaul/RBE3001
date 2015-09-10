@@ -10,21 +10,18 @@
 #ifndef POT_H_
 #define POT_H_
 
-/** 
+/**
  * @brief Find the angle of the given potentiometer.
- * @param  pot The pot to check.
- * @return angle Angle of the potentiometer.
- *
- * @todo Calculate the angle using the ADC reading.
+ * @param  pot The pot port to check.
+ * @return angle Angle (in hundredths of a radian) of the potentiometer.
+ * @todo Allow custom configurations for different pots.
  */
 int potAngle(int pot);
 
-/** 
+/**
  * @brief Find the voltage value of the given potentiometer.
- * @param  pot The pot to get the value of.
- * @return volts Voltage of  potentiometer.
- *
- * @todo Convert the ADC value into a voltage in mV (so no floats needed).
+ * @param  pot The pot port to get the value of.
+ * @return volts Voltage (in millivolts) of  potentiometer.
  */
 int potVolts(int pot);
 

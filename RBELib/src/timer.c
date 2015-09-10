@@ -82,19 +82,19 @@ void initPWM(unsigned char timer) {
   // WGM is stored in both TCCRnA and TCCRnB.
   switch (timer) {
     case 0:
-      OC0B_DDR |= 1 << OC0B_BIT; // See page 75.
+      DDRB |= 1 << 4; // See page 75.
       // See pages 97-101.
       TCCR0A = (1 << COM0A0) | (1 << COM0B1) | (1 << WGM00);
       TCCR0B = (1 << WGM02) | (prescale << CS00);
       break;
     case 1:
-      OC1B_DDR |= 1 << OC1B_BIT; // See page 80.
+      DDRD |= 1 << 4; // See page 80.
       // See pages 125-128.
       TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (3 << WGM10);
       TCCR1B = (1 << WGM13) | (prescale << CS10);
       break;
     case 2:
-      OC2B_DDR |= 1 << OC2B_BIT; // See page 80.
+      DDRD |= 1 << 6; // See page 80.
       // See pages 146-150.
       TCCR2A = (1 << COM2A0) | (1 << COM2B1) | (1 << WGM20);
       TCCR2B = (1 << WGM22) | (prescale << CS20);

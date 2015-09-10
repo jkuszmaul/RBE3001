@@ -1,3 +1,4 @@
 <map id="include/RBELib/SlaveSelects.h" name="include/RBELib/SlaveSelects.h">
-<area shape="rect" id="node2" href="$ports_8h.html" title="Controls ports A &#45; D to be able to set direction, read a value and set a value for any pins desired..." alt="" coords="75,80,137,107"/>
+<area shape="rect" id="node2" href="$ports_8h.html" title="Controls ports A &#45; D to be able to set direction, read a value and set a value for any pins desired..." alt="" coords="23,80,85,107"/>
+<area shape="rect" id="node3" href="$reg__structs_8h.html" title="This file redefines some of the registers of the ATmega644p as structs to allow for easy access to in..." alt="" coords="111,80,209,107"/>
 </map>

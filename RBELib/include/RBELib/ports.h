@@ -3,7 +3,7 @@
  *
  * @brief Controls ports A - D to be able to set direction,
  * read a value and set a value for any pins desired.
- * 
+ *
  * @details All functions here can take in a variable number of pins
  * to set/read from.  The way this is accomplished in C is by using the
  * functions provided by stdarg.h and is the way that printf() works
@@ -37,7 +37,7 @@
  * @param dir The pin on PORTA to set the direction of.
  * @param numPins The number of pins that you are setting the
  * direction of.
- * @param ... Pins one after another
+ * @param ... Pins one after another (as integers).
  *
  * @todo Create a way to set a port's pins to inputs or outputs.
  */
@@ -54,7 +54,7 @@ void setPinsDir(char port, int dir, char numPins, ...);
  *
  * @todo Create a way to read all given pins on a port.
  */
-unsigned char getPinsVal(char port, int numPins, ...);
+unsigned char getPinsVal(char port, char numPins, ...);
 
 /**
  * @brief Sets the value on the specified pins of a port.
@@ -66,6 +66,6 @@ unsigned char getPinsVal(char port, int numPins, ...);
  *
  * @todo Create a way to set all given pins on a port.
  */
-void setPinsVal(char port, int val, int numPins, ...);
+void setPinsVal(char port, int val, char numPins, ...);
 
 #endif /* PORTS_H_ */

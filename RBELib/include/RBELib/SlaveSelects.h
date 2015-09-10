@@ -17,6 +17,7 @@
 
 //We need ports.h for using all of the structs
 #include "ports.h"
+#include "reg_structs.h"
 
 /**
  * @brief  SPI MISO

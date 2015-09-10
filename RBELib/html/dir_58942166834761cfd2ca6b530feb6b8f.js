@@ -2,8 +2,10 @@ var dir_58942166834761cfd2ca6b530feb6b8f =
 [
     [ "doxy_pages", "dir_60fc5e564cbfb2443bd5072b30fbddbc.html", "dir_60fc5e564cbfb2443bd5072b30fbddbc" ],
     [ "ADC.h", "_a_d_c_8h.html", "_a_d_c_8h" ],
+    [ "constants.h", "constants_8h.html", "constants_8h" ],
     [ "DAC.h", "_d_a_c_8h.html", "_d_a_c_8h" ],
     [ "Debug.h", "_debug_8h.html", "_debug_8h" ],
+    [ "drive.h", "drive_8h.html", "drive_8h" ],
     [ "motors.h", "motors_8h.html", "motors_8h" ],
     [ "Periph.h", "_periph_8h.html", "_periph_8h" ],
     [ "PID.h", "_p_i_d_8h.html", "_p_i_d_8h" ],

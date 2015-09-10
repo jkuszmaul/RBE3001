@@ -1,6 +1,9 @@
 <map id="include/RBELib/reg_structs.h" name="include/RBELib/reg_structs.h">
-<area shape="rect" id="node2" href="$_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="179,96,351,123"/>
-<area shape="rect" id="node3" href="$_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,171,195,197"/>
-<area shape="rect" id="node4" href="$_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,171,312,197"/>
-<area shape="rect" id="node5" href="$_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,171,475,197"/>
+<area shape="rect" id="node2" href="$_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="179,171,351,197"/>
+<area shape="rect" id="node6" href="$_slave_selects_8h.html" title="Here are all of the SPI line constants such as select lines and direction registers that can be calle..." alt="" coords="311,96,515,123"/>
+<area shape="rect" id="node3" href="$_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,245,195,272"/>
+<area shape="rect" id="node4" href="$_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,245,312,272"/>
+<area shape="rect" id="node5" href="$_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,245,475,272"/>
+<area shape="rect" id="node7" href="$_d_a_c_8c.html" title="src/DAC.c" alt="" coords="375,171,459,197"/>
+<area shape="rect" id="node8" href="$_s_p_i_8c.html" title="src/SPI.c" alt="" coords="484,171,560,197"/>
 </map>

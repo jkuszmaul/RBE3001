@@ -18,13 +18,22 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \item 
 struct \hyperlink{structpid_const}{pid\-Const}
 \begin{DoxyCompactList}\small\item\em P\-I\-D constants. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3}{Link} \{ \hyperlink{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3aa58f2eb5ad5005dfb23e93e14cadf159}{k\-H}, 
+\hyperlink{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3aaf5c113d60ed0f55428a8150effe44e0}{k\-L}
+ \}
+\begin{DoxyCompactList}\small\item\em The different links in the arm. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{_p_i_d_8h_a2ffb511c1e18ce767f42422609dfa04d}{set\-Const} (char link, float Kp, float Ki, float Kd)
+void \hyperlink{_p_i_d_8h_aba5f75f15a4b29ba0b5c0d4be945117c}{set\-Const} (\hyperlink{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3}{Link} link, float Kp, float Ki, float Kd)
 \begin{DoxyCompactList}\small\item\em Sets the Kp, Ki, and Kd values for 1 link. \end{DoxyCompactList}\item 
-signed int \hyperlink{_p_i_d_8h_a0b728f39f71526d44fd7cff0ce67319e}{calc\-P\-I\-D} (char link, int set\-Point, int act\-Pos)
-\begin{DoxyCompactList}\small\item\em Calculate the P\-I\-D value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+signed int \hyperlink{_p_i_d_8h_a5654a960285d6cd0ccf4e48b7c94e24c}{calc\-P\-I\-D} (\hyperlink{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3}{Link} link, int set\-Point, int act\-Pos)
+\begin{DoxyCompactList}\small\item\em Calculate the P\-I\-D value. \end{DoxyCompactList}\item 
+int \hyperlink{_p_i_d_8h_acb8a7bb79476d6bd6bfe73fe925b79a1}{calc\-F\-F} (\hyperlink{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3}{Link} link)
+\begin{DoxyCompactList}\small\item\em Calculate the Feed-\/\-Forward term. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,47 +48,101 @@ Eric Willcox
 \begin{DoxyDate}{Date}
 August 17 2013 
 \end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+James Kuszmaul 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 10 2015 
+\end{DoxyDate}
 
 
 Definition in file \hyperlink{_p_i_d_8h_source}{P\-I\-D.\-h}.
 
 
 
+\subsection{Enumeration Type Documentation}
+\hypertarget{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3}{\index{P\-I\-D.\-h@{P\-I\-D.\-h}!Link@{Link}}
+\index{Link@{Link}!PID.h@{P\-I\-D.\-h}}
+\subsubsection[{Link}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Link}}}\label{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3}
+
+
+The different links in the arm. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{k\-H@{k\-H}!P\-I\-D.\-h@{P\-I\-D.\-h}}\index{P\-I\-D.\-h@{P\-I\-D.\-h}!k\-H@{k\-H}}\item[{\em 
+\hypertarget{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3aa58f2eb5ad5005dfb23e93e14cadf159}{k\-H}\label{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3aa58f2eb5ad5005dfb23e93e14cadf159}
+}]Higher/farther out link. \index{k\-L@{k\-L}!P\-I\-D.\-h@{P\-I\-D.\-h}}\index{P\-I\-D.\-h@{P\-I\-D.\-h}!k\-L@{k\-L}}\item[{\em 
+\hypertarget{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3aaf5c113d60ed0f55428a8150effe44e0}{k\-L}\label{_p_i_d_8h_a25bfc943aa3ee41674eed19d92e439e3aaf5c113d60ed0f55428a8150effe44e0}
+}]Lower/inner link. \end{description}
+\end{Desc}
+
+
+Definition at line 61 of file P\-I\-D.\-h.
+
+
+
 \subsection{Function Documentation}
-\hypertarget{_p_i_d_8h_a0b728f39f71526d44fd7cff0ce67319e}{\index{P\-I\-D.\-h@{P\-I\-D.\-h}!calc\-P\-I\-D@{calc\-P\-I\-D}}
+\hypertarget{_p_i_d_8h_acb8a7bb79476d6bd6bfe73fe925b79a1}{\index{P\-I\-D.\-h@{P\-I\-D.\-h}!calc\-F\-F@{calc\-F\-F}}
+\index{calc\-F\-F@{calc\-F\-F}!PID.h@{P\-I\-D.\-h}}
+\subsubsection[{calc\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}int calc\-F\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf Link}}]{link}
+\end{DoxyParamCaption}
+)}}\label{_p_i_d_8h_acb8a7bb79476d6bd6bfe73fe925b79a1}
+
+
+Calculate the Feed-\/\-Forward term. 
+
+Calculates the output necessary to keep the specified link in some pre-\/determined \char`\"{}neutral\char`\"{} state. At its simplist, this will perform a rudimentary gravity compensation. A more sophisticated feed-\/forward function would also handle motion profiling or the such. 
+\begin{DoxyParams}{Parameters}
+{\em link} & Which link to calculate the feed-\/forward term--Ends up calling a helper function for either link. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The voltage to apply to the corresponding motor, in millivolts. 
+\end{DoxyReturn}
+\hypertarget{_p_i_d_8h_a5654a960285d6cd0ccf4e48b7c94e24c}{\index{P\-I\-D.\-h@{P\-I\-D.\-h}!calc\-P\-I\-D@{calc\-P\-I\-D}}
 \index{calc\-P\-I\-D@{calc\-P\-I\-D}!PID.h@{P\-I\-D.\-h}}
 \subsubsection[{calc\-P\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}signed int calc\-P\-I\-D (
 \begin{DoxyParamCaption}
-\item[{char}]{link, }
+\item[{{\bf Link}}]{link, }
 \item[{int}]{set\-Point, }
 \item[{int}]{act\-Pos}
 \end{DoxyParamCaption}
-)}}\label{_p_i_d_8h_a0b728f39f71526d44fd7cff0ce67319e}
+)}}\label{_p_i_d_8h_a5654a960285d6cd0ccf4e48b7c94e24c}
 
 
 Calculate the P\-I\-D value. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em link} & Which link to calculate the error for (Use 'U' and 'L'). \\
+{\em link} & Which link to calculate the error for (Use k\-H and k\-L). \\
 \hline
 {\em set\-Point} & The desired position of the link. \\
 \hline
-{\em act\-Pos} & The current position of the link.\\
+{\em act\-Pos} & The current position of the link. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000017}{Todo}]Make a function to calculate the P\-I\-D value for a link. \end{DoxyRefDesc}
-\hypertarget{_p_i_d_8h_a2ffb511c1e18ce767f42422609dfa04d}{\index{P\-I\-D.\-h@{P\-I\-D.\-h}!set\-Const@{set\-Const}}
+
+
+Definition at line 30 of file P\-I\-D.\-c.
+
+
+
+References pid\-Const\-::\-Kd\-\_\-\-H, k\-H, pid\-Const\-::\-Ki\-\_\-\-H, pid\-Const\-::\-Kp\-\_\-\-H, and k\-V\-Motor.
+
+\hypertarget{_p_i_d_8h_aba5f75f15a4b29ba0b5c0d4be945117c}{\index{P\-I\-D.\-h@{P\-I\-D.\-h}!set\-Const@{set\-Const}}
 \index{set\-Const@{set\-Const}!PID.h@{P\-I\-D.\-h}}
 \subsubsection[{set\-Const}]{\setlength{\rightskip}{0pt plus 5cm}void set\-Const (
 \begin{DoxyParamCaption}
-\item[{char}]{link, }
+\item[{{\bf Link}}]{link, }
 \item[{float}]{Kp, }
 \item[{float}]{Ki, }
 \item[{float}]{Kd}
 \end{DoxyParamCaption}
-)}}\label{_p_i_d_8h_a2ffb511c1e18ce767f42422609dfa04d}
+)}}\label{_p_i_d_8h_aba5f75f15a4b29ba0b5c0d4be945117c}
 
 
 Sets the Kp, Ki, and Kd values for 1 link. 
@@ -90,17 +153,23 @@ to set the values, use the following style
 \end{DoxyCode}
  
 \begin{DoxyParams}{Parameters}
-{\em link} & The link you want to set the values for (H or L). \\
+{\em link} & The link you want to set the values for (k\-H or k\-L). \\
 \hline
 {\em Kp} & Proportional value. \\
 \hline
 {\em Ki} & Integral value. \\
 \hline
-{\em Kd} & Derivative value.\\
+{\em Kd} & Derivative value. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000016}{Todo}]Create a function to the the P\-I\-D constants for a given link. \end{DoxyRefDesc}
+
+
+Definition at line 15 of file P\-I\-D.\-c.
+
+
+
+References pid\-Const\-::\-Kd\-\_\-\-H, pid\-Const\-::\-Kd\-\_\-\-L, k\-H, pid\-Const\-::\-Ki\-\_\-\-H, pid\-Const\-::\-Ki\-\_\-\-L, k\-L, pid\-Const\-::\-Kp\-\_\-\-H, and pid\-Const\-::\-Kp\-\_\-\-L.
+
 
 
 \subsection{Variable Documentation}
@@ -117,3 +186,7 @@ Declaration for use in other files.
 \hyperlink{structpid_const}{pidConst} \hyperlink{_p_i_d_8h_a4d2fc78b5924045bcc0e20fc95e18d97}{pidConsts}; 
 \end{DoxyCode}
  in any file you access them in! \end{DoxyRefDesc}
+
+
+Definition at line 13 of file P\-I\-D.\-c.
+

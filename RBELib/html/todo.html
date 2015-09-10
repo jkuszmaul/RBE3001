@@ -101,11 +101,9 @@ $(document).ready(function(){initNavTree('todo.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000017"></a>Global <a class="el" href="_p_i_d_8h.html#a0b728f39f71526d44fd7cff0ce67319e">calcPID</a>  (char link, int setPoint, int actPos)</dt>
-<dd>Make a function to calculate the PID value for a link.  </dd>
 <dt><a class="anchor" id="_todo000003"></a>Global <a class="el" href="_a_d_c_8c.html#a8174ca24b578eaf4f82f44d6ce44edb0">changeADC</a>  (int channel)</dt>
 <dd>Create a way to switch ADC channels if you are using interrupts.  </dd>
-<dt><a class="anchor" id="_todo000028"></a>Global <a class="el" href="_u_s_a_r_t_debug_8c.html#a9a96eb5e6b5a13fff8ed69716e76a314">debugUSARTInit</a>  (unsigned long baudrate)</dt>
+<dt><a class="anchor" id="_todo000024"></a>Global <a class="el" href="_u_s_a_r_t_debug_8c.html#a9a96eb5e6b5a13fff8ed69716e76a314">debugUSARTInit</a>  (unsigned long baudrate)</dt>
 <dd>Create the function that will initialize USART1 for debugging use.  </dd>
 <dt><a class="anchor" id="_todo000008"></a>Global <a class="el" href="motors_8h.html#af4a8cb121ce437984322ade3672082d2">driveLink</a>  (int link, int dir)</dt>
 <dd>Create a way to drive either link in any direction.  </dd>
@@ -117,11 +115,11 @@ $(document).ready(function(){initNavTree('todo.html','');});
 <dd>Create a function that is able to find the acceleration of a given axis.  </dd>
 <dt><a class="anchor" id="_todo000002"></a>Global <a class="el" href="_a_d_c_8c.html#a9f560657fb624f98de3161651f3d4385">getADC</a>  (int channel)</dt>
 <dd>Create the corresponding function to obtain the value of the last calculation if you are using polling.  </dd>
-<dt><a class="anchor" id="_todo000030"></a>Global <a class="el" href="_u_s_a_r_t_debug_8c.html#a6653563b8e7c5134da2d944ff8ef2f73">getCharDebug</a>  ()</dt>
+<dt><a class="anchor" id="_todo000026"></a>Global <a class="el" href="_u_s_a_r_t_debug_8c.html#a6653563b8e7c5134da2d944ff8ef2f73">getCharDebug</a>  ()</dt>
 <dd>Make the function that will listen for input on the USART1 RX line.  </dd>
-<dt><a class="anchor" id="_todo000030"></a>Global <a class="el" href="_u_s_a_r_t_debug_8c.html#a6653563b8e7c5134da2d944ff8ef2f73">getCharDebug</a>  ()</dt>
+<dt><a class="anchor" id="_todo000026"></a>Global <a class="el" href="_u_s_a_r_t_debug_8c.html#a6653563b8e7c5134da2d944ff8ef2f73">getCharDebug</a>  ()</dt>
 <dd>Make the function that will listen for input on the USART1 RX line.  </dd>
-<dt><a class="anchor" id="_todo000019"></a>Global <a class="el" href="ports_8h.html#a85e9d6d0f75513f3f961c41861299430">getPinsVal</a>  (char port, int numPins,...)</dt>
+<dt><a class="anchor" id="_todo000017"></a>Global <a class="el" href="ports_8c.html#ab7026077c8929553713b2884b1730e7a">getPinsVal</a>  (char port, char numPins,...)</dt>
 <dd>Create a way to read all given pins on a port.  </dd>
 <dt><a class="anchor" id="_todo000006"></a>Global <a class="el" href="motors_8h.html#af29dc743a43c233ac843475727db132f">gotoAngles</a>  (int lowerTheta, int upperTheta)</dt>
 <dd>Make a way to drive the links to a desired angle.  </dd>
@@ -131,36 +129,30 @@ $(document).ready(function(){initNavTree('todo.html','');});
 <dd>Drive the arm to a known position using the potentiometers.  </dd>
 <dt><a class="anchor" id="_todo000001"></a>Global <a class="el" href="_a_d_c_8c.html#a9c2a3351c429e7ad5ed4458495f56852">initADC</a>  (int channel, int free, int interrupts)</dt>
 <dd>Allow user to select different precisions.  </dd>
-<dt><a class="anchor" id="_todo000023"></a>Global <a class="el" href="_s_p_i_8h.html#a070402cc6c1cae693d10f59f9c483f76">initSPI</a>  ()</dt>
+<dt><a class="anchor" id="_todo000019"></a>Global <a class="el" href="_s_p_i_8c.html#a070402cc6c1cae693d10f59f9c483f76">initSPI</a>  ()</dt>
 <dd>Create the function that will allow you to initialize the SPI in a mode compatible with all devices. Do not forget to deassert all of your SS lines!  </dd>
-<dt><a class="anchor" id="_todo000025"></a>Global <a class="el" href="timer_8c.html#a656bb5d0e209ac041910cbdbf43c7dd9">initTimer</a>  (int timer, int mode, unsigned long comp)</dt>
+<dt><a class="anchor" id="_todo000021"></a>Global <a class="el" href="timer_8c.html#a656bb5d0e209ac041910cbdbf43c7dd9">initTimer</a>  (int timer, int mode, unsigned long comp)</dt>
 <dd>Support different prescale modes.  </dd>
 <dt><a class="anchor" id="_todo000011"></a>Global <a class="el" href="_periph_8h.html#ae0fb6b592e76f0934db14682e63982df">IRDist</a>  (int chan)</dt>
 <dd>Make a function that is able to get the ADC value of the IR sensor.  </dd>
-<dt><a class="anchor" id="_todo000015"></a>Global <a class="el" href="_p_i_d_8h.html#a4d2fc78b5924045bcc0e20fc95e18d97">pidConsts</a>  </dt>
+<dt><a class="anchor" id="_todo000015"></a>Global <a class="el" href="_p_i_d_8c.html#a4d2fc78b5924045bcc0e20fc95e18d97">pidConsts</a>  </dt>
 <dd>Again, do not forget to use<div class="fragment"><div class="line"><a class="code" href="structpid_const.html">pidConst</a> <a class="code" href="_p_i_d_8h.html#a4d2fc78b5924045bcc0e20fc95e18d97">pidConsts</a>; </div>
 </div><!-- fragment --> in any file you access them in!  </dd>
-<dt><a class="anchor" id="_todo000021"></a>Global <a class="el" href="pot_8h.html#a6572afa21880ee8fe8e834b7167e111b">potAngle</a>  (int pot)</dt>
-<dd>Calculate the angle using the ADC reading.  </dd>
-<dt><a class="anchor" id="_todo000022"></a>Global <a class="el" href="pot_8h.html#ac8f71572a099805fc4cfcc793260e98b">potVolts</a>  (int pot)</dt>
-<dd>Convert the ADC value into a voltage in mV (so no floats needed).  </dd>
-<dt><a class="anchor" id="_todo000029"></a>Global <a class="el" href="_u_s_a_r_t_debug_8c.html#ab52220b9802762326175f5a6d09c50a1">putCharDebug</a>  (char byteToSend)</dt>
+<dt><a class="anchor" id="_todo000025"></a>Global <a class="el" href="_u_s_a_r_t_debug_8c.html#ab52220b9802762326175f5a6d09c50a1">putCharDebug</a>  (char byteToSend)</dt>
 <dd>Make the function that will put a character on the USART1 TX line.  </dd>
 <dt><a class="anchor" id="_todo000013"></a>Global <a class="el" href="_periph_8h.html#a9b159db17b7ebf680a2bdd169e269f85">resetEncCount</a>  (int chan)</dt>
 <dd>Clear the encoder count (set to 0).  </dd>
-<dt><a class="anchor" id="_todo000026"></a>Global <a class="el" href="timer_8c.html#a3aa09ed8f7935a36b02d8cfb0d69821e">setCompValue</a>  (unsigned char timer, unsigned long comp)</dt>
+<dt><a class="anchor" id="_todo000022"></a>Global <a class="el" href="timer_8c.html#a3aa09ed8f7935a36b02d8cfb0d69821e">setCompValue</a>  (unsigned char timer, unsigned long comp)</dt>
 <dd>Create a function that will set a new compare value for the given timer.  </dd>
-<dt><a class="anchor" id="_todo000016"></a>Global <a class="el" href="_p_i_d_8h.html#a2ffb511c1e18ce767f42422609dfa04d">setConst</a>  (char link, float Kp, float Ki, float Kd)</dt>
-<dd>Create a function to the the PID constants for a given link.  </dd>
-<dt><a class="anchor" id="_todo000004"></a>Global <a class="el" href="_d_a_c_8h.html#af5aa1a81aa11a072a5ab582d040b3edf">setDAC</a>  (int DACn, int SPIVal)</dt>
+<dt><a class="anchor" id="_todo000004"></a>Global <a class="el" href="_d_a_c_8c.html#af5aa1a81aa11a072a5ab582d040b3edf">setDAC</a>  (int DACn, int SPIVal)</dt>
 <dd>Make the function that is able to set the DAC to a given value from 0 - 4095.  </dd>
-<dt><a class="anchor" id="_todo000018"></a>Global <a class="el" href="ports_8h.html#a1b62a36451c75cf20221c12f039ad6f4">setPinsDir</a>  (char port, int dir, char numPins,...)</dt>
+<dt><a class="anchor" id="_todo000016"></a>Global <a class="el" href="ports_8c.html#a1b62a36451c75cf20221c12f039ad6f4">setPinsDir</a>  (char port, int dir, char numPins,...)</dt>
 <dd>Create a way to set a port's pins to inputs or outputs.  </dd>
-<dt><a class="anchor" id="_todo000020"></a>Global <a class="el" href="ports_8h.html#afd809b04181b31d8567d95f070bb9034">setPinsVal</a>  (char port, int val, int numPins,...)</dt>
+<dt><a class="anchor" id="_todo000018"></a>Global <a class="el" href="ports_8c.html#adb1daee6b24466eff4584fb632b5aeac">setPinsVal</a>  (char port, int val, char numPins,...)</dt>
 <dd>Create a way to set all given pins on a port.  </dd>
-<dt><a class="anchor" id="_todo000027"></a>Global <a class="el" href="timer_8c.html#a6c16a31642845dad0390aa67d2462f40">setTimerInterrupt</a>  (unsigned char timer, Callback callback)</dt>
+<dt><a class="anchor" id="_todo000023"></a>Global <a class="el" href="timer_8c.html#a6c16a31642845dad0390aa67d2462f40">setTimerInterrupt</a>  (unsigned char timer, Callback callback)</dt>
 <dd>Test.  </dd>
-<dt><a class="anchor" id="_todo000024"></a>Global <a class="el" href="_s_p_i_8h.html#a4d2cd713b65091a59a9a2ee50b28bdf1">spiTransceive</a>  (BYTE data)</dt>
+<dt><a class="anchor" id="_todo000020"></a>Global <a class="el" href="_s_p_i_8c.html#a7c12c0fba13e058def7883b526d40eb6">spiTransceive</a>  (unsigned char data)</dt>
 <dd>Make a function that will send a byte of data through the SPI and return whatever was sent back.  </dd>
 <dt><a class="anchor" id="_todo000005"></a>Global <a class="el" href="motors_8h.html#a5260da8b51f5d97f6cf2a9ba11d1aee1">stopMotors</a>  ()</dt>
 <dd>Create way to stop the motors using the DAC. </dd>
@@ -170,7 +162,7 @@ $(document).ready(function(){initNavTree('todo.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Sep 6 2015 13:36:34 for RBELib by
+    <li class="footer">Generated on Thu Sep 10 2015 16:26:47 for RBELib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

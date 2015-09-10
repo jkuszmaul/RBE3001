@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['timer_2ec',['timer.c',['../timer_8c.html',1,'']]],
-  ['timer_2eh',['timer.h',['../timer_8h.html',1,'']]]
+  ['setservo_2ec',['SetServo.c',['../_set_servo_8c.html',1,'']]],
+  ['setservo_2eh',['SetServo.h',['../_set_servo_8h.html',1,'']]],
+  ['slaveselects_2eh',['SlaveSelects.h',['../_slave_selects_8h.html',1,'']]],
+  ['spi_2ec',['SPI.c',['../_s_p_i_8c.html',1,'']]],
+  ['spi_2eh',['SPI.h',['../_s_p_i_8h.html',1,'']]]
 ];

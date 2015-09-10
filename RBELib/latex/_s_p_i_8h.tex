@@ -6,6 +6,14 @@
 The header file and function prototypes for the S\-P\-I.  
 
 
+{\ttfamily \#include \char`\"{}R\-B\-E\-Lib/util.\-h\char`\"{}}\\*
+Include dependency graph for S\-P\-I.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{_s_p_i_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -18,7 +26,7 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \item 
 void \hyperlink{_s_p_i_8h_a070402cc6c1cae693d10f59f9c483f76}{init\-S\-P\-I} ()
 \begin{DoxyCompactList}\small\item\em Initializes the S\-P\-I bus for communication with all of your S\-P\-I devices. \end{DoxyCompactList}\item 
-unsigned char \hyperlink{_s_p_i_8h_a4d2cd713b65091a59a9a2ee50b28bdf1}{spi\-Transceive} (\hyperlink{_r_b_e_lib_8h_aec93e83855ac17c3c25c55c37ca186dd}{B\-Y\-T\-E} data)
+unsigned char \hyperlink{_s_p_i_8h_a7c12c0fba13e058def7883b526d40eb6}{spi\-Transceive} (unsigned char data)
 \begin{DoxyCompactList}\small\item\em Send and receive a byte out of the M\-O\-S\-I line. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -68,14 +76,22 @@ Definition in file \hyperlink{_s_p_i_8h_source}{S\-P\-I.\-h}.
 Initializes the S\-P\-I bus for communication with all of your S\-P\-I devices. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000023}{Todo}]Create the function that will allow you to initialize the S\-P\-I in a mode compatible with all devices. Do not forget to deassert all of your S\-S lines! \end{DoxyRefDesc}
-\hypertarget{_s_p_i_8h_a4d2cd713b65091a59a9a2ee50b28bdf1}{\index{S\-P\-I.\-h@{S\-P\-I.\-h}!spi\-Transceive@{spi\-Transceive}}
+\item[\hyperlink{todo__todo000019}{Todo}]Create the function that will allow you to initialize the S\-P\-I in a mode compatible with all devices. Do not forget to deassert all of your S\-S lines! \end{DoxyRefDesc}
+
+
+Definition at line 5 of file S\-P\-I.\-c.
+
+
+
+References A\-U\-X\-\_\-\-D\-A\-C\-\_\-\-S\-S, A\-U\-X\-\_\-\-D\-A\-C\-\_\-\-S\-S\-\_\-ddr, D\-A\-C\-\_\-\-S\-S, D\-A\-C\-\_\-\-S\-S\-\_\-ddr, E\-N\-C\-O\-D\-E\-R\-\_\-\-S\-S\-\_\-0, E\-N\-C\-O\-D\-E\-R\-\_\-\-S\-S\-\_\-0\-\_\-ddr, E\-N\-C\-O\-D\-E\-R\-\_\-\-S\-S\-\_\-1, E\-N\-C\-O\-D\-E\-R\-\_\-\-S\-S\-\_\-1\-\_\-ddr, E\-N\-C\-O\-D\-E\-R\-\_\-\-S\-S\-\_\-2, E\-N\-C\-O\-D\-E\-R\-\_\-\-S\-S\-\_\-2\-\_\-ddr, E\-N\-C\-O\-D\-E\-R\-\_\-\-S\-S\-\_\-3, and E\-N\-C\-O\-D\-E\-R\-\_\-\-S\-S\-\_\-3\-\_\-ddr.
+
+\hypertarget{_s_p_i_8h_a7c12c0fba13e058def7883b526d40eb6}{\index{S\-P\-I.\-h@{S\-P\-I.\-h}!spi\-Transceive@{spi\-Transceive}}
 \index{spi\-Transceive@{spi\-Transceive}!SPI.h@{S\-P\-I.\-h}}
 \subsubsection[{spi\-Transceive}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char spi\-Transceive (
 \begin{DoxyParamCaption}
-\item[{{\bf B\-Y\-T\-E}}]{data}
+\item[{unsigned char}]{data}
 \end{DoxyParamCaption}
-)}}\label{_s_p_i_8h_a4d2cd713b65091a59a9a2ee50b28bdf1}
+)}}\label{_s_p_i_8h_a7c12c0fba13e058def7883b526d40eb6}
 
 
 Send and receive a byte out of the M\-O\-S\-I line. 
@@ -91,4 +107,12 @@ Please note that even if you do not want to receive any data back from a S\-P\-I
 value The byte shifted in during transmit
 \end{DoxyReturn}
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000024}{Todo}]Make a function that will send a byte of data through the S\-P\-I and return whatever was sent back. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000020}{Todo}]Make a function that will send a byte of data through the S\-P\-I and return whatever was sent back. \end{DoxyRefDesc}
+
+
+Definition at line 29 of file S\-P\-I.\-c.
+
+
+
+Referenced by set\-D\-A\-C().
+

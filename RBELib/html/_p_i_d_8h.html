@@ -104,6 +104,7 @@ $(document).ready(function(){initNavTree('_p_i_d_8h.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -118,7 +119,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_p_i_d_8h__dep__incl.png" border="0" usemap="#include_2_r_b_e_lib_2_p_i_d_8hdep" alt=""/></div>
 <map name="include_2_r_b_e_lib_2_p_i_d_8hdep" id="include_2_r_b_e_lib_2_p_i_d_8hdep">
-<area shape="rect" id="node2" href="_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="179,80,351,107"/><area shape="rect" id="node3" href="_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,155,195,181"/><area shape="rect" id="node4" href="_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,155,312,181"/><area shape="rect" id="node5" href="_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,155,475,181"/></map>
+<area shape="rect" id="node2" href="_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="179,80,351,107"/><area shape="rect" id="node6" href="_p_i_d_8c.html" title="The source file for PID functions. " alt="" coords="375,80,453,107"/><area shape="rect" id="node3" href="_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,155,195,181"/><area shape="rect" id="node4" href="_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,155,312,181"/><area shape="rect" id="node5" href="_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,155,475,181"/></map>
 </div>
 </div>
 <p><a href="_p_i_d_8h_source.html">Go to the source code of this file.</a></p>
@@ -129,14 +130,25 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">PID constants.  <a href="structpid_const.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a25bfc943aa3ee41674eed19d92e439e3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_i_d_8h.html#a25bfc943aa3ee41674eed19d92e439e3">Link</a> { <a class="el" href="_p_i_d_8h.html#a25bfc943aa3ee41674eed19d92e439e3aa58f2eb5ad5005dfb23e93e14cadf159">kH</a>, 
+<a class="el" href="_p_i_d_8h.html#a25bfc943aa3ee41674eed19d92e439e3aaf5c113d60ed0f55428a8150effe44e0">kL</a>
+ }</td></tr>
+<tr class="memdesc:a25bfc943aa3ee41674eed19d92e439e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The different links in the arm.  <a href="_p_i_d_8h.html#a25bfc943aa3ee41674eed19d92e439e3">More...</a><br/></td></tr>
+<tr class="separator:a25bfc943aa3ee41674eed19d92e439e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2ffb511c1e18ce767f42422609dfa04d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_i_d_8h.html#a2ffb511c1e18ce767f42422609dfa04d">setConst</a> (char link, float Kp, float Ki, float Kd)</td></tr>
-<tr class="memdesc:a2ffb511c1e18ce767f42422609dfa04d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Kp, Ki, and Kd values for 1 link.  <a href="#a2ffb511c1e18ce767f42422609dfa04d">More...</a><br/></td></tr>
-<tr class="separator:a2ffb511c1e18ce767f42422609dfa04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b728f39f71526d44fd7cff0ce67319e"><td class="memItemLeft" align="right" valign="top">signed int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_i_d_8h.html#a0b728f39f71526d44fd7cff0ce67319e">calcPID</a> (char link, int setPoint, int actPos)</td></tr>
-<tr class="memdesc:a0b728f39f71526d44fd7cff0ce67319e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the PID value.  <a href="#a0b728f39f71526d44fd7cff0ce67319e">More...</a><br/></td></tr>
-<tr class="separator:a0b728f39f71526d44fd7cff0ce67319e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba5f75f15a4b29ba0b5c0d4be945117c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_i_d_8h.html#aba5f75f15a4b29ba0b5c0d4be945117c">setConst</a> (<a class="el" href="_p_i_d_8h.html#a25bfc943aa3ee41674eed19d92e439e3">Link</a> link, float Kp, float Ki, float Kd)</td></tr>
+<tr class="memdesc:aba5f75f15a4b29ba0b5c0d4be945117c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Kp, Ki, and Kd values for 1 link.  <a href="#aba5f75f15a4b29ba0b5c0d4be945117c">More...</a><br/></td></tr>
+<tr class="separator:aba5f75f15a4b29ba0b5c0d4be945117c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5654a960285d6cd0ccf4e48b7c94e24c"><td class="memItemLeft" align="right" valign="top">signed int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_i_d_8h.html#a5654a960285d6cd0ccf4e48b7c94e24c">calcPID</a> (<a class="el" href="_p_i_d_8h.html#a25bfc943aa3ee41674eed19d92e439e3">Link</a> link, int setPoint, int actPos)</td></tr>
+<tr class="memdesc:a5654a960285d6cd0ccf4e48b7c94e24c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the PID value.  <a href="#a5654a960285d6cd0ccf4e48b7c94e24c">More...</a><br/></td></tr>
+<tr class="separator:a5654a960285d6cd0ccf4e48b7c94e24c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb8a7bb79476d6bd6bfe73fe925b79a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_i_d_8h.html#acb8a7bb79476d6bd6bfe73fe925b79a1">calcFF</a> (<a class="el" href="_p_i_d_8h.html#a25bfc943aa3ee41674eed19d92e439e3">Link</a> link)</td></tr>
+<tr class="memdesc:acb8a7bb79476d6bd6bfe73fe925b79a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the Feed-Forward term.  <a href="#acb8a7bb79476d6bd6bfe73fe925b79a1">More...</a><br/></td></tr>
+<tr class="separator:acb8a7bb79476d6bd6bfe73fe925b79a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -149,17 +161,70 @@ Variables</h2></td></tr>
 <p>Sets the PID constants and calculate the PID value. </p>
 <dl class="section author"><dt>Author</dt><dd>Eric Willcox </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>August 17 2013 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>James Kuszmaul </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>September 10 2015 </dd></dl>
 
 <p>Definition in file <a class="el" href="_p_i_d_8h_source.html">PID.h</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a0b728f39f71526d44fd7cff0ce67319e"></a>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="a25bfc943aa3ee41674eed19d92e439e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_p_i_d_8h.html#a25bfc943aa3ee41674eed19d92e439e3">Link</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The different links in the arm. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a25bfc943aa3ee41674eed19d92e439e3aa58f2eb5ad5005dfb23e93e14cadf159"></a>kH</em>&#160;</td><td class="fielddoc">
+<p>Higher/farther out link. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a25bfc943aa3ee41674eed19d92e439e3aaf5c113d60ed0f55428a8150effe44e0"></a>kL</em>&#160;</td><td class="fielddoc">
+<p>Lower/inner link. </p>
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="_p_i_d_8h_source.html#l00061">61</a> of file <a class="el" href="_p_i_d_8h_source.html">PID.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="acb8a7bb79476d6bd6bfe73fe925b79a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int calcFF </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_p_i_d_8h.html#a25bfc943aa3ee41674eed19d92e439e3">Link</a>&#160;</td>
+          <td class="paramname"><em>link</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the Feed-Forward term. </p>
+<p>Calculates the output necessary to keep the specified link in some pre-determined "neutral" state. At its simplist, this will perform a rudimentary gravity compensation. A more sophisticated feed-forward function would also handle motion profiling or the such. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">link</td><td>Which link to calculate the feed-forward term&ndash;Ends up calling a helper function for either link. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The voltage to apply to the corresponding motor, in millivolts. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5654a960285d6cd0ccf4e48b7c94e24c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">signed int calcPID </td>
           <td>(</td>
-          <td class="paramtype">char&#160;</td>
+          <td class="paramtype"><a class="el" href="_p_i_d_8h.html#a25bfc943aa3ee41674eed19d92e439e3">Link</a>&#160;</td>
           <td class="paramname"><em>link</em>, </td>
         </tr>
         <tr>
@@ -185,24 +250,27 @@ Variables</h2></td></tr>
 <p>Calculate the PID value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">link</td><td>Which link to calculate the error for (Use 'U' and 'L'). </td></tr>
+    <tr><td class="paramname">link</td><td>Which link to calculate the error for (Use kH and kL). </td></tr>
     <tr><td class="paramname">setPoint</td><td>The desired position of the link. </td></tr>
-    <tr><td class="paramname">actPos</td><td>The current position of the link.</td></tr>
+    <tr><td class="paramname">actPos</td><td>The current position of the link. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>Make a function to calculate the PID value for a link. </dd></dl>
+
+<p>Definition at line <a class="el" href="_p_i_d_8c_source.html#l00030">30</a> of file <a class="el" href="_p_i_d_8c_source.html">PID.c</a>.</p>
+
+<p>References <a class="el" href="_p_i_d_8h_source.html#l00035">pidConst::Kd_H</a>, <a class="el" href="_p_i_d_8h_source.html#l00062">kH</a>, <a class="el" href="_p_i_d_8h_source.html#l00031">pidConst::Ki_H</a>, <a class="el" href="_p_i_d_8h_source.html#l00027">pidConst::Kp_H</a>, and <a class="el" href="constants_8h_source.html#l00016">kVMotor</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2ffb511c1e18ce767f42422609dfa04d"></a>
+<a class="anchor" id="aba5f75f15a4b29ba0b5c0d4be945117c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void setConst </td>
           <td>(</td>
-          <td class="paramtype">char&#160;</td>
+          <td class="paramtype"><a class="el" href="_p_i_d_8h.html#a25bfc943aa3ee41674eed19d92e439e3">Link</a>&#160;</td>
           <td class="paramname"><em>link</em>, </td>
         </tr>
         <tr>
@@ -236,14 +304,17 @@ Variables</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code" href="structpid_const.html">pidConst</a>.Kp = 1.3; </div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">link</td><td>The link you want to set the values for (H or L). </td></tr>
+    <tr><td class="paramname">link</td><td>The link you want to set the values for (kH or kL). </td></tr>
     <tr><td class="paramname">Kp</td><td>Proportional value. </td></tr>
     <tr><td class="paramname">Ki</td><td>Integral value. </td></tr>
-    <tr><td class="paramname">Kd</td><td>Derivative value.</td></tr>
+    <tr><td class="paramname">Kd</td><td>Derivative value. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>Create a function to the the PID constants for a given link. </dd></dl>
+
+<p>Definition at line <a class="el" href="_p_i_d_8c_source.html#l00015">15</a> of file <a class="el" href="_p_i_d_8c_source.html">PID.c</a>.</p>
+
+<p>References <a class="el" href="_p_i_d_8h_source.html#l00035">pidConst::Kd_H</a>, <a class="el" href="_p_i_d_8h_source.html#l00047">pidConst::Kd_L</a>, <a class="el" href="_p_i_d_8h_source.html#l00062">kH</a>, <a class="el" href="_p_i_d_8h_source.html#l00031">pidConst::Ki_H</a>, <a class="el" href="_p_i_d_8h_source.html#l00043">pidConst::Ki_L</a>, <a class="el" href="_p_i_d_8h_source.html#l00063">kL</a>, <a class="el" href="_p_i_d_8h_source.html#l00027">pidConst::Kp_H</a>, and <a class="el" href="_p_i_d_8h_source.html#l00039">pidConst::Kp_L</a>.</p>
 
 </div>
 </div>
@@ -262,6 +333,8 @@ Variables</h2></td></tr>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>Again, do not forget to use<div class="fragment"><div class="line"><a class="code" href="structpid_const.html">pidConst</a> <a class="code" href="_p_i_d_8h.html#a4d2fc78b5924045bcc0e20fc95e18d97">pidConsts</a>; </div>
 </div><!-- fragment --> in any file you access them in! </dd></dl>
 
+<p>Definition at line <a class="el" href="_p_i_d_8c_source.html#l00013">13</a> of file <a class="el" href="_p_i_d_8c_source.html">PID.c</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -270,7 +343,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_58942166834761cfd2ca6b530feb6b8f.html">RBELib</a></li><li class="navelem"><a class="el" href="_p_i_d_8h.html">PID.h</a></li>
-    <li class="footer">Generated on Sun Sep 6 2015 13:36:34 for RBELib by
+    <li class="footer">Generated on Thu Sep 10 2015 16:26:46 for RBELib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

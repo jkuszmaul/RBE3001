@@ -8,10 +8,10 @@
 <area shape="rect" id="node15" href="$_periph_8h.html" title="The header file and function prototypes for the peripherals (IR, encoder and accelerometer). " alt="" coords="1195,80,1265,107"/>
 <area shape="rect" id="node16" href="$pot_8h.html" title="The header file and function prototypes for the potentiometers. " alt="" coords="1291,80,1341,107"/>
 <area shape="rect" id="node17" href="$_p_i_d_8h.html" title="The header file for PID constants and calculations. " alt="" coords="1365,80,1420,107"/>
-<area shape="rect" id="node18" href="$reg__structs_8h.html" title="This file redefines some of the registers of the ATmega644p as structs to allow for easy access to in..." alt="" coords="1445,80,1544,107"/>
-<area shape="rect" id="node19" href="$ports_8h.html" title="Controls ports A &#45; D to be able to set direction, read a value and set a value for any pins desired..." alt="" coords="1691,155,1753,181"/>
-<area shape="rect" id="node20" href="$_s_p_i_8h.html" title="The header file and function prototypes for the SPI. " alt="" coords="1619,80,1673,107"/>
-<area shape="rect" id="node21" href="$_set_servo_8h.html" title="This file allows for using the SerSevo function to move the conveyor and gripper. ..." alt="" coords="1698,80,1784,107"/>
-<area shape="rect" id="node22" href="$_slave_selects_8h.html" title="Here are all of the SPI line constants such as select lines and direction registers that can be calle..." alt="" coords="1809,80,1919,107"/>
-<area shape="rect" id="node9" href="$util_8h.html" title="Useful definitions and constants; has things useful to all files. " alt="" coords="836,155,935,181"/>
+<area shape="rect" id="node18" href="$reg__structs_8h.html" title="This file redefines some of the registers of the ATmega644p as structs to allow for easy access to in..." alt="" coords="1620,155,1719,181"/>
+<area shape="rect" id="node19" href="$ports_8h.html" title="Controls ports A &#45; D to be able to set direction, read a value and set a value for any pins desired..." alt="" coords="1783,155,1845,181"/>
+<area shape="rect" id="node20" href="$_s_p_i_8h.html" title="The header file and function prototypes for the SPI. " alt="" coords="1446,80,1500,107"/>
+<area shape="rect" id="node21" href="$_set_servo_8h.html" title="This file allows for using the SerSevo function to move the conveyor and gripper. ..." alt="" coords="1525,80,1611,107"/>
+<area shape="rect" id="node22" href="$_slave_selects_8h.html" title="Here are all of the SPI line constants such as select lines and direction registers that can be calle..." alt="" coords="1687,80,1797,107"/>
+<area shape="rect" id="node9" href="$util_8h.html" title="Useful definitions and constants; has things useful to all files. " alt="" coords="1257,155,1356,181"/>
 </map>

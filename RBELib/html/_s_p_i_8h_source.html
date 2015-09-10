@@ -110,21 +110,23 @@ $(document).ready(function(){initNavTree('_s_p_i_8h_source.html','');});
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifndef SPI_H_</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SPI_H_</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_s_p_i_8h.html#a070402cc6c1cae693d10f59f9c483f76">initSPI</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="_s_p_i_8h.html#a4d2cd713b65091a59a9a2ee50b28bdf1">spiTransceive</a>(<a class="code" href="_r_b_e_lib_8h.html#aec93e83855ac17c3c25c55c37ca186dd">BYTE</a> data);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SPI_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="_s_p_i_8h_html_a4d2cd713b65091a59a9a2ee50b28bdf1"><div class="ttname"><a href="_s_p_i_8h.html#a4d2cd713b65091a59a9a2ee50b28bdf1">spiTransceive</a></div><div class="ttdeci">unsigned char spiTransceive(BYTE data)</div><div class="ttdoc">Send and receive a byte out of the MOSI line. </div></div>
-<div class="ttc" id="_r_b_e_lib_8h_html_aec93e83855ac17c3c25c55c37ca186dd"><div class="ttname"><a href="_r_b_e_lib_8h.html#aec93e83855ac17c3c25c55c37ca186dd">BYTE</a></div><div class="ttdeci">#define BYTE</div><div class="ttdef"><b>Definition:</b> <a href="_r_b_e_lib_8h_source.html#l00040">RBELib.h:40</a></div></div>
-<div class="ttc" id="_s_p_i_8h_html_a070402cc6c1cae693d10f59f9c483f76"><div class="ttname"><a href="_s_p_i_8h.html#a070402cc6c1cae693d10f59f9c483f76">initSPI</a></div><div class="ttdeci">void initSPI()</div><div class="ttdoc">Initializes the SPI bus for communication with all of your SPI devices. </div></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="util_8h.html">RBELib/util.h</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_s_p_i_8h.html#a070402cc6c1cae693d10f59f9c483f76">initSPI</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="_s_p_i_8h.html#a7c12c0fba13e058def7883b526d40eb6">spiTransceive</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> data);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SPI_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="util_8h_html"><div class="ttname"><a href="util_8h.html">util.h</a></div><div class="ttdoc">Useful definitions and constants; has things useful to all files. </div></div>
+<div class="ttc" id="_s_p_i_8h_html_a7c12c0fba13e058def7883b526d40eb6"><div class="ttname"><a href="_s_p_i_8h.html#a7c12c0fba13e058def7883b526d40eb6">spiTransceive</a></div><div class="ttdeci">unsigned char spiTransceive(unsigned char data)</div><div class="ttdoc">Send and receive a byte out of the MOSI line. </div><div class="ttdef"><b>Definition:</b> <a href="_s_p_i_8c_source.html#l00029">SPI.c:29</a></div></div>
+<div class="ttc" id="_s_p_i_8h_html_a070402cc6c1cae693d10f59f9c483f76"><div class="ttname"><a href="_s_p_i_8h.html#a070402cc6c1cae693d10f59f9c483f76">initSPI</a></div><div class="ttdeci">void initSPI()</div><div class="ttdoc">Initializes the SPI bus for communication with all of your SPI devices. </div><div class="ttdef"><b>Definition:</b> <a href="_s_p_i_8c_source.html#l00005">SPI.c:5</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_58942166834761cfd2ca6b530feb6b8f.html">RBELib</a></li><li class="navelem"><a class="el" href="_s_p_i_8h.html">SPI.h</a></li>
-    <li class="footer">Generated on Sun Sep 6 2015 13:36:34 for RBELib by
+    <li class="footer">Generated on Thu Sep 10 2015 16:26:46 for RBELib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

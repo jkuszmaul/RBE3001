@@ -103,7 +103,6 @@ $(document).ready(function(){initNavTree('_set_servo_8h.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">SetServo.h File Reference</div>  </div>
@@ -112,7 +111,15 @@ $(document).ready(function(){initNavTree('_set_servo_8h.html','');});
 
 <p>This file allows for using the SerSevo function to move the conveyor and gripper.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;<a class="el" href="util_8h_source.html">RBELib/util.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for SetServo.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_set_servo_8h__incl.png" border="0" usemap="#include_2_r_b_e_lib_2_set_servo_8h" alt=""/></div>
+<map name="include_2_r_b_e_lib_2_set_servo_8h" id="include_2_r_b_e_lib_2_set_servo_8h">
+<area shape="rect" id="node2" href="util_8h.html" title="Useful definitions and constants; has things useful to all files. " alt="" coords="47,80,145,107"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_set_servo_8h__dep__incl.png" border="0" usemap="#include_2_r_b_e_lib_2_set_servo_8hdep" alt=""/></div>
@@ -122,11 +129,6 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="_set_servo_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a4b355291fe6b8ba8e167ab0faa862e45"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_set_servo_8h.html#a4b355291fe6b8ba8e167ab0faa862e45">CLK</a>&#160;&#160;&#160;18432000</td></tr>
-<tr class="separator:a4b355291fe6b8ba8e167ab0faa862e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aacba653c33e27af6b2ea227100a4217b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_set_servo_8h.html#aacba653c33e27af6b2ea227100a4217b">setServo</a> (int Pin, int Value)</td></tr>
@@ -150,24 +152,7 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>July 9, 2014 </dd></dl>
 
 <p>Definition in file <a class="el" href="_set_servo_8h_source.html">SetServo.h</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a4b355291fe6b8ba8e167ab0faa862e45"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CLK&#160;&#160;&#160;18432000</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_set_servo_8h_source.html#l00016">16</a> of file <a class="el" href="_set_servo_8h_source.html">SetServo.h</a>.</p>
-
-<p>Referenced by <a class="el" href="_u_s_a_r_t_debug_8c_source.html#l00004">debugUSARTInit()</a>, and <a class="el" href="_set_servo_8c_source.html#l00028">initAltCom()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a3d09a92ac746ecc79b3b6b107357853b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -231,7 +216,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="_set_servo_8c_source.html#l00028">28</a> of file <a class="el" href="_set_servo_8c_source.html">SetServo.c</a>.</p>
 
-<p>References <a class="el" href="_set_servo_8h_source.html#l00016">CLK</a>.</p>
+<p>References <a class="el" href="util_8h_source.html#l00021">CLK</a>.</p>
 
 <p>Referenced by <a class="el" href="_debug_8c_source.html#l00020">initRBELib()</a>.</p>
 
@@ -319,7 +304,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_58942166834761cfd2ca6b530feb6b8f.html">RBELib</a></li><li class="navelem"><a class="el" href="_set_servo_8h.html">SetServo.h</a></li>
-    <li class="footer">Generated on Sun Sep 6 2015 13:36:34 for RBELib by
+    <li class="footer">Generated on Thu Sep 10 2015 16:26:46 for RBELib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -30,6 +30,8 @@ void \hyperlink{_a_d_c_8h_a3eef680fc13f11498db80fb145cab8f9}{clear\-A\-D\-C} (in
 \begin{DoxyCompactList}\small\item\em Disables A\-D\-C functionality and clears any saved values (globals). \end{DoxyCompactList}\item 
 unsigned short \hyperlink{_a_d_c_8h_a9f560657fb624f98de3161651f3d4385}{get\-A\-D\-C} (int channel)
 \begin{DoxyCompactList}\small\item\em Run a conversion on and get the analog value from one A\-D\-C channel if using polling. \end{DoxyCompactList}\item 
+unsigned short \hyperlink{_a_d_c_8h_aab5eebc7e8126782ed8fb99342c60307}{get\-A\-D\-C\-Free} ()
+\begin{DoxyCompactList}\small\item\em Get the value of the A\-D\-C register as is, without specifically requesting a new conversion or turning off interrupts, automatic triggering, etc. \end{DoxyCompactList}\item 
 void \hyperlink{_a_d_c_8h_a8174ca24b578eaf4f82f44d6ce44edb0}{change\-A\-D\-C} (int channel)
 \begin{DoxyCompactList}\small\item\em Change the channel the A\-D\-C is sampling if using interrupts. \end{DoxyCompactList}\item 
 void \hyperlink{_a_d_c_8h_acd2751a0c4ae955ba04fecb437e5e3ee}{set\-A\-D\-C\-Interrupt} (\hyperlink{util_8h_a2ea70e584dc7d96d23100e22c4a51695}{Callback} callback)
@@ -82,7 +84,7 @@ Change the channel the A\-D\-C is sampling if using interrupts.
 \item[\hyperlink{todo__todo000003}{Todo}]Create a way to switch A\-D\-C channels if you are using interrupts. \end{DoxyRefDesc}
 
 
-Definition at line 60 of file A\-D\-C.\-c.
+Definition at line 65 of file A\-D\-C.\-c.
 
 
 
@@ -106,7 +108,7 @@ Disables A\-D\-C functionality and clears any saved values (globals).
 \end{DoxyParams}
 
 
-Definition at line 39 of file A\-D\-C.\-c.
+Definition at line 40 of file A\-D\-C.\-c.
 
 \hypertarget{_a_d_c_8h_a9f560657fb624f98de3161651f3d4385}{\index{A\-D\-C.\-h@{A\-D\-C.\-h}!get\-A\-D\-C@{get\-A\-D\-C}}
 \index{get\-A\-D\-C@{get\-A\-D\-C}!ADC.h@{A\-D\-C.\-h}}
@@ -133,11 +135,15 @@ adc\-Val The 8-\/10 bit value returned by the A\-D\-C conversion. The precision 
 \item[\hyperlink{todo__todo000002}{Todo}]Create the corresponding function to obtain the value of the last calculation if you are using polling. \end{DoxyRefDesc}
 
 
-Definition at line 44 of file A\-D\-C.\-c.
+Definition at line 45 of file A\-D\-C.\-c.
 
 
 
 References change\-A\-D\-C().
+
+
+
+Referenced by get\-Current(), pot\-Angle(), and pot\-Volts().
 
 
 
@@ -149,6 +155,21 @@ Here is the call graph for this function\-:\nopagebreak
 \end{center}
 \end{figure}
 
+
+\hypertarget{_a_d_c_8h_aab5eebc7e8126782ed8fb99342c60307}{\index{A\-D\-C.\-h@{A\-D\-C.\-h}!get\-A\-D\-C\-Free@{get\-A\-D\-C\-Free}}
+\index{get\-A\-D\-C\-Free@{get\-A\-D\-C\-Free}!ADC.h@{A\-D\-C.\-h}}
+\subsubsection[{get\-A\-D\-C\-Free}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short get\-A\-D\-C\-Free (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_a_d_c_8h_aab5eebc7e8126782ed8fb99342c60307}
+
+
+Get the value of the A\-D\-C register as is, without specifically requesting a new conversion or turning off interrupts, automatic triggering, etc. 
+
+
+
+Definition at line 61 of file A\-D\-C.\-c.
 
 \hypertarget{_a_d_c_8h_a9c2a3351c429e7ad5ed4458495f56852}{\index{A\-D\-C.\-h@{A\-D\-C.\-h}!init\-A\-D\-C@{init\-A\-D\-C}}
 \index{init\-A\-D\-C@{init\-A\-D\-C}!ADC.h@{A\-D\-C.\-h}}
@@ -196,5 +217,5 @@ Set the function to be called when an A\-D\-C interrupt is triggered. This funct
 \end{DoxyParams}
 
 
-Definition at line 74 of file A\-D\-C.\-c.
+Definition at line 79 of file A\-D\-C.\-c.
 

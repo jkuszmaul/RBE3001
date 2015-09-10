@@ -124,7 +124,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_a_d_c_8h__dep__incl.png" border="0" usemap="#include_2_r_b_e_lib_2_a_d_c_8hdep" alt=""/></div>
 <map name="include_2_r_b_e_lib_2_a_d_c_8hdep" id="include_2_r_b_e_lib_2_a_d_c_8hdep">
-<area shape="rect" id="node2" href="_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="179,80,351,107"/><area shape="rect" id="node6" href="_a_d_c_8c.html" title="src/ADC.c" alt="" coords="375,80,459,107"/><area shape="rect" id="node3" href="_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,155,195,181"/><area shape="rect" id="node4" href="_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,155,312,181"/><area shape="rect" id="node5" href="_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,155,475,181"/></map>
+<area shape="rect" id="node2" href="_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="179,80,351,107"/><area shape="rect" id="node6" href="_a_d_c_8c.html" title="src/ADC.c" alt="" coords="375,80,459,107"/><area shape="rect" id="node7" href="pot_8c.html" title="src/pot.c" alt="" coords="483,80,556,107"/><area shape="rect" id="node3" href="_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,155,195,181"/><area shape="rect" id="node4" href="_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,155,312,181"/><area shape="rect" id="node5" href="_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,155,475,181"/></map>
 </div>
 </div>
 <p><a href="_a_d_c_8h_source.html">Go to the source code of this file.</a></p>
@@ -140,6 +140,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a9f560657fb624f98de3161651f3d4385"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c_8h.html#a9f560657fb624f98de3161651f3d4385">getADC</a> (int channel)</td></tr>
 <tr class="memdesc:a9f560657fb624f98de3161651f3d4385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run a conversion on and get the analog value from one ADC channel if using polling.  <a href="#a9f560657fb624f98de3161651f3d4385">More...</a><br/></td></tr>
 <tr class="separator:a9f560657fb624f98de3161651f3d4385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab5eebc7e8126782ed8fb99342c60307"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c_8h.html#aab5eebc7e8126782ed8fb99342c60307">getADCFree</a> ()</td></tr>
+<tr class="memdesc:aab5eebc7e8126782ed8fb99342c60307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of the ADC register as is, without specifically requesting a new conversion or turning off interrupts, automatic triggering, etc.  <a href="#aab5eebc7e8126782ed8fb99342c60307">More...</a><br/></td></tr>
+<tr class="separator:aab5eebc7e8126782ed8fb99342c60307"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8174ca24b578eaf4f82f44d6ce44edb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c_8h.html#a8174ca24b578eaf4f82f44d6ce44edb0">changeADC</a> (int channel)</td></tr>
 <tr class="memdesc:a8174ca24b578eaf4f82f44d6ce44edb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the channel the ADC is sampling if using interrupts.  <a href="#a8174ca24b578eaf4f82f44d6ce44edb0">More...</a><br/></td></tr>
 <tr class="separator:a8174ca24b578eaf4f82f44d6ce44edb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,9 +188,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Create a way to switch ADC channels if you are using interrupts. </dd></dl>
 
-<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00060">60</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
+<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00065">65</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
 
-<p>Referenced by <a class="el" href="_a_d_c_8c_source.html#l00044">getADC()</a>.</p>
+<p>Referenced by <a class="el" href="_a_d_c_8c_source.html#l00045">getADC()</a>.</p>
 
 </div>
 </div>
@@ -213,7 +216,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00039">39</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
+<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00040">40</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
 
 </div>
 </div>
@@ -242,9 +245,11 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>adcVal The 8-10 bit value returned by the ADC conversion. The precision depends on your settings and how much accuracy you desire.</dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Create the corresponding function to obtain the value of the last calculation if you are using polling. </dd></dl>
 
-<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00044">44</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
+<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00045">45</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
 
-<p>References <a class="el" href="_a_d_c_8c_source.html#l00060">changeADC()</a>.</p>
+<p>References <a class="el" href="_a_d_c_8c_source.html#l00065">changeADC()</a>.</p>
+
+<p>Referenced by <a class="el" href="drive_8c_source.html#l00016">getCurrent()</a>, <a class="el" href="pot_8c_source.html#l00005">potAngle()</a>, and <a class="el" href="pot_8c_source.html#l00011">potVolts()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -254,6 +259,25 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node2" href="_a_d_c_8c.html#a8174ca24b578eaf4f82f44d6ce44edb0" title="Change the channel the ADC is sampling if using interrupts. " alt="" coords="123,5,216,32"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="aab5eebc7e8126782ed8fb99342c60307"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short getADCFree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the value of the ADC register as is, without specifically requesting a new conversion or turning off interrupts, automatic triggering, etc. </p>
+
+<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00061">61</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
 
 </div>
 </div>
@@ -324,7 +348,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00074">74</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
+<p>Definition at line <a class="el" href="_a_d_c_8c_source.html#l00079">79</a> of file <a class="el" href="_a_d_c_8c_source.html">ADC.c</a>.</p>
 
 </div>
 </div>
@@ -334,7 +358,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_58942166834761cfd2ca6b530feb6b8f.html">RBELib</a></li><li class="navelem"><a class="el" href="_a_d_c_8h.html">ADC.h</a></li>
-    <li class="footer">Generated on Sun Sep 6 2015 13:36:34 for RBELib by
+    <li class="footer">Generated on Thu Sep 10 2015 16:26:46 for RBELib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

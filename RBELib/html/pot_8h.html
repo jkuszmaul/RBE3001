@@ -116,7 +116,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="pot_8h__dep__incl.png" border="0" usemap="#include_2_r_b_e_lib_2pot_8hdep" alt=""/></div>
 <map name="include_2_r_b_e_lib_2pot_8hdep" id="include_2_r_b_e_lib_2pot_8hdep">
-<area shape="rect" id="node2" href="_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="179,80,351,107"/><area shape="rect" id="node3" href="_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,155,195,181"/><area shape="rect" id="node4" href="_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,155,312,181"/><area shape="rect" id="node5" href="_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,155,475,181"/></map>
+<area shape="rect" id="node2" href="_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="179,80,351,107"/><area shape="rect" id="node6" href="pot_8c.html" title="src/pot.c" alt="" coords="375,80,448,107"/><area shape="rect" id="node3" href="_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,155,195,181"/><area shape="rect" id="node4" href="_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,155,312,181"/><area shape="rect" id="node5" href="_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,155,475,181"/></map>
 </div>
 </div>
 <p><a href="pot_8h_source.html">Go to the source code of this file.</a></p>
@@ -155,12 +155,24 @@ Functions</h2></td></tr>
 <p>Find the angle of the given potentiometer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pot</td><td>The pot to check. </td></tr>
+    <tr><td class="paramname">pot</td><td>The pot port to check. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>angle Angle of the potentiometer.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000021">Todo:</a></b></dt><dd>Calculate the angle using the ADC reading. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>angle Angle (in hundredths of a radian) of the potentiometer. </dd></dl>
+
+<p>Definition at line <a class="el" href="pot_8c_source.html#l00005">5</a> of file <a class="el" href="pot_8c_source.html">pot.c</a>.</p>
+
+<p>References <a class="el" href="_a_d_c_8c_source.html#l00045">getADC()</a>, <a class="el" href="constants_8h_source.html#l00009">kPotRawToAngleScale</a>, and <a class="el" href="constants_8h_source.html#l00012">kRawOffset</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="pot_8h_a6572afa21880ee8fe8e834b7167e111b_cgraph.png" border="0" usemap="#pot_8h_a6572afa21880ee8fe8e834b7167e111b_cgraph" alt=""/></div>
+<map name="pot_8h_a6572afa21880ee8fe8e834b7167e111b_cgraph" id="pot_8h_a6572afa21880ee8fe8e834b7167e111b_cgraph">
+<area shape="rect" id="node2" href="_a_d_c_8h.html#a9f560657fb624f98de3161651f3d4385" title="Run a conversion on and get the analog value from one ADC channel if using polling. " alt="" coords="128,5,197,32"/><area shape="rect" id="node3" href="_a_d_c_8c.html#a8174ca24b578eaf4f82f44d6ce44edb0" title="Change the channel the ADC is sampling if using interrupts. " alt="" coords="245,5,339,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -181,12 +193,24 @@ Functions</h2></td></tr>
 <p>Find the voltage value of the given potentiometer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pot</td><td>The pot to get the value of. </td></tr>
+    <tr><td class="paramname">pot</td><td>The pot port to get the value of. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>volts Voltage of potentiometer.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>Convert the ADC value into a voltage in mV (so no floats needed). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>volts Voltage (in millivolts) of potentiometer. </dd></dl>
+
+<p>Definition at line <a class="el" href="pot_8c_source.html#l00011">11</a> of file <a class="el" href="pot_8c_source.html">pot.c</a>.</p>
+
+<p>References <a class="el" href="_a_d_c_8c_source.html#l00045">getADC()</a>, and <a class="el" href="constants_8h_source.html#l00013">kPotRawToVolts</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="pot_8h_ac8f71572a099805fc4cfcc793260e98b_cgraph.png" border="0" usemap="#pot_8h_ac8f71572a099805fc4cfcc793260e98b_cgraph" alt=""/></div>
+<map name="pot_8h_ac8f71572a099805fc4cfcc793260e98b_cgraph" id="pot_8h_ac8f71572a099805fc4cfcc793260e98b_cgraph">
+<area shape="rect" id="node2" href="_a_d_c_8h.html#a9f560657fb624f98de3161651f3d4385" title="Run a conversion on and get the analog value from one ADC channel if using polling. " alt="" coords="125,5,195,32"/><area shape="rect" id="node3" href="_a_d_c_8c.html#a8174ca24b578eaf4f82f44d6ce44edb0" title="Change the channel the ADC is sampling if using interrupts. " alt="" coords="243,5,336,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -196,7 +220,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_58942166834761cfd2ca6b530feb6b8f.html">RBELib</a></li><li class="navelem"><a class="el" href="pot_8h.html">pot.h</a></li>
-    <li class="footer">Generated on Sun Sep 6 2015 13:36:34 for RBELib by
+    <li class="footer">Generated on Thu Sep 10 2015 16:26:46 for RBELib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

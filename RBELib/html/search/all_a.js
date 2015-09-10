@@ -5,7 +5,7 @@ var searchData=
   ['initaltcom',['initAltCom',['../_set_servo_8h.html#acf43396e8eedf7c983cb59202c5af432',1,'initAltCom(unsigned long baudrate):&#160;SetServo.c'],['../_set_servo_8c.html#acf43396e8eedf7c983cb59202c5af432',1,'initAltCom(unsigned long baudrate):&#160;SetServo.c']]],
   ['initpwm',['initPWM',['../timer_8h.html#a1479422bfc0204296fd16ae7dd7ae915',1,'initPWM(unsigned char timer):&#160;timer.c'],['../timer_8c.html#a1479422bfc0204296fd16ae7dd7ae915',1,'initPWM(unsigned char timer):&#160;timer.c']]],
   ['initrbelib',['initRBELib',['../_debug_8h.html#af447ccfe0edd5c2eee6ff9aba36bd6f9',1,'initRBELib():&#160;Debug.c'],['../_debug_8c.html#af447ccfe0edd5c2eee6ff9aba36bd6f9',1,'initRBELib():&#160;Debug.c']]],
-  ['initspi',['initSPI',['../_s_p_i_8h.html#a070402cc6c1cae693d10f59f9c483f76',1,'SPI.h']]],
+  ['initspi',['initSPI',['../_s_p_i_8h.html#a070402cc6c1cae693d10f59f9c483f76',1,'initSPI():&#160;SPI.c'],['../_s_p_i_8c.html#a070402cc6c1cae693d10f59f9c483f76',1,'initSPI():&#160;SPI.c']]],
   ['inittimer',['initTimer',['../timer_8h.html#a656bb5d0e209ac041910cbdbf43c7dd9',1,'initTimer(int timer, int mode, unsigned long comp):&#160;timer.c'],['../timer_8c.html#a656bb5d0e209ac041910cbdbf43c7dd9',1,'initTimer(int timer, int mode, unsigned long comp):&#160;timer.c']]],
   ['input',['INPUT',['../_r_b_e_lib_8h.html#a1bb283bd7893b9855e2f23013891fc82',1,'RBELib.h']]],
   ['int32',['INT32',['../_r_b_e_lib_8h.html#aac92c5ec332dafe0abb24688dad1b795',1,'RBELib.h']]],

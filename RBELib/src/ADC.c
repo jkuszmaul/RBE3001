@@ -58,6 +58,10 @@ unsigned short getADC(int channel) {
   return ADC;
 }
 
+unsigned short getADCFree() {
+  return ADC;
+}
+
 void changeADC(int channel) {
   // Only 7 ADC channel; values 8-31 would be a comparator, higher would affect
   // other bits in ADMUX.

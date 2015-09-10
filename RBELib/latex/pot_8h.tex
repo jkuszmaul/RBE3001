@@ -49,14 +49,31 @@ Find the angle of the given potentiometer.
 
 
 \begin{DoxyParams}{Parameters}
-{\em pot} & The pot to check. \\
+{\em pot} & The pot port to check. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-angle Angle of the potentiometer.
+angle Angle (in hundredths of a radian) of the potentiometer. 
 \end{DoxyReturn}
-\begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000021}{Todo}]Calculate the angle using the A\-D\-C reading. \end{DoxyRefDesc}
+
+
+Definition at line 5 of file pot.\-c.
+
+
+
+References get\-A\-D\-C(), k\-Pot\-Raw\-To\-Angle\-Scale, and k\-Raw\-Offset.
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{pot_8h_a6572afa21880ee8fe8e834b7167e111b_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{pot_8h_ac8f71572a099805fc4cfcc793260e98b}{\index{pot.\-h@{pot.\-h}!pot\-Volts@{pot\-Volts}}
 \index{pot\-Volts@{pot\-Volts}!pot.h@{pot.\-h}}
 \subsubsection[{pot\-Volts}]{\setlength{\rightskip}{0pt plus 5cm}int pot\-Volts (
@@ -70,11 +87,28 @@ Find the voltage value of the given potentiometer.
 
 
 \begin{DoxyParams}{Parameters}
-{\em pot} & The pot to get the value of. \\
+{\em pot} & The pot port to get the value of. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-volts Voltage of potentiometer.
+volts Voltage (in millivolts) of potentiometer. 
 \end{DoxyReturn}
-\begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000022}{Todo}]Convert the A\-D\-C value into a voltage in m\-V (so no floats needed). \end{DoxyRefDesc}
+
+
+Definition at line 11 of file pot.\-c.
+
+
+
+References get\-A\-D\-C(), and k\-Pot\-Raw\-To\-Volts.
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{pot_8h_ac8f71572a099805fc4cfcc793260e98b_cgraph}
+\end{center}
+\end{figure}
+
+

@@ -26,6 +26,8 @@
 #ifndef SPI_H_
 #define SPI_H_
 
+#include "RBELib/util.h"
+
 /**
  * @brief Initializes the SPI bus for communication with all of your
  * SPI devices.
@@ -49,6 +51,6 @@ void initSPI();
  * @todo Make a function that will send a byte of data through the SPI
  * and return whatever was sent back.
  */
-unsigned char spiTransceive(BYTE data);
+unsigned char spiTransceive(unsigned char data);
 
 #endif /* SPI_H_ */

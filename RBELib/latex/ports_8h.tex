@@ -18,9 +18,9 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \item 
 void \hyperlink{ports_8h_a1b62a36451c75cf20221c12f039ad6f4}{set\-Pins\-Dir} (char port, int dir, char num\-Pins,...)
 \begin{DoxyCompactList}\small\item\em Sets the direction (Input/\-Output) of the specified pins. \end{DoxyCompactList}\item 
-unsigned char \hyperlink{ports_8h_a85e9d6d0f75513f3f961c41861299430}{get\-Pins\-Val} (char port, int num\-Pins,...)
+unsigned char \hyperlink{ports_8h_ab7026077c8929553713b2884b1730e7a}{get\-Pins\-Val} (char port, char num\-Pins,...)
 \begin{DoxyCompactList}\small\item\em Gets the value on the specified pins of a port. \end{DoxyCompactList}\item 
-void \hyperlink{ports_8h_afd809b04181b31d8567d95f070bb9034}{set\-Pins\-Val} (char port, int val, int num\-Pins,...)
+void \hyperlink{ports_8h_adb1daee6b24466eff4584fb632b5aeac}{set\-Pins\-Val} (char port, int val, char num\-Pins,...)
 \begin{DoxyCompactList}\small\item\em Sets the value on the specified pins of a port. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -54,15 +54,15 @@ Definition in file \hyperlink{ports_8h_source}{ports.\-h}.
 
 
 \subsection{Function Documentation}
-\hypertarget{ports_8h_a85e9d6d0f75513f3f961c41861299430}{\index{ports.\-h@{ports.\-h}!get\-Pins\-Val@{get\-Pins\-Val}}
+\hypertarget{ports_8h_ab7026077c8929553713b2884b1730e7a}{\index{ports.\-h@{ports.\-h}!get\-Pins\-Val@{get\-Pins\-Val}}
 \index{get\-Pins\-Val@{get\-Pins\-Val}!ports.h@{ports.\-h}}
 \subsubsection[{get\-Pins\-Val}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char get\-Pins\-Val (
 \begin{DoxyParamCaption}
 \item[{char}]{port, }
-\item[{int}]{num\-Pins, }
+\item[{char}]{num\-Pins, }
 \item[{}]{...}
 \end{DoxyParamCaption}
-)}}\label{ports_8h_a85e9d6d0f75513f3f961c41861299430}
+)}}\label{ports_8h_ab7026077c8929553713b2884b1730e7a}
 
 
 Gets the value on the specified pins of a port. 
@@ -80,7 +80,11 @@ Gets the value on the specified pins of a port.
 value The value of the specified pins on the port.
 \end{DoxyReturn}
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000019}{Todo}]Create a way to read all given pins on a port. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000017}{Todo}]Create a way to read all given pins on a port. \end{DoxyRefDesc}
+
+
+Definition at line 39 of file ports.\-c.
+
 \hypertarget{ports_8h_a1b62a36451c75cf20221c12f039ad6f4}{\index{ports.\-h@{ports.\-h}!set\-Pins\-Dir@{set\-Pins\-Dir}}
 \index{set\-Pins\-Dir@{set\-Pins\-Dir}!ports.h@{ports.\-h}}
 \subsubsection[{set\-Pins\-Dir}]{\setlength{\rightskip}{0pt plus 5cm}void set\-Pins\-Dir (
@@ -103,21 +107,25 @@ Sets the direction (Input/\-Output) of the specified pins.
 \hline
 {\em num\-Pins} & The number of pins that you are setting the direction of. \\
 \hline
-{\em ...} & Pins one after another\\
+{\em ...} & Pins one after another (as integers).\\
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000018}{Todo}]Create a way to set a port's pins to inputs or outputs. \end{DoxyRefDesc}
-\hypertarget{ports_8h_afd809b04181b31d8567d95f070bb9034}{\index{ports.\-h@{ports.\-h}!set\-Pins\-Val@{set\-Pins\-Val}}
+\item[\hyperlink{todo__todo000016}{Todo}]Create a way to set a port's pins to inputs or outputs. \end{DoxyRefDesc}
+
+
+Definition at line 5 of file ports.\-c.
+
+\hypertarget{ports_8h_adb1daee6b24466eff4584fb632b5aeac}{\index{ports.\-h@{ports.\-h}!set\-Pins\-Val@{set\-Pins\-Val}}
 \index{set\-Pins\-Val@{set\-Pins\-Val}!ports.h@{ports.\-h}}
 \subsubsection[{set\-Pins\-Val}]{\setlength{\rightskip}{0pt plus 5cm}void set\-Pins\-Val (
 \begin{DoxyParamCaption}
 \item[{char}]{port, }
 \item[{int}]{val, }
-\item[{int}]{num\-Pins, }
+\item[{char}]{num\-Pins, }
 \item[{}]{...}
 \end{DoxyParamCaption}
-)}}\label{ports_8h_afd809b04181b31d8567d95f070bb9034}
+)}}\label{ports_8h_adb1daee6b24466eff4584fb632b5aeac}
 
 
 Sets the value on the specified pins of a port. 
@@ -134,4 +142,8 @@ Sets the value on the specified pins of a port.
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000020}{Todo}]Create a way to set all given pins on a port. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000018}{Todo}]Create a way to set all given pins on a port. \end{DoxyRefDesc}
+
+
+Definition at line 64 of file ports.\-c.
+

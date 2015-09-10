@@ -58,6 +58,13 @@ void clearADC(int channel);
 unsigned short getADC(int channel);
 
 /**
+ * @brief Get the value of the ADC register as is, without specifically
+ * requesting a new conversion or turning off interrupts, automatic triggering,
+ * etc.
+ */
+unsigned short getADCFree();
+
+/**
  * @brief Change the channel the ADC is sampling if using interrupts.
  *
  * @param channel  The ADC channel to switch to.

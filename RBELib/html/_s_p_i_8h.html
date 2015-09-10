@@ -111,12 +111,20 @@ $(document).ready(function(){initNavTree('_s_p_i_8h.html','');});
 
 <p>The header file and function prototypes for the SPI.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;<a class="el" href="util_8h_source.html">RBELib/util.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for SPI.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_s_p_i_8h__incl.png" border="0" usemap="#include_2_r_b_e_lib_2_s_p_i_8h" alt=""/></div>
+<map name="include_2_r_b_e_lib_2_s_p_i_8h" id="include_2_r_b_e_lib_2_s_p_i_8h">
+<area shape="rect" id="node2" href="util_8h.html" title="Useful definitions and constants; has things useful to all files. " alt="" coords="29,80,128,107"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_s_p_i_8h__dep__incl.png" border="0" usemap="#include_2_r_b_e_lib_2_s_p_i_8hdep" alt=""/></div>
 <map name="include_2_r_b_e_lib_2_s_p_i_8hdep" id="include_2_r_b_e_lib_2_s_p_i_8hdep">
-<area shape="rect" id="node2" href="_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="179,80,351,107"/><area shape="rect" id="node3" href="_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,155,195,181"/><area shape="rect" id="node4" href="_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,155,312,181"/><area shape="rect" id="node5" href="_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,155,475,181"/></map>
+<area shape="rect" id="node2" href="_r_b_e_lib_8h.html" title="This is a meta&#45;header. It includes all the other header files that are needed for RBELib as well as s..." alt="" coords="179,80,351,107"/><area shape="rect" id="node6" href="_d_a_c_8c.html" title="src/DAC.c" alt="" coords="375,80,459,107"/><area shape="rect" id="node7" href="_s_p_i_8c.html" title="src/SPI.c" alt="" coords="484,80,560,107"/><area shape="rect" id="node3" href="_set_servo_8c.html" title="Sending setServo() command to the coprocessor. " alt="" coords="5,155,195,181"/><area shape="rect" id="node4" href="_debug_8c.html" title="Allows for printf() and setServo() capability. " alt="" coords="219,155,312,181"/><area shape="rect" id="node5" href="_u_s_a_r_t_debug_8c.html" title="src/USARTDebug.c" alt="" coords="336,155,475,181"/></map>
 </div>
 </div>
 <p><a href="_s_p_i_8h_source.html">Go to the source code of this file.</a></p>
@@ -126,9 +134,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a070402cc6c1cae693d10f59f9c483f76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i_8h.html#a070402cc6c1cae693d10f59f9c483f76">initSPI</a> ()</td></tr>
 <tr class="memdesc:a070402cc6c1cae693d10f59f9c483f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SPI bus for communication with all of your SPI devices.  <a href="#a070402cc6c1cae693d10f59f9c483f76">More...</a><br/></td></tr>
 <tr class="separator:a070402cc6c1cae693d10f59f9c483f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d2cd713b65091a59a9a2ee50b28bdf1"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i_8h.html#a4d2cd713b65091a59a9a2ee50b28bdf1">spiTransceive</a> (<a class="el" href="_r_b_e_lib_8h.html#aec93e83855ac17c3c25c55c37ca186dd">BYTE</a> data)</td></tr>
-<tr class="memdesc:a4d2cd713b65091a59a9a2ee50b28bdf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send and receive a byte out of the MOSI line.  <a href="#a4d2cd713b65091a59a9a2ee50b28bdf1">More...</a><br/></td></tr>
-<tr class="separator:a4d2cd713b65091a59a9a2ee50b28bdf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c12c0fba13e058def7883b526d40eb6"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i_8h.html#a7c12c0fba13e058def7883b526d40eb6">spiTransceive</a> (unsigned char data)</td></tr>
+<tr class="memdesc:a7c12c0fba13e058def7883b526d40eb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send and receive a byte out of the MOSI line.  <a href="#a7c12c0fba13e058def7883b526d40eb6">More...</a><br/></td></tr>
+<tr class="separator:a7c12c0fba13e058def7883b526d40eb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The header file and function prototypes for the SPI. </p>
@@ -157,18 +165,22 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the SPI bus for communication with all of your SPI devices. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd>Create the function that will allow you to initialize the SPI in a mode compatible with all devices. Do not forget to deassert all of your SS lines! </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>Create the function that will allow you to initialize the SPI in a mode compatible with all devices. Do not forget to deassert all of your SS lines! </dd></dl>
+
+<p>Definition at line <a class="el" href="_s_p_i_8c_source.html#l00005">5</a> of file <a class="el" href="_s_p_i_8c_source.html">SPI.c</a>.</p>
+
+<p>References <a class="el" href="_slave_selects_8h_source.html#l00076">AUX_DAC_SS</a>, <a class="el" href="_slave_selects_8h_source.html#l00102">AUX_DAC_SS_ddr</a>, <a class="el" href="_slave_selects_8h_source.html#l00072">DAC_SS</a>, <a class="el" href="_slave_selects_8h_source.html#l00098">DAC_SS_ddr</a>, <a class="el" href="_slave_selects_8h_source.html#l00055">ENCODER_SS_0</a>, <a class="el" href="_slave_selects_8h_source.html#l00081">ENCODER_SS_0_ddr</a>, <a class="el" href="_slave_selects_8h_source.html#l00059">ENCODER_SS_1</a>, <a class="el" href="_slave_selects_8h_source.html#l00085">ENCODER_SS_1_ddr</a>, <a class="el" href="_slave_selects_8h_source.html#l00063">ENCODER_SS_2</a>, <a class="el" href="_slave_selects_8h_source.html#l00089">ENCODER_SS_2_ddr</a>, <a class="el" href="_slave_selects_8h_source.html#l00067">ENCODER_SS_3</a>, and <a class="el" href="_slave_selects_8h_source.html#l00093">ENCODER_SS_3_ddr</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4d2cd713b65091a59a9a2ee50b28bdf1"></a>
+<a class="anchor" id="a7c12c0fba13e058def7883b526d40eb6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">unsigned char spiTransceive </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_r_b_e_lib_8h.html#aec93e83855ac17c3c25c55c37ca186dd">BYTE</a>&#160;</td>
+          <td class="paramtype">unsigned char&#160;</td>
           <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
@@ -184,7 +196,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>value The byte shifted in during transmit</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000024">Todo:</a></b></dt><dd>Make a function that will send a byte of data through the SPI and return whatever was sent back. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000020">Todo:</a></b></dt><dd>Make a function that will send a byte of data through the SPI and return whatever was sent back. </dd></dl>
+
+<p>Definition at line <a class="el" href="_s_p_i_8c_source.html#l00029">29</a> of file <a class="el" href="_s_p_i_8c_source.html">SPI.c</a>.</p>
+
+<p>Referenced by <a class="el" href="_d_a_c_8c_source.html#l00005">setDAC()</a>.</p>
 
 </div>
 </div>
@@ -194,7 +210,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_58942166834761cfd2ca6b530feb6b8f.html">RBELib</a></li><li class="navelem"><a class="el" href="_s_p_i_8h.html">SPI.h</a></li>
-    <li class="footer">Generated on Sun Sep 6 2015 13:36:34 for RBELib by
+    <li class="footer">Generated on Thu Sep 10 2015 16:26:46 for RBELib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

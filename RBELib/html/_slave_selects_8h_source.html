@@ -112,53 +112,55 @@ $(document).ready(function(){initNavTree('_slave_selects_8h_source.html','');});
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//We need ports.h for using all of the structs</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ports_8h.html">ports.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#ab142cc77dfa97010c9d2b616d0992b64">   24</a></span>&#160;<span class="preprocessor">#define SPI_MISO    PORTBbits._P6</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a366f58da009f5d03b8753a41a5c57d84">   28</a></span>&#160;<span class="preprocessor">#define SPI_MISO_DDR  DDRBbits._P6</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a7dbebab5f7dd57885adccf6711b13592">   33</a></span>&#160;<span class="preprocessor">#define SPI_MOSI    PORTBbits._P5</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#af853ff26d66b9887d2212ef020cb22a4">   37</a></span>&#160;<span class="preprocessor">#define SPI_MOSI_DDR  DDRBbits._P5</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a750ca7c9b92cfc9e57272ff3a49db48b">   42</a></span>&#160;<span class="preprocessor">#define SPI_SCK     PORTBbits._P7</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a5349415ea22a5febfe208e41e283e09e">   46</a></span>&#160;<span class="preprocessor">#define SPI_SCK_DDR   DDRBbits._P7</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#aec89105ab45250a756eb3d3638a4e92e">   50</a></span>&#160;<span class="preprocessor">#define SPI_MASTER_SS DDRBbits._P4</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#ae1f19ab1d529611ee82a30686b31028e">   54</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_0   PORTCbits._P5</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a9ab6d00d2ab688db5600737c60ddb314">   58</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_1   PORTCbits._P4</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a203433243d028bc175021c37dc0802f6">   62</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_2   PORTCbits._P3</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a086c9cf35f25608a5ff10bebea24a48c">   66</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_3   PORTCbits._P2</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a7dbdb819db0851ee13ca6cbe1dc5f4c5">   71</a></span>&#160;<span class="preprocessor">#define DAC_SS       PORTDbits._P4</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#ad742e387c55998038173396b907993a6">   75</a></span>&#160;<span class="preprocessor">#define AUX_DAC_SS     PORTCbits._P6</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a34df7b0956f5a3b800db76cb529f13be">   80</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_0_ddr DDRCbits._P5</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#aee3aa0c524fe3c2d1649afe3efd8cc72">   84</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_1_ddr DDRCbits._P4</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a742de3b51bc439fd401f864b1f3b91d1">   88</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_2_ddr DDRCbits._P3</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#ab567f89cdb8e93ef39dac964fabcb085">   92</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_3_ddr DDRCbits._P2</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#ae1575f1d0b95f42bc9011fadf88b80b6">   97</a></span>&#160;<span class="preprocessor">#define DAC_SS_ddr     DDRDbits._P4</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#aa6a037d93a6cb48adee845861a4c866c">  101</a></span>&#160;<span class="preprocessor">#define AUX_DAC_SS_ddr   DDRCbits._P6</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a427e16ab2edb4a8994821503d6991fb7">  105</a></span>&#160;<span class="preprocessor">#define SPARE_SS_ddr   DDRCbits._P0</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a4148affed266edbb6bf487893da864d3">  110</a></span>&#160;<span class="preprocessor">#define ENCODER_IRQ   PORTBbitd._P2</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#aedd2ac127b6656ad063c0970455e5497">  114</a></span>&#160;<span class="preprocessor">#define ENCODER_IRQ_ddr DDRBbitd._P2</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SLAVESELECTS_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="reg__structs_8h.html">reg_structs.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#ab142cc77dfa97010c9d2b616d0992b64">   25</a></span>&#160;<span class="preprocessor">#define SPI_MISO    PORTBbits._P6</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a366f58da009f5d03b8753a41a5c57d84">   29</a></span>&#160;<span class="preprocessor">#define SPI_MISO_DDR  DDRBbits._P6</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a7dbebab5f7dd57885adccf6711b13592">   34</a></span>&#160;<span class="preprocessor">#define SPI_MOSI    PORTBbits._P5</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#af853ff26d66b9887d2212ef020cb22a4">   38</a></span>&#160;<span class="preprocessor">#define SPI_MOSI_DDR  DDRBbits._P5</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a750ca7c9b92cfc9e57272ff3a49db48b">   43</a></span>&#160;<span class="preprocessor">#define SPI_SCK     PORTBbits._P7</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a5349415ea22a5febfe208e41e283e09e">   47</a></span>&#160;<span class="preprocessor">#define SPI_SCK_DDR   DDRBbits._P7</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#aec89105ab45250a756eb3d3638a4e92e">   51</a></span>&#160;<span class="preprocessor">#define SPI_MASTER_SS DDRBbits._P4</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#ae1f19ab1d529611ee82a30686b31028e">   55</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_0   PORTCbits._P5</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a9ab6d00d2ab688db5600737c60ddb314">   59</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_1   PORTCbits._P4</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a203433243d028bc175021c37dc0802f6">   63</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_2   PORTCbits._P3</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a086c9cf35f25608a5ff10bebea24a48c">   67</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_3   PORTCbits._P2</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a7dbdb819db0851ee13ca6cbe1dc5f4c5">   72</a></span>&#160;<span class="preprocessor">#define DAC_SS       PORTDbits._P4</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#ad742e387c55998038173396b907993a6">   76</a></span>&#160;<span class="preprocessor">#define AUX_DAC_SS     PORTCbits._P6</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a34df7b0956f5a3b800db76cb529f13be">   81</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_0_ddr DDRCbits._P5</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#aee3aa0c524fe3c2d1649afe3efd8cc72">   85</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_1_ddr DDRCbits._P4</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a742de3b51bc439fd401f864b1f3b91d1">   89</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_2_ddr DDRCbits._P3</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#ab567f89cdb8e93ef39dac964fabcb085">   93</a></span>&#160;<span class="preprocessor">#define ENCODER_SS_3_ddr DDRCbits._P2</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#ae1575f1d0b95f42bc9011fadf88b80b6">   98</a></span>&#160;<span class="preprocessor">#define DAC_SS_ddr     DDRDbits._P4</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#aa6a037d93a6cb48adee845861a4c866c">  102</a></span>&#160;<span class="preprocessor">#define AUX_DAC_SS_ddr   DDRCbits._P6</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a427e16ab2edb4a8994821503d6991fb7">  106</a></span>&#160;<span class="preprocessor">#define SPARE_SS_ddr   DDRCbits._P0</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#a4148affed266edbb6bf487893da864d3">  111</a></span>&#160;<span class="preprocessor">#define ENCODER_IRQ   PORTBbitd._P2</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="_slave_selects_8h.html#aedd2ac127b6656ad063c0970455e5497">  115</a></span>&#160;<span class="preprocessor">#define ENCODER_IRQ_ddr DDRBbitd._P2</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SLAVESELECTS_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="reg__structs_8h_html"><div class="ttname"><a href="reg__structs_8h.html">reg_structs.h</a></div><div class="ttdoc">This file redefines some of the registers of the ATmega644p as structs to allow for easy access to in...</div></div>
 <div class="ttc" id="ports_8h_html"><div class="ttname"><a href="ports_8h.html">ports.h</a></div><div class="ttdoc">Controls ports A - D to be able to set direction, read a value and set a value for any pins desired...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -166,7 +168,7 @@ $(document).ready(function(){initNavTree('_slave_selects_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_58942166834761cfd2ca6b530feb6b8f.html">RBELib</a></li><li class="navelem"><a class="el" href="_slave_selects_8h.html">SlaveSelects.h</a></li>
-    <li class="footer">Generated on Sun Sep 6 2015 13:36:34 for RBELib by
+    <li class="footer">Generated on Thu Sep 10 2015 16:26:46 for RBELib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
