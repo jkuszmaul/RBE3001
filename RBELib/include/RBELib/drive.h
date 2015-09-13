@@ -13,7 +13,7 @@
  * @param motor motor to set (0 or 1).
  * @param mvolts the voltage to set, in millivolts.
  */
-void setMotorVolts(unsigned char motor, int mvolts);
+void setMotorVolts(unsigned char motor, long mvolts);
 
 /**
  * @brief Gets the current, in milli-Amperes, detected by the current sensors.

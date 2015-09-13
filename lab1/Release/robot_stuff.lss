@@ -3,17 +3,17 @@ robot_stuff.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000072  00800100  0000180c  000018a0  2**0
+  0 .data         00000088  00800100  0000180c  000018a0  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         0000180c  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000011  00800172  00800172  00001912  2**0
+  2 .bss          00000011  00800188  00800188  00001928  2**0
                   ALLOC
-  3 .stab         00004fa4  00000000  00000000  00001914  2**2
+  3 .stab         00004fa4  00000000  00000000  00001928  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      00001325  00000000  00000000  000068b8  2**0
+  4 .stabstr      00001325  00000000  00000000  000068cc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .comment      00000011  00000000  00000000  00007bdd  2**0
+  5 .comment      00000011  00000000  00000000  00007bf1  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -89,13 +89,13 @@ Disassembly of section .text:
      194:	02 c0       	rjmp	.+4      	; 0x19a <__do_copy_data+0x10>
      196:	05 90       	lpm	r0, Z+
      198:	0d 92       	st	X+, r0
-     19a:	a2 37       	cpi	r26, 0x72	; 114
+     19a:	a8 38       	cpi	r26, 0x88	; 136
      19c:	b1 07       	cpc	r27, r17
      19e:	d9 f7       	brne	.-10     	; 0x196 <__do_copy_data+0xc>
 
 000001a0 <__do_clear_bss>:
      1a0:	11 e0       	ldi	r17, 0x01	; 1
-     1a2:	a2 e7       	ldi	r26, 0x72	; 114
+     1a2:	a8 e8       	ldi	r26, 0x88	; 136
      1a4:	b1 e0       	ldi	r27, 0x01	; 1
      1a6:	01 c0       	rjmp	.+2      	; 0x1aa <.do_clear_bss_start>
 
@@ -103,7 +103,7 @@ Disassembly of section .text:
      1a8:	1d 92       	st	X+, r1
 
 000001aa <.do_clear_bss_start>:
-     1aa:	a3 38       	cpi	r26, 0x83	; 131
+     1aa:	a9 39       	cpi	r26, 0x99	; 153
      1ac:	b1 07       	cpc	r27, r17
      1ae:	e1 f7       	brne	.-8      	; 0x1a8 <.do_clear_bss_loop>
      1b0:	0e 94 97 05 	call	0xb2e	; 0xb2e <main>
@@ -979,18 +979,18 @@ Disassembly of section .text:
      8b4:	90 e2       	ldi	r25, 0x20	; 32
      8b6:	89 27       	eor	r24, r25
      8b8:	85 b9       	out	0x05, r24	; 5
-     8ba:	80 91 72 01 	lds	r24, 0x0172
-     8be:	90 91 73 01 	lds	r25, 0x0173
+     8ba:	80 91 88 01 	lds	r24, 0x0188
+     8be:	90 91 89 01 	lds	r25, 0x0189
      8c2:	01 96       	adiw	r24, 0x01	; 1
-     8c4:	90 93 73 01 	sts	0x0173, r25
-     8c8:	80 93 72 01 	sts	0x0172, r24
-     8cc:	80 91 74 01 	lds	r24, 0x0174
+     8c4:	90 93 89 01 	sts	0x0189, r25
+     8c8:	80 93 88 01 	sts	0x0188, r24
+     8cc:	80 91 8a 01 	lds	r24, 0x018A
      8d0:	88 23       	and	r24, r24
      8d2:	c1 f0       	breq	.+48     	; 0x904 <ledFlopAndLog+0x52>
      8d4:	20 91 78 00 	lds	r18, 0x0078
      8d8:	30 91 79 00 	lds	r19, 0x0079
-     8dc:	80 91 72 01 	lds	r24, 0x0172
-     8e0:	90 91 73 01 	lds	r25, 0x0173
+     8dc:	80 91 88 01 	lds	r24, 0x0188
+     8e0:	90 91 89 01 	lds	r25, 0x0189
      8e4:	3f 93       	push	r19
      8e6:	2f 93       	push	r18
      8e8:	9f 93       	push	r25
@@ -1227,9 +1227,9 @@ Disassembly of section .text:
      ae4:	84 e2       	ldi	r24, 0x24	; 36
      ae6:	91 e0       	ldi	r25, 0x01	; 1
      ae8:	0e 94 57 0b 	call	0x16ae	; 0x16ae <puts>
-     aec:	c0 93 74 01 	sts	0x0174, r28
-     af0:	10 92 73 01 	sts	0x0173, r1
-     af4:	10 92 72 01 	sts	0x0172, r1
+     aec:	c0 93 8a 01 	sts	0x018A, r28
+     af0:	10 92 89 01 	sts	0x0189, r1
+     af4:	10 92 88 01 	sts	0x0188, r1
      af8:	2f ef       	ldi	r18, 0xFF	; 255
      afa:	8f e3       	ldi	r24, 0x3F	; 63
      afc:	98 e3       	ldi	r25, 0x38	; 56
@@ -1239,7 +1239,7 @@ Disassembly of section .text:
      b04:	e1 f7       	brne	.-8      	; 0xafe <runSampler+0x52>
      b06:	00 c0       	rjmp	.+0      	; 0xb08 <runSampler+0x5c>
      b08:	00 00       	nop
-     b0a:	10 92 74 01 	sts	0x0174, r1
+     b0a:	10 92 8a 01 	sts	0x018A, r1
      b0e:	e8 cf       	rjmp	.-48     	; 0xae0 <runSampler+0x34>
 
 00000b10 <testSingleADC>:
@@ -1251,7 +1251,7 @@ Disassembly of section .text:
      b1a:	90 e0       	ldi	r25, 0x00	; 0
      b1c:	0e 94 a7 05 	call	0xb4e	; 0xb4e <initADC>
      b20:	81 e0       	ldi	r24, 0x01	; 1
-     b22:	80 93 74 01 	sts	0x0174, r24
+     b22:	80 93 8a 01 	sts	0x018A, r24
      b26:	89 e5       	ldi	r24, 0x59	; 89
      b28:	94 e0       	ldi	r25, 0x04	; 4
      b2a:	0c 94 10 06 	jmp	0xc20	; 0xc20 <setADCInterrupt>
@@ -1362,8 +1362,8 @@ Disassembly of section .text:
      c1e:	08 95       	ret
 
 00000c20 <setADCInterrupt>:
-     c20:	90 93 76 01 	sts	0x0176, r25
-     c24:	80 93 75 01 	sts	0x0175, r24
+     c20:	90 93 8c 01 	sts	0x018C, r25
+     c24:	80 93 8b 01 	sts	0x018B, r24
      c28:	08 95       	ret
 
 00000c2a <__vector_24>:
@@ -1384,8 +1384,8 @@ Disassembly of section .text:
      c46:	bf 93       	push	r27
      c48:	ef 93       	push	r30
      c4a:	ff 93       	push	r31
-     c4c:	e0 91 75 01 	lds	r30, 0x0175
-     c50:	f0 91 76 01 	lds	r31, 0x0176
+     c4c:	e0 91 8b 01 	lds	r30, 0x018B
+     c50:	f0 91 8c 01 	lds	r31, 0x018C
      c54:	30 97       	sbiw	r30, 0x00	; 0
      c56:	09 f0       	breq	.+2      	; 0xc5a <__vector_24+0x30>
      c58:	09 95       	icall
@@ -1416,8 +1416,8 @@ Disassembly of section .text:
 00000c86 <initRBELib>:
      c86:	80 e0       	ldi	r24, 0x00	; 0
      c88:	91 e0       	ldi	r25, 0x01	; 1
-     c8a:	90 93 80 01 	sts	0x0180, r25
-     c8e:	80 93 7f 01 	sts	0x017F, r24
+     c8a:	90 93 96 01 	sts	0x0196, r25
+     c8e:	80 93 95 01 	sts	0x0195, r24
      c92:	60 e0       	ldi	r22, 0x00	; 0
      c94:	72 ec       	ldi	r23, 0xC2	; 194
      c96:	81 e0       	ldi	r24, 0x01	; 1
@@ -1644,14 +1644,14 @@ Disassembly of section .text:
      e82:	82 30       	cpi	r24, 0x02	; 2
      e84:	59 f0       	breq	.+22     	; 0xe9c <setTimerInterrupt+0x20>
      e86:	08 95       	ret
-     e88:	70 93 7c 01 	sts	0x017C, r23
-     e8c:	60 93 7b 01 	sts	0x017B, r22
+     e88:	70 93 92 01 	sts	0x0192, r23
+     e8c:	60 93 91 01 	sts	0x0191, r22
      e90:	08 95       	ret
-     e92:	70 93 7a 01 	sts	0x017A, r23
-     e96:	60 93 79 01 	sts	0x0179, r22
+     e92:	70 93 90 01 	sts	0x0190, r23
+     e96:	60 93 8f 01 	sts	0x018F, r22
      e9a:	08 95       	ret
-     e9c:	70 93 78 01 	sts	0x0178, r23
-     ea0:	60 93 77 01 	sts	0x0177, r22
+     e9c:	70 93 8e 01 	sts	0x018E, r23
+     ea0:	60 93 8d 01 	sts	0x018D, r22
      ea4:	08 95       	ret
 
 00000ea6 <__vector_16>:
@@ -1672,8 +1672,8 @@ Disassembly of section .text:
      ec2:	bf 93       	push	r27
      ec4:	ef 93       	push	r30
      ec6:	ff 93       	push	r31
-     ec8:	e0 91 7b 01 	lds	r30, 0x017B
-     ecc:	f0 91 7c 01 	lds	r31, 0x017C
+     ec8:	e0 91 91 01 	lds	r30, 0x0191
+     ecc:	f0 91 92 01 	lds	r31, 0x0192
      ed0:	30 97       	sbiw	r30, 0x00	; 0
      ed2:	09 f0       	breq	.+2      	; 0xed6 <__vector_16+0x30>
      ed4:	09 95       	icall
@@ -1713,8 +1713,8 @@ Disassembly of section .text:
      f14:	bf 93       	push	r27
      f16:	ef 93       	push	r30
      f18:	ff 93       	push	r31
-     f1a:	e0 91 79 01 	lds	r30, 0x0179
-     f1e:	f0 91 7a 01 	lds	r31, 0x017A
+     f1a:	e0 91 8f 01 	lds	r30, 0x018F
+     f1e:	f0 91 90 01 	lds	r31, 0x0190
      f22:	30 97       	sbiw	r30, 0x00	; 0
      f24:	09 f0       	breq	.+2      	; 0xf28 <__vector_13+0x30>
      f26:	09 95       	icall
@@ -1754,8 +1754,8 @@ Disassembly of section .text:
      f66:	bf 93       	push	r27
      f68:	ef 93       	push	r30
      f6a:	ff 93       	push	r31
-     f6c:	e0 91 77 01 	lds	r30, 0x0177
-     f70:	f0 91 78 01 	lds	r31, 0x0178
+     f6c:	e0 91 8d 01 	lds	r30, 0x018D
+     f70:	f0 91 8e 01 	lds	r31, 0x018E
      f74:	30 97       	sbiw	r30, 0x00	; 0
      f76:	09 f0       	breq	.+2      	; 0xf7a <__vector_9+0x30>
      f78:	09 95       	icall
@@ -1839,7 +1839,7 @@ Disassembly of section .text:
     1014:	6f 93       	push	r22
     1016:	9f 93       	push	r25
     1018:	8f 93       	push	r24
-    101a:	8d e5       	ldi	r24, 0x5D	; 93
+    101a:	83 e7       	ldi	r24, 0x73	; 115
     101c:	91 e0       	ldi	r25, 0x01	; 1
     101e:	9f 93       	push	r25
     1020:	8f 93       	push	r24
@@ -2728,8 +2728,8 @@ Disassembly of section .text:
     1696:	61 91       	ld	r22, Z+
     1698:	71 91       	ld	r23, Z+
     169a:	af 01       	movw	r20, r30
-    169c:	80 91 7f 01 	lds	r24, 0x017F
-    16a0:	90 91 80 01 	lds	r25, 0x0180
+    169c:	80 91 95 01 	lds	r24, 0x0195
+    16a0:	90 91 96 01 	lds	r25, 0x0196
     16a4:	0e 94 de 00 	call	0x1bc	; 0x1bc <vfprintf>
     16a8:	e2 e0       	ldi	r30, 0x02	; 2
     16aa:	0c 94 09 0a 	jmp	0x1412	; 0x1412 <__epilogue_restores__+0x20>
@@ -2739,8 +2739,8 @@ Disassembly of section .text:
     16b0:	1f 93       	push	r17
     16b2:	cf 93       	push	r28
     16b4:	df 93       	push	r29
-    16b6:	e0 91 7f 01 	lds	r30, 0x017F
-    16ba:	f0 91 80 01 	lds	r31, 0x0180
+    16b6:	e0 91 95 01 	lds	r30, 0x0195
+    16ba:	f0 91 96 01 	lds	r31, 0x0196
     16be:	23 81       	ldd	r18, Z+3	; 0x03
     16c0:	21 ff       	sbrs	r18, 1
     16c2:	1b c0       	rjmp	.+54     	; 0x16fa <puts+0x4c>
@@ -2748,8 +2748,8 @@ Disassembly of section .text:
     16c6:	00 e0       	ldi	r16, 0x00	; 0
     16c8:	10 e0       	ldi	r17, 0x00	; 0
     16ca:	89 91       	ld	r24, Y+
-    16cc:	60 91 7f 01 	lds	r22, 0x017F
-    16d0:	70 91 80 01 	lds	r23, 0x0180
+    16cc:	60 91 95 01 	lds	r22, 0x0195
+    16d0:	70 91 96 01 	lds	r23, 0x0196
     16d4:	db 01       	movw	r26, r22
     16d6:	18 96       	adiw	r26, 0x08	; 8
     16d8:	ed 91       	ld	r30, X+

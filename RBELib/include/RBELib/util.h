@@ -20,4 +20,14 @@ typedef void (*Callback)();
  */
 #define CLK 18432000UL
 
+/**
+ * @brief Clip a float to be within a given range.
+ */
+float clipf(float n, float min, float max);
+
+/**
+ * @brief Clip an int to be within a given range.
+ */
+int clipi(int n, int min, int max);
+
 #endif  // __UTIL_H__

@@ -14,7 +14,10 @@ main.d: ../main.c \
  /home/james/workspace_old/RBELib/include/RBELib/ports.h \
  /home/james/workspace_old/RBELib/include/RBELib/SPI.h \
  /home/james/workspace_old/RBELib/include/RBELib/SetServo.h \
- /home/james/workspace_old/RBELib/include/RBELib/SlaveSelects.h
+ /home/james/workspace_old/RBELib/include/RBELib/SlaveSelects.h \
+ /home/james/workspace_old/RBELib/include/RBELib/util.h \
+ /home/james/workspace_old/RBELib/include/RBELib/constants.h \
+ /home/james/workspace_old/RBELib/include/RBELib/drive.h
 
 /home/james/workspace_old/RBELib/include/RBELib/RBELib.h:
 
@@ -47,3 +50,9 @@ main.d: ../main.c \
 /home/james/workspace_old/RBELib/include/RBELib/SetServo.h:
 
 /home/james/workspace_old/RBELib/include/RBELib/SlaveSelects.h:
+
+/home/james/workspace_old/RBELib/include/RBELib/util.h:
+
+/home/james/workspace_old/RBELib/include/RBELib/constants.h:
+
+/home/james/workspace_old/RBELib/include/RBELib/drive.h:

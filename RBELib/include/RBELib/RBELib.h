@@ -58,6 +58,9 @@
 #include "SPI.h"
 #include "SetServo.h"
 #include "SlaveSelects.h"
+#include "util.h"
+#include "constants.h"
+#include "drive.h"
 
 
 #endif /* RBELIB_H_ */

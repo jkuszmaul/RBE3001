@@ -6,12 +6,16 @@
 #endif  // PI
 
 // Raw pot to hundredths of radians.
-const float kPotRawToAngleScale = 180.0 / (1010 - 219);
+const float kPotRawToAngleScale;
 // Amount that needs to be added to raw before multiplying by
 // kPotRawToAngleScale in order to get the real angle.
-const int kRawOffset = -620;
-const int kPotRawToVolts = 5000 / 1023;
+const int kRawOffset;
+const int kPotRawToVolts;
 
 // Motor voltage (millivolts).
-const int kVMotor = 8000;
+const int kVMotor;
+
+// PID Constants
+const float kdt;
+const float Kp_H, Ki_H, Kd_H;
 #endif  //  __CONSTANTS_H__

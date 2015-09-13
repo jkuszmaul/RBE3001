@@ -59,8 +59,8 @@ extern pidConst pidConsts;
  * @brief The different links in the arm.
  */
 typedef enum {
-  kH, /*!< Higher/farther out link. */
-  kL, /*!< Lower/inner link. */
+  kH = 0, /*!< Higher/farther out link. */
+  kL = 1, /*!< Lower/inner link. */
 } Link;
 
 /**
