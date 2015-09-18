@@ -61,6 +61,7 @@
 #include "util.h"
 #include "constants.h"
 #include "drive.h"
+#include "forwardkin.h"
 
 
 #endif /* RBELIB_H_ */

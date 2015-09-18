@@ -10,7 +10,7 @@
 #ifndef DAC_H_
 #define DAC_H_
 
-/** 
+/**
  * @brief Set the DAC to the given value on the chosen channel.
  * @param  DACn The channel that you want to set.
  * @param SPIVal The value you want to set it to.
@@ -19,6 +19,8 @@
  * from 0 - 4095.
  */
 void setDAC(int DACn, int SPIVal);
+
+void resetDAC();
 
 
 #endif

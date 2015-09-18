@@ -18,4 +18,8 @@ const int kVMotor;
 // PID Constants
 const float kdt;
 const float Kp_H, Ki_H, Kd_H;
+
+// Maximum DAC value (for the 0-4096 value).
+const int kMaxDAC;
+
 #endif  //  __CONSTANTS_H__

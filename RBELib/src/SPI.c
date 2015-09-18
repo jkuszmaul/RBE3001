@@ -6,8 +6,8 @@ void initSPI() {
   // For examples, see p157.
   // Set MOSI and SCK output, all other input.
   DDRB |= (1 << 5) | (1 << 7) | (1 << 4);
-  // Enable SPI, MAster, set clock rate at fck/16. See p161.
-  SPCR = (1 << SPE) | (1 << MSTR) | (3 << SPR0);
+  // Enable SPI, MAster, set clock rate at fosc/4. See p161.
+  SPCR = (1 << SPE) | (1 << MSTR) | (0 << SPR0);
 
   // Go through and enable/set every SS line to high.
   ENCODER_SS_0_ddr = 1;
