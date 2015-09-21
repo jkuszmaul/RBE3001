@@ -8,14 +8,12 @@ void setDAC(int DACn, int SPIVal) {
   const char cmd = 3 << 4; // Write and Update DAC register.
   // Pull DAC_SS low.
   DAC_SS = 0;
-  printf("In setDAC %d\n", __LINE__);
   // Command and address byte.
   spiTransceive(cmd | DACn);
   // Most significant 8 bits.
   spiTransceive((unsigned char)(SPIVal >> 4));
   // Least significant 4 bits.
   spiTransceive((unsigned char)SPIVal << 4);
-  printf("In setDAC %d\n", __LINE__);
   // Reset DAC_SS high.
   DAC_SS = 1;
 }

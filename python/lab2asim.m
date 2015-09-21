@@ -1,4 +1,5 @@
-function lab2asim()
+function data = lab2asim()
+  global Kt
   sys = system();
   x0 = [0; 0];
   goal = [60 * pi / 180; 0];
@@ -17,6 +18,14 @@ function lab2asim()
   title('Tuned Simulated Step Response, 0 - 60 degrees');
   xlim([0 300]);
   ylim([-1.5 1.5]);
+  uiwait();
+  current = csvread('part9.csv', 880, 3, [880 3 950 3]);
+  kt = Kt;
+  torque = -kt * current;
+  data = runsimt(sys, [0; 0], torque);
+  pos = data(:, 1)
+  plot(pos);
+  legend('Theta');
 end
 
 function sysd = system()
@@ -32,9 +41,11 @@ function sysd = system()
   free_speed = 82 * 2 * pi / 60;
   free_current = 0.15;
   rated_volts = 6;
+  global Kt
   Kt = stall_torque / stall_cur;
   R = rated_volts / stall_cur;
   Kv = free_speed / (rated_volts - free_current * R);
+  global J
   J = 0.00126271845 * 80; % kg * m^2
   % alpha = I * Kt / J
   % I = (V - omega / Kv) / R
@@ -79,17 +90,54 @@ function u = getpid(x, setpoint, reseti)
   u = min(6, max(-6, u));
 end
 
-function [x1, u] = runiter(sys, xm1, setpoint, reset)
+function x1 = simiter(sys, xm1, u)
   [a, b] = ssdata(sys);
-  u = getpid(xm1, setpoint, reset);
   gaccel = grav_accel(xm1);
   dt = 0.01;
   gdvel = gaccel * dt;
   gdp = 0.5 * gdvel * dt;
   gdx = [gdp; gdvel];
   x1 = a * xm1 + b * u + gdx;
-  x1 = {x1};
+end
+
+function x1 = simitertorque(sys, xm1, t)
+  global J
+  moi = J;
+  gaccel = grav_accel(xm1);
+  dt = 0.01;
+  gdvel = gaccel * dt;
+  gdp = 0.5 * gdvel * dt;
+  gdx = [gdp; gdvel];
+  accel = t / J;
+  dvel = accel * dt;
+  dp = 0.5 * dvel * dt;
+  dx = [dp; dvel];
+  x1 = xm1 + dx + gdx;
+end
+
+function [x1, u] = runiter(sys, xm1, setpoint, reset)
+  u = getpid(xm1, setpoint, reset);
+  x1 = {simiter(sys, xm1, u)};
   u = {u};
+end
+
+function x = runsimu(sys, x0, udata)
+  x = []
+  for u = udata
+    xm1 = x(end)
+    x1 = simiter(sys, transpose(xm1), u)
+    x = [x; transpose(x1)]
+  end
+end
+
+function x = runsimt(sys, x0, tdata)
+  x = [transpose(x0)]
+  tdata = transpose(tdata);
+  for t=tdata
+    xm1 = x(end);
+    x1 = simitertorque(sys, transpose(xm1), t);
+    x = [x; transpose(x1)];
+  end
 end
 
 function data = goto(sys, x0, setpoint)

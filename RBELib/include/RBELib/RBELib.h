@@ -62,6 +62,7 @@
 #include "constants.h"
 #include "drive.h"
 #include "forwardkin.h"
+#include "ik.h"
 
 
 #endif /* RBELIB_H_ */

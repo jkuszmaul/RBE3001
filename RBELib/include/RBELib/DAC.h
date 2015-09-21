@@ -20,6 +20,9 @@
  */
 void setDAC(int DACn, int SPIVal);
 
+/**
+ * Resets the DAC; should not need to be called; was written while debugging.
+ */
 void resetDAC();
 
 

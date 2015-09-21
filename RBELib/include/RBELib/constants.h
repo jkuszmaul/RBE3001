@@ -18,8 +18,15 @@ const int kVMotor;
 // PID Constants
 const float kdt;
 const float Kp_H, Ki_H, Kd_H;
+const float Kp_L, Ki_L, Kd_L;
 
 // Maximum DAC value (for the 0-4096 value).
 const int kMaxDAC;
+
+// Arm Information.
+const float kArmLen; // Length of each of the arms.
+const float kArmHeight; // Height of first arm above the base.
+const int t1lowdeg, t1higdeg, t2lodeg, t2higdeg;
+const float t1lowrad, t1highrad, t2lowrad, t2highrad;
 
 #endif  //  __CONSTANTS_H__

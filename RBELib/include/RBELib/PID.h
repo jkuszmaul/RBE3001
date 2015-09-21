@@ -79,8 +79,9 @@ void setConst(Link link, float Kp, float Ki, float Kd);
  * @param  link Which link to calculate the error for (Use kH and kL).
  * @param setPoint The desired position of the link.
  * @param actPos The current position of the link.
+ * @param reset non-zero if the sum should be reset.
  */
-signed int calcPID(Link link, int setPoint, int actPos);
+signed int calcPID(Link link, int setPoint, int actPos, int reset);
 
 /**
  * @brief Calculate the Feed-Forward term.
@@ -93,7 +94,8 @@ signed int calcPID(Link link, int setPoint, int actPos);
  * @param setPoint The current desired setpoint--may or may not be used.
  * @param actPos The current actual position--may or may not be used.
  * @return The voltage to apply to the corresponding motor, in millivolts.
- * @todo Implement
+ * @todo Make link kH depend on the position of kL (requires change of
+ * parameters).
  */
 int calcFF(Link link, int setPoint, int actPos);
 
