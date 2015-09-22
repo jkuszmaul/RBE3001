@@ -14,7 +14,7 @@ const char kPotLow = 3, kPotHigh = 2;
 const int kVMotor = 8000;
 
 // Maximum DAC value (for the 0-4096 value).
-const int kMaxDAC = (int)((4095UL * 8000UL) / (2500UL * 6));
+const int kMaxDAC = (int)((4095UL * 8000UL) / (2500UL * 6.1));
 
 // PID Constants
 const float kdt = 0.01;
