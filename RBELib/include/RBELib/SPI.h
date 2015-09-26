@@ -17,7 +17,7 @@
  * @date August 31, 2010
  *
  * @author Justin Barrett
- * @date August 23, 2011 
+ * @date August 23, 2011
  *
  * @author Eric Willcox
  * @date August 20, 2013
@@ -37,6 +37,22 @@
  * of your SS lines!
  */
 void initSPI();
+
+/**
+ * SPI Clock divider amounts and their corresponding bit-codes.
+ */
+typedef enum {
+  kSPI4=0,
+  kSPI16=1,
+  kSPI64=2,
+  kSPI128=3,
+} SPIDivide;
+
+/**
+ * Set the SPI clock divider (divides fosc=18.432MHz).
+ * See page 162 for register.
+ */
+void setSPIClkDivide(SPIDivide divider);
 
 /**
  * @brief Send and receive a byte out of the MOSI line.

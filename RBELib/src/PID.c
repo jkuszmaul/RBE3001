@@ -58,17 +58,25 @@ int calcPID(Link link, int setPoint, int actPos, int reset) {
   return out;
 }
 
-// Perform a simplistic linear approximation of a cosine-wave about 0.
-int calcFF(Link link, int setPoint, int actPos) {
+int calcFF(Link link, Joint pos) {
   // TODO: Tune Gravity Compensation.
   const int kHoldZeroH = 700, kHoldZeroL = 700;
   int hold = (link == kH) ? kHoldZeroH : kHoldZeroL;
-  // Rudimentary linear approximation.
+  int anglesum = pos.t1 + pos.t2;
   if (link == kH) {
-    // Get absolute value.
-    actPos = (actPos > 0) ? actPos : -actPos;
-    const int FF = hold * (90.0 - actPos) / 90.0; // Linear approx.
+    // Gravity comp is just negative sine of angle.
+    float anglerad = anglesum * PI / 180.0;
+    const int FF = -kHoldZeroH * sin(anglerad);
     return FF;
   }
+
+  // We will assume that the bottom's feed-forward is independent of
+  // the top's position.
+  if (link == kL) {
+    float anglerad = pos.t1 * PI / 180.0;
+    const int FF = -kHoldZeroL * sin(anglerad);
+    return FF;
+  }
+
   return 0;
 }

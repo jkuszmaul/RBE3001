@@ -11,7 +11,11 @@
 #ifndef PERIPH_H_
 #define PERIPH_H_
 
-/** 
+#ifndef NULL
+#define NULL 0
+#endif  // NULL
+
+/**
  * @brief Find the acceleration in the given axis (X, Y, Z).
  * @param  axis The axis that you want to get the measurement of.
  * @return gVal Value of  acceleration.
@@ -20,7 +24,10 @@
  */
 signed int getAccel(int axis);
 
-/** 
+void resetAccelRef();
+signed int getAccelRaw(int axis);
+
+/**
  * @brief Read an IR sensor and calculate the distance of the block.
  * @param  chan The port that the IR sensor is on.
  * @return value The distance the block is from the sensor.
@@ -29,7 +36,7 @@ signed int getAccel(int axis);
  */
 int IRDist(int chan);
 
-/** 
+/**
  * @brief Initialize the encoders with the desired settings.
  * @param chan Channel to initialize.
  *
@@ -53,5 +60,25 @@ void resetEncCount(int chan);
  * @todo Find the current encoder ticks on a given channel.
  */
 signed long encCount(int chan);
+
+typedef enum {
+  kClr=0,
+  kRd=1,
+  kWr=2,
+  kLd=3,
+} EncCmd;
+
+typedef enum {
+  kNone=0,
+  kMDR0=1,
+  kMDR1=2,
+  kDTR=3,
+  kCNTR=4,
+  kOTR=5,
+  kSTR=6,
+} EncReg;
+
+void encCmd(unsigned char cs, unsigned char cmd, unsigned char reg,
+            unsigned char *bytes, unsigned char numBytes);
 
 #endif /* PERIPH_H_ */

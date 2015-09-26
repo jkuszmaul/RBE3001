@@ -12,6 +12,9 @@ const float kPotRawToAngleScale;
 const int kRawOffset;
 const int kPotRawToVolts;
 
+// Ports corresponding to various analog inputs.
+const char kPotLow, kPotHigh;
+
 // Motor voltage (millivolts).
 const int kVMotor;
 

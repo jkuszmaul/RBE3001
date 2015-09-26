@@ -64,10 +64,10 @@ enum {
 void runPID() {
   ++count;
   // Change mode dependong on part of the lab.
-  mode = kPoints;
+  mode = kTrace;
   // Consider converting in some way to using interrupts or speeding up the ADC.
-  int posl = potAngle(kPotLow);
-  int posh = potAngle(kPotHigh);
+  int posl = potAngle(3);
+  int posh = potAngle(2);
 
   // Whether or not to restart the PID calculation (ie, clear the error sum).
   int reset = 0;
@@ -138,7 +138,7 @@ void runPID() {
 
   // Perform the actual IK.
   // Offest y so that y=0 is at pivot of low joint.
-  Joint joints = getJoint(x, y + kArmHeight);
+  Joint joints = getJoint(-x, y + kArmHeight);
 
   // PID angle setpoints for low and high joints.
   static int setpointl=0, setpointh=0;
@@ -153,8 +153,8 @@ void runPID() {
   }
 
   // Perform PID and gravity compensation calculations.
-  totall = calcPID(kL, setpointl, posl, reset) + calcFF(kH, setpoint, pos);
-  totalh = -(calcPID(kH, setpointh, posh, reset) + calcFF(kL, setpoint, pos));
+  totall = calcPID(kL, setpointl, posl, reset);// + calcFF(kH, setpoint, pos);
+  totalh = -(calcPID(kH, setpointh, posh, reset));// + calcFF(kL, setpoint, pos));
   // Clip outputs to a reasonable range.
   totall = clipi(totall, -kVMotor, kVMotor);
   totalh = clipi(totalh, -kVMotor, kVMotor);
@@ -169,24 +169,12 @@ void runPID() {
   printf("%d %d %d %d %d %d\n", posl, posh, pos.x, pos.y, x, y);
 }
 
-// Set up PID constants and timer.
-// TODO: break into library function.
-void initPID(int pos) {
-  setConst(kL, Kp_H, Ki_H, Kd_H);
-  setConst(kH, Kp_L, Ki_L, Kd_L);
-  initTimer(0, CTC, 10000 /*10000us = 100Hz*/);
-  DDRB &= ~(0x06); // Connected to switches on board.
-  x = 0;
-  y = 300;
-  setTimerInterrupt(0, runPID);
-}
-
 // Print current arm position.
 void printADC() {
-  int potangle1 = potAngle(kPotLow);
-  int potangle2 = potAngle(kPotHigh);
+  int potangle1 = potAngle(3);
+  int potangle2 = potAngle(2);
   Coord pos = forward(potangle1, potangle2);
-  printf("%d %d %2.2f %2.2f\n", potangle1, potangle2, pos.x, pos.y);
+  printf("%d %d %d %d\n", potangle1, potangle2, pos.x, pos.y);
 }
 
 // Print current usage by a motor.
@@ -204,6 +192,9 @@ void initAll() {
   debugUSARTInit(115200);
   initSPI();
   initADC(ain, 1, 0);
+  DDRB &= ~(0x06); // Connected to switches on board.
+  x = 0;
+  y = 300;
 }
 
 // Used for debugging IK/FK equations.
@@ -218,7 +209,7 @@ int main() {
   initAll();
   printf("HELLO.\n");
   // Initialize PID loops and start timers.
-  initPID(0);
+  initMotors();
   // Test the IK functions.
   printJoints(0, 60);
   printJoints(0, 150);

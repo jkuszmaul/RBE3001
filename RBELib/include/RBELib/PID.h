@@ -12,6 +12,8 @@
 #ifndef PID_H_
 #define PID_H_
 
+#include "RBELib/ik.h" // For Joint struct
+
 /**
  * @brief PID constants.
  * @details Obtain value using: @code pidConsts.Kp_H; @endcode
@@ -91,12 +93,11 @@ signed int calcPID(Link link, int setPoint, int actPos, int reset);
  * would also handle motion profiling or the such.
  * @param link Which link to calculate the feed-forward term--Ends up calling a
  * helper function for either link.
- * @param setPoint The current desired setpoint--may or may not be used.
- * @param actPos The current actual position--may or may not be used.
+ * @param pos The current actual position--may or may not be used.
  * @return The voltage to apply to the corresponding motor, in millivolts.
  * @todo Make link kH depend on the position of kL (requires change of
  * parameters).
  */
-int calcFF(Link link, int setPoint, int actPos);
+int calcFF(Link link, Joint pos);
 
 #endif /* PERIPH_H_ */

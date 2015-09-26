@@ -16,12 +16,19 @@ void initSPI() {
   ENCODER_SS_3_ddr = 1;
   DAC_SS_ddr = 1;
   AUX_DAC_SS_ddr = 1;
+  SPARE_SS_ddr = 1;
   ENCODER_SS_0 = 1;
   ENCODER_SS_1 = 1;
   ENCODER_SS_2 = 1;
   ENCODER_SS_3 = 1;
   DAC_SS = 1;
   AUX_DAC_SS = 1;
+  SPARE_SS = 1;
+}
+
+void setSPIClkDivide(SPIDivide divider) {
+  SPCR &= ~(3); // Clear divider bits.
+  SPCR |= (char)divider;
 }
 
 unsigned char spiTransceive(unsigned char data) {

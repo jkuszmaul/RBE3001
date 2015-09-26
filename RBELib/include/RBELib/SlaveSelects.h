@@ -75,6 +75,8 @@
  */
 #define AUX_DAC_SS     PORTCbits._P6
 
+#define SPARE_SS   PORTCbits._P0
+
 /**
  * @brief  SPI Slave Select Encoder 0
  */

@@ -9,6 +9,28 @@
 
 #ifndef MOTORS_H_
 #define MOTORS_H_
+#include "RBELib/forwardkin.h"
+#include "RBELib/ik.h"
+#include "RBELib/PID.h"
+
+volatile char isrdone;
+
+/**
+ * @brief Initializes PID code for the motors.
+ * Note: This makes use of timer 0.
+ */
+void initMotors();
+
+/**
+ * @brief ISR to call to run PID on every iteration.
+ */
+void motorISR();
+
+/**
+ * @brief Write millivolts to both motors.
+ * Automatically clips the output to a reasonable range.
+ */
+void writeMotors(int mlow, int mhigh);
 
 /**
  * @brief Helper function to stop the motors on the arm.
@@ -55,5 +77,20 @@ void driveLink(int link, int dir);
  * @todo Drive the arm to a known position using the potentiometers.
  */
 void homePos();
+
+/**
+ * @brief Get the current joint positions.
+ */
+Joint curJoints();
+
+/**
+ * @brief Get the current x, y position.
+ */
+Coord curXY();
+
+/**
+ * @brief Get the appropriate joint position.
+ */
+int getPos(Link link);
 
 #endif /* MOTORS_H_ */
