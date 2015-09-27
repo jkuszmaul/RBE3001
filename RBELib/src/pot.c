@@ -4,7 +4,11 @@
 
 int potAngle(int pot) {
   int raw = getADC(pot);
-  int angle = (int)((float)(raw + kRawOffset) * kPotRawToAngleScale);
+  int angle;
+  if (pot == kPotHigh)
+    angle = (int)((float)(raw + kRawOffsetH) * kPotRawToAngleScaleH * 100);
+  else
+    angle = (int)((float)(raw + kRawOffsetL) * kPotRawToAngleScaleL * 100);
   return angle;
 }
 

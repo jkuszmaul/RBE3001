@@ -13,7 +13,7 @@
 /**
  * @brief Find the angle of the given potentiometer.
  * @param  pot The pot port to check.
- * @return angle Angle (in hundredths of a radian) of the potentiometer.
+ * @return angle Angle (in hundredths of a degree) of the potentiometer.
  * @todo Allow custom configurations for different pots.
  */
 int potAngle(int pot);

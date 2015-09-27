@@ -46,6 +46,10 @@ typedef enum {
   kSPI16=1,
   kSPI64=2,
   kSPI128=3,
+  kSPI2=4,
+  kSPI8=5,
+  kSPI32=6,
+  //kSPI64=7,
 } SPIDivide;
 
 /**

@@ -10,6 +10,7 @@
 
 #ifndef PERIPH_H_
 #define PERIPH_H_
+#include "RBELib/PID.h"
 
 #ifndef NULL
 #define NULL 0
@@ -60,6 +61,11 @@ void resetEncCount(int chan);
  * @todo Find the current encoder ticks on a given channel.
  */
 signed long encCount(int chan);
+
+/**
+ * @brief convert encoder counts to angle.
+ */
+int encAngle(Link link);
 
 typedef enum {
   kClr=0,

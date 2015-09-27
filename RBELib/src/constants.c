@@ -1,11 +1,16 @@
 #include "RBELib/constants.h"
 
 // Raw pot to hundredths of radians.
-const float kPotRawToAngleScale = 180.0 / (1010 - 219);
+const float kPotRawToAngleScaleL = 90.0 / (1023 - 630);
+const float kPotRawToAngleScaleH = 90.0 / (1023 - 650);
 // Amount that needs to be added to raw before multiplying by
 // kPotRawToAngleScale in order to get the real angle.
-const int kRawOffset = -620;
+const int kRawOffsetH = -650; //-620;
+const int kRawOffsetL = -630; //-620;
 const int kPotRawToVolts = 5000 / 1023;
+
+const float kEncToDegH = -100.0 / 18.3333333;
+const float kEncToDegL = 100.0 / 42.04;
 
 // Ports corresponding to various analog inputs.
 const char kPotLow = 3, kPotHigh = 2;

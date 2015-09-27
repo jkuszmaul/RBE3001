@@ -6,11 +6,14 @@
 #endif  // PI
 
 // Raw pot to hundredths of radians.
-const float kPotRawToAngleScale;
+const float kPotRawToAngleScaleL;
+const float kPotRawToAngleScaleH;
 // Amount that needs to be added to raw before multiplying by
 // kPotRawToAngleScale in order to get the real angle.
-const int kRawOffset;
+const int kRawOffsetL, kRawOffsetH;
 const int kPotRawToVolts;
+// Scalar to convert encoder counts to hundredths of degrees.
+const float kEncToDegL, kEncToDegH;
 
 // Ports corresponding to various analog inputs.
 const char kPotLow, kPotHigh;

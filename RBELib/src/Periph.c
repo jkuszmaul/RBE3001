@@ -1,5 +1,7 @@
 #include "RBELib/Periph.h"
 #include "RBELib/SlaveSelects.h"
+#include "RBELib/SPI.h"
+#include "RBELib/constants.h"
 
 void encCmd(unsigned char enc, unsigned char cmd, unsigned char reg,
             unsigned char *bytes, unsigned char numBytes) {
@@ -9,10 +11,11 @@ void encCmd(unsigned char enc, unsigned char cmd, unsigned char reg,
     ENCODER_SS_0 = 0;
 
   // See http://wiki.wpi.edu/images//images/f/f1/LS7366R.pdf
-  // See page 3, set IR.
+  // See page 3, set IR to send the command.
   unsigned char cmdByte = (cmd << 6) | (reg << 3);
   spiTransceive(cmdByte);
 
+  // Iterate through and send/receive each byte.
   for (int i = 0; i < numBytes; ++i) {
     *(bytes + i) = spiTransceive(*(bytes + i));
   }
@@ -24,19 +27,38 @@ void encCmd(unsigned char enc, unsigned char cmd, unsigned char reg,
 }
 
 void encInit(int chan) {
+  // Clear the counter channel.
   encCmd(chan, kClr, kCNTR, NULL, 0);
+  // Set the MDR0 mode bits:
+  // B1,B0: count mode (0=non-quad, 1=x1, 2=x2, 3=x4).
+  // B3,B2: count mode (0=free-running).
+  // B5,B4: Index (0=disable).
+  // B6: Asynchronous index (0; 1=synchronous).
+  // B7: Filter clock divison (keep default=1).
+  // Current use the x4 mode.
   char mode = 3;
   encCmd(chan, kWr, kMDR0, &mode, 1);
-  mode = 0;
+  // Set the MDR1 mode bits:
+  // B1,B0: num bytes (0=4bytes, 1=3, 2=2, 3=1).
+  // B2: Enable count (0=enable).
+  // B3: not used.
+  // B4, 5, 6, 7: Whether to set certain flags.
+  // Only use 2 bytes, because we are never going to exceed that.
+  mode = 2;
   encCmd(chan, kWr, kMDR1, &mode, 1);
 }
 
 signed long encCount(int chan) {
-  char buf[4];
-  encCmd(chan, kRd, kCNTR, buf, 4);
-  long ret = ((long)buf[0] << 24) | ((long)buf[1] << 16) | ((long)buf[2] << 8) |
-             (buf[3]);
+  char buf[2];
+  encCmd(chan, kRd, kCNTR, buf, 2);
+  int ret = ((int)buf[0] << 8) | (buf[1]);
   return ret;
+}
+
+int encAngle(Link link) {
+  int raw = encCount(link);
+  // Multiply by the appropriate scalar to convert to degrees.
+  return raw * (link ? kEncToDegL : kEncToDegH);
 }
 
 void resetEncCount(int chan) {
@@ -44,8 +66,8 @@ void resetEncCount(int chan) {
 }
 
 void setEncCount(int chan, long cnt) {
-  char buf[4] = {cnt >> 24, cnt >> 16, cnt >> 8, cnt};
-  encCmd(chan, kWr, kCNTR, buf, 4);
+  char buf[2] = {cnt >> 8, cnt};
+  encCmd(chan, kWr, kCNTR, buf, 2);
 }
 
 signed int getAccelRaw(int axis) {
@@ -56,11 +78,11 @@ signed int getAccelRaw(int axis) {
   // The following 4 bits are the command:
   //   first: 1 = single channel, 0 = differential.
   //   remaining 3: select channel.
-  // This is followed by one don't care bit for the ADC to start conversion.
+  // This is followed by two don't care bit for the ADC to start conversion.
   // The following 12 bits are the data, MSB first.
   // We will package this such that the most significant byte of the data
   // is in the second byte of the transaction.
-  const char cmd = ((1 << 5) | (1 << 4) | (axis << 1)) << 1;
+  const char cmd = ((1 << 4) | (1 << 3) | axis) << 2;
   spiTransceive(cmd);
   // Remaining bytes sent don't matter.
   unsigned char high = spiTransceive(0);

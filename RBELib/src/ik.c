@@ -37,14 +37,14 @@ Joint getJoint(int x, int y) {
   // When tb is positive, t2 should be negative (>PI) and vice-versa.
   // So, the two feasible pairs are (t1plus, t2neg) and (t1neg, t2plus).
   if (inBounds(t1plus, t2neg)) {
-    int t1 = t1plus * 180.0 / PI;
-    int t2 = t2neg * 180.0 / PI;
+    int t1 = t1plus * 180.0 / PI * 100.0;
+    int t2 = t2neg * 180.0 / PI * 100.0;
     Joint retval = {.t1=t1, .t2=t2, .feasible=1};
     return retval;
   }
   if (inBounds(t1neg, t2plus)) {
-    int t1 = t1neg * 180.0 / PI;
-    int t2 = t2plus * 180.0 / PI;
+    int t1 = t1neg * 180.0 / PI * 100.0;
+    int t2 = t2plus * 180.0 / PI * 100.0;
     Joint retval = {.t1=t1, .t2=t2, .feasible=1};
     return retval;
   }

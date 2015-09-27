@@ -6,22 +6,21 @@
  */
 #include "RBELib/RBELib.h" //RBELib
 
-volatile int x, y, z;
 volatile int enc0, enc1;
-volatile int pot;
 void isr() {
 	cli();
-	if (pot == 0) resetEncCount(0);
 	enc0 = encCount(0);
 	enc1 = encCount(1);
 	sei();
     static int p1, p2;
     int p1tmp = PINB & 0x4;
     int p2tmp = PINB & 0x2;
-    if (p1 != p1tmp) {
-    	gotoAngles(0, 90 * (p1tmp >> 2));
+    int angle = 0;
+    angle = 9000 * (1 - (p1tmp >> 2));
     //	printf("Set gotoangles %d\n", (p1tmp >> 2) * 90);
-    }
+    if (p2tmp) angle *= -1;
+	if (p1 != p1tmp || p2 != p2tmp)
+		gotoAngles(angle, -angle);
     p1 = p1tmp;
     p2 = p2tmp;
     int volts = 0;
@@ -69,17 +68,15 @@ int main() {
     // _delay_ms(5);
     while (!isrdone) continue;
     isrdone = 0;
-    cli();
-	setSPIClkDivide(kSPI64);
-	x = getAccel(0);
-	y = getAccel(1);
-	z = getAccel(2);
-	setSPIClkDivide(kSPI4);
-	sei();
     isr();
-	pot = potAngle(kPotHigh);
-	printf("%d, %d, %d, %d, %d, %d\n", enc0, enc1,
-		   x, y, z, pot);
+	int ench = encAngle(kH);
+	int poth = potAngle(kPotHigh);
+	int pothraw = ADC;
+	int encl = encAngle(kL);
+	int potl = potAngle(kPotLow);
+	int potlraw = ADC;
+	printf("%d, %d, %d, %d, %d, %d\n", encl, ench,
+		   poth, pothraw, potl, potlraw);
   }
   return 0;
 }

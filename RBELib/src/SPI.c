@@ -26,9 +26,12 @@ void initSPI() {
   SPARE_SS = 1;
 }
 
+// See page 162 for info on Clock divider bits.
 void setSPIClkDivide(SPIDivide divider) {
-  SPCR &= ~(3); // Clear divider bits.
-  SPCR |= (char)divider;
+  SPCR &= ~3; // Clear divider bits.
+  SPSR &= ~1; // Clear SPI2X bits.
+  SPCR |= (char)divider & 3;
+  SPSR |= (char)divider >> 2;
 }
 
 unsigned char spiTransceive(unsigned char data) {

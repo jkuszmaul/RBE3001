@@ -6,7 +6,7 @@
 
 Coord forward(int t1int, int t2int) {
   // Convert to radians.
-  float t1 = t1int * PI / 180.0, t2 = t2int * PI / 180.0;
+  float t1 = t1int * PI / 180.0 / 100.0, t2 = t2int * PI / 180.0 / 100.0;
   // Precompute useful sines/cosines.
   float sint1t2 = sin(t1 + t2);
   float cost1t2 = cos(t1 + t2);

@@ -29,7 +29,8 @@ void setConst(Link link, float Kp, float Ki, float Kd) {
 }
 
 int calcPID(Link link, int setPoint, int actPos, int reset) {
-  static int suml = 0, sumh = 0, prevError = 0;
+  static int suml = 0, sumh = 0;
+  static float prevError = 0;
   if (reset) {
     if (link == kH) sumh = 0;
     else suml = 0;
@@ -40,7 +41,7 @@ int calcPID(Link link, int setPoint, int actPos, int reset) {
   int * sum = (link == kH) ? &sumh : &suml;
   const int kMaxSum = kVMotor / Ki;
 
-  const int error = setPoint - actPos;
+  const float error = (setPoint - actPos) / 100;
   const int dError = (float)(error - prevError) / kdt;
 
   float out = Kp * error + Ki * *sum + Kd * dError;
@@ -65,7 +66,7 @@ int calcFF(Link link, Joint pos) {
   int anglesum = pos.t1 + pos.t2;
   if (link == kH) {
     // Gravity comp is just negative sine of angle.
-    float anglerad = anglesum * PI / 180.0;
+    float anglerad = anglesum / 100.0 * PI / 180.0;
     const int FF = -kHoldZeroH * sin(anglerad);
     return FF;
   }
@@ -73,7 +74,7 @@ int calcFF(Link link, Joint pos) {
   // We will assume that the bottom's feed-forward is independent of
   // the top's position.
   if (link == kL) {
-    float anglerad = pos.t1 * PI / 180.0;
+    float anglerad = pos.t1 / 100.0 * PI / 180.0;
     const int FF = -kHoldZeroL * sin(anglerad);
     return FF;
   }

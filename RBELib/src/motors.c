@@ -56,13 +56,37 @@ void writeMotors(int mlow, int mhigh) {
   setMotorVolts(kL, mlow);
 }
 
+inline int valInBounds(int val, int low, int high) {
+ return (val > low) && (val < high);
+}
+
 int getPos(Link link) {
+  static Joint useEnc = {0, 0}; // Whether to use the encoder for each link.
+  int pot, enc;
+  const int homeCutoff = -1;
   switch (link) {
     case kH:
-      return potAngle(kPotHigh);
+      if (useEnc.t2 == 0) {
+        pot = potAngle(kPotHigh);
+        if (valInBounds(pot, -homeCutoff, homeCutoff)) {
+          useEnc.t2 = 1;
+          resetEncCount(kH);
+        }
+        return pot;
+      }
+      break;
     case kL:
-      return potAngle(kPotLow);
+      if (useEnc.t2 == 0) {
+        pot = potAngle(kPotLow);
+        if (valInBounds(pot, -homeCutoff, homeCutoff)) {
+          useEnc.t1 = 1;
+          resetEncCount(kL);
+        }
+        return pot;
+      }
+      break;
   }
+  return encAngle(link);
 }
 
 void gotoXY(int x, int y) {
