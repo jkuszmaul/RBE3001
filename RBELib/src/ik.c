@@ -1,5 +1,6 @@
 #include "RBELib/ik.h"
 #include "RBELib/constants.h"
+#include "RBELib/motors.h"
 #include <math.h>
 
 int inBounds(float t1, float t2) {
@@ -51,4 +52,12 @@ Joint getJoint(int x, int y) {
 
   Joint retval = {0, 0, 0};
   return retval;
+}
+
+void conveyorPos(int x) {
+  gotoXY(-(x + kConveyorOffset), kWeightHeight);
+}
+
+void liftArm() {
+  gotoXY(-kConveyorOffset - 30, kWeightHeight + 50);
 }

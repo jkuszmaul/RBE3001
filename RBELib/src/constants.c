@@ -33,3 +33,14 @@ const int t1lodeg = -106, t1higdeg = 90, t2lodeg = -114, t2higdeg = 90;
 
 const float t1lowrad = -106 * PI / 180, t1highrad = PI / 2,
             t2lowrad = -114 * PI / 180.0, t2highrad = PI / 2;
+
+// Conveyor constants.
+const int kWeightHeight = 140;
+const int kConveyorOffset = 210;
+
+// Ports for the servos.
+const char kServoGrab = 0;
+const char kServoConveyor = 1;
+
+// Constants for servo open/close.
+const char kGrabOpen = 0, kGrabClose = 180;

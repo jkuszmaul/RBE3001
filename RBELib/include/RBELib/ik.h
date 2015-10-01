@@ -26,4 +26,15 @@ Joint getJoint(int x, int y);
  */
 int inBounds(float t1, float t2);
 
+/**
+ * Put the arm at a given position over the conveyor to grab a weight.
+ * @param x Position, in mm, side-to-side on conveyor.
+ */
+void conveyorPos(int x);
+
+/**
+ * Lifts the arm a bit.
+ */
+void liftArm();
+
 #endif  // __IK_H__

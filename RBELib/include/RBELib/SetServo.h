@@ -43,5 +43,9 @@ void setCharDebug(char byteToSend);
  */
 void coPrintf(char *str);
 
+/**
+ * close (1) or open (0) the servo.
+ */
+void servoGrab(char close);
 
 #endif /* SETSERVO_H_ */

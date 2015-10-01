@@ -3,6 +3,8 @@
 #include "RBELib/SPI.h"
 #include "RBELib/constants.h"
 
+#include <math.h>
+
 void encCmd(unsigned char enc, unsigned char cmd, unsigned char reg,
             unsigned char *bytes, unsigned char numBytes) {
   if (enc)
@@ -101,4 +103,15 @@ signed int getAccel(int axis) {
   int rawaxis = getAccelRaw(axis);
   float mgs = (rawaxis - vref) * 2.2;
   return mgs;
+}
+
+int IRDist(int chan) {
+  // Uses an exponential curve fit to convert between the raw Sharp IR sensor
+  // values and the distance in meters.
+  int raw = clipi(getADC(chan), 70, 700);
+  const float kCoeff = 0.822;
+  const float kBase = 0.416;
+  const float volts = (float)raw * 5.0 / 1023;
+  const float retval = kCoeff * pow(kBase, volts);
+  return retval * 1000;
 }

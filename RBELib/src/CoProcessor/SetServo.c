@@ -75,3 +75,7 @@ void coPrintf(char *str) {
     setCharDebug(str[x++]);
   }
 }
+
+void servoGrab(char close) {
+  setServo(kServoGrab, close ? kGrabClose : kGrabOpen);
+}

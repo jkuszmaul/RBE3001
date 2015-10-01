@@ -35,4 +35,13 @@ const float kArmHeight; // Height of first arm above the base.
 const int t1lowdeg, t1higdeg, t2lodeg, t2higdeg;
 const float t1lowrad, t1highrad, t2lowrad, t2highrad;
 
+// Constants for where to position the arm relative to the conveyor.
+const int kWeightHeight, kConveyorOffset;
+
+// Ports for the servos.
+const char kServoGrab, kServoConveyor;
+
+// Constants for servo open/close.
+const char kGrabOpen, kGrabClose;
+
 #endif  //  __CONSTANTS_H__
