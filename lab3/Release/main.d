@@ -22,7 +22,8 @@ main.d: ../main.c \
  /home/james/workspace_old/RBELib/include/RBELib/constants.h \
  /home/james/workspace_old/RBELib/include/RBELib/drive.h \
  /home/james/workspace_old/RBELib/include/RBELib/forwardkin.h \
- /home/james/workspace_old/RBELib/include/RBELib/ik.h
+ /home/james/workspace_old/RBELib/include/RBELib/ik.h \
+ /home/james/workspace_old/RBELib/include/RBELib/track.h
 
 /home/james/workspace_old/RBELib/include/RBELib/RBELib.h:
 
@@ -71,3 +72,5 @@ main.d: ../main.c \
 /home/james/workspace_old/RBELib/include/RBELib/forwardkin.h:
 
 /home/james/workspace_old/RBELib/include/RBELib/ik.h:
+
+/home/james/workspace_old/RBELib/include/RBELib/track.h:

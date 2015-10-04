@@ -15,6 +15,8 @@ static Coord curxy = {.x=0, .y=300};
 static Joint curjoint = {.t1=0, .t2=0};
 static char enable = 0; // Whether or not to drive the motors.
 static char reset = 1; // Whether or not to reset PID on next iteration.
+static Joint goalvolts = {.t1=0, .t2=0};
+static char manual = 0;
 
 void initMotors() {
   setConst(kL, Kp_H, Ki_H, Kd_H);
@@ -25,8 +27,10 @@ void initMotors() {
 }
 
 volatile char isrdone = 0;
+static volatile unsigned long timer = 0;
 void motorISR() {
   isrdone = 1;
+  ++timer;
   if (!enable) {
     writeMotors(0, 0);
     return;
@@ -40,11 +44,21 @@ void motorISR() {
   int mhigh =
       calcPID(kH, goaljoint.t2, curjoint.t2, reset) + calcFF(kH, curjoint);
 
-  writeMotors(mlow, mhigh);
+  if (manual)
+    writeMotors(goalvolts.t1, goalvolts.t2);
+  else
+    writeMotors(mlow, mhigh);
 
   curxy = forward(curjoint.t1, curjoint.t2);
 
   reset = 0;
+}
+
+void writeManual(int mlow, int mhigh) {
+  manual = 1;
+  enable = 1;
+  goalvolts.t1 = mlow;
+  goalvolts.t2 = mhigh;
 }
 
 void writeMotors(int mlow, int mhigh) {
@@ -93,6 +107,7 @@ void gotoXY(int x, int y) {
   Joint joints = getJoint(x, y);
   reset = 1;
   enable = 1;
+  manual = 0;
   // Fail silently if not a feasible position.
   if (joints.feasible) {
     goaljoint = joints;
@@ -100,8 +115,11 @@ void gotoXY(int x, int y) {
 }
 
 void gotoAngles(int lowerTheta, int upperTheta) {
+  manual = 0;
   goaljoint.t1 = lowerTheta;
   goaljoint.t2 = upperTheta;
   reset = 1;
   enable = 1;
 }
+
+unsigned long getHundredths() { return timer; }

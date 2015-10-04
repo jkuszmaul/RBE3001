@@ -3,6 +3,7 @@
 #include "RBELib/constants.h"
 #include "RBELib/DAC.h"
 #include <avr/io.h>
+#include <stdlib.h>
 #include "RBELib/ADC.h"
 
 void setMotorVolts(unsigned char motor, long mvolts) {
@@ -20,4 +21,17 @@ int getCurrent(char cursen) {
   long raw = getADC(cursen);
   long ma = raw * 5000 / 1023 - 2700;
   return ma;
+}
+
+int getAvgCurrent(char cursen, char reset) {
+  static long total[2] = {0, 0};
+  static int cnt[2] = {0, 0};
+  if (reset) {
+    total[cursen] = 0;
+    cnt[cursen] = 0;
+  }
+  int cur = getCurrent(cursen);
+  total[cursen] += -cur;
+  ++cnt[cursen];
+  return total[cursen] / cnt[cursen];
 }

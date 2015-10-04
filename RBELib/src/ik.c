@@ -58,6 +58,6 @@ void conveyorPos(int x) {
   gotoXY(-(x + kConveyorOffset), kWeightHeight);
 }
 
-void liftArm() {
-  gotoXY(-kConveyorOffset - 30, kWeightHeight + 50);
+void liftArm(int x) {
+  gotoXY(-(kConveyorOffset + x), kWeightHeight + 30);
 }

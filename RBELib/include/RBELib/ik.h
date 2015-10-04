@@ -16,6 +16,8 @@ typedef struct {
  * @param y The y position, in mm.
  * @return The joint positions, in degrees.
  */
+// TODO: Return the closest reasonable solution when infeasible, so that
+// we don't completely ruin everything when we don't care about it.
 Joint getJoint(int x, int y);
 
 /**
@@ -33,8 +35,8 @@ int inBounds(float t1, float t2);
 void conveyorPos(int x);
 
 /**
- * Lifts the arm a bit.
+ * Lifts the arm a bit above the conveyor.
  */
-void liftArm();
+void liftArm(int x);
 
 #endif  // __IK_H__

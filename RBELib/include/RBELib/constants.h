@@ -44,4 +44,21 @@ const char kServoGrab, kServoConveyor;
 // Constants for servo open/close.
 const char kGrabOpen, kGrabClose;
 
+// Ports for IR sensors;
+const char kFarIR, kNearIR;
+
+// IR distance constants.
+const int kNoWeightCutoff;
+const int kConveyorNear;
+const float kConveyorScale;
+
+// Time between passing the IR sensors and reaching the arm.
+const int kFarIRTime, kNearIRTime; // hundredths of a second.
+
+// time before arrival of a weight to start actuating.
+const unsigned long kArmMoveTime, kGripMoveTime;
+
+// Cutoff for weights.
+const unsigned int kWeightCutoff;
+
 #endif  //  __CONSTANTS_H__

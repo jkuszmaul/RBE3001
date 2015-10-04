@@ -63,6 +63,7 @@
 #include "drive.h"
 #include "forwardkin.h"
 #include "ik.h"
+#include "track.h"
 
 
 #endif /* RBELIB_H_ */

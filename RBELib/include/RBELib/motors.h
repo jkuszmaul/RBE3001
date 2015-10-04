@@ -33,6 +33,11 @@ void motorISR();
 void writeMotors(int mlow, int mhigh);
 
 /**
+ * Manually run motors.
+ */
+void writeManual(int mlow, int mhigh);
+
+/**
  * @brief Helper function to stop the motors on the arm.
  *
  * @todo Create way to stop the motors using the DAC.
@@ -92,5 +97,11 @@ Coord curXY();
  * @brief Get the appropriate joint position.
  */
 int getPos(Link link);
+
+/**
+ * Returns the number of times the ISR has run (ie, the number of
+ * hundredths of seconds to have passed).
+ */
+unsigned long getHundredths();
 
 #endif /* MOTORS_H_ */

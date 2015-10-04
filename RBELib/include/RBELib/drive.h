@@ -22,4 +22,12 @@ void setMotorVolts(unsigned char motor, long mvolts);
  */
 int getCurrent(char cursen);
 
+/**
+ * Integrates and averages the current for a given sensor and resets the
+ * integration to zero of asked.
+ * This must be called at some regular interval in order to work.
+ * Returns the most recent average for the sensor in question.
+ */
+int getAvgCurrent(char cursen, char reset);
+
 #endif  // __DRIVE_H__
