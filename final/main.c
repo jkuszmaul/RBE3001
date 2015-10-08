@@ -51,9 +51,9 @@ int main() {
     // Tasks which must be done every iteration.
     // Run the IR sensors.
     Weight nextWeight = updateAndGet();
-    //printf("%d %d\n", state, nextWeight.pos);
+   // printf("%d %d\n", state, nextWeight.pos);
     unsigned long time = getHundredths();
-    int cur1 = getAvgCurrent(1, 0);
+//    int cur1 = getAvgCurrent(1, 0);
     int cur0 = getAvgCurrent(0, 0);
     switch (state) {
       case kWaiting:
@@ -65,6 +65,7 @@ int main() {
       case kGripping:
         conveyorPos(nextWeight.pos * kConveyorScale);
         if (nextWeight.time < (time - 150)) {
+          printf("Went to %d\n", nextWeight.pos);
           state = kLifting;
           // Time at which we will shift from lifting to actually dumping it.
           nextEvent = time + 300;
@@ -78,7 +79,7 @@ int main() {
         if (time > nextEvent) {
           nextEvent = time + 300;
           // Reset current averaging.
-          cur1 = getAvgCurrent(1, 1);
+       //   cur1 = getAvgCurrent(1, 1);
           cur0 = getAvgCurrent(0, 1);
           state = kMeasuring;
 
@@ -89,7 +90,7 @@ int main() {
     	  writeManual(0, 3000);
 
           if (time > nextEvent) {
-            nextEvent = time + 100;
+            nextEvent = time + 150;
             state = kDumping;
         //    printf("cur: %d %d\n", cur1, cur0);
             if (cur0 < kWeightCutoff) {
@@ -104,12 +105,14 @@ int main() {
       case kDumping:
         if (time > nextEvent) {
         	state = kWaiting;
+        }
+        else if (time > nextEvent - kGripMoveTime) {
         	servoGrab(0);
         }
         break;
     }
 
-    printf("%d %d\n", potAngle(3), potAngle(2));
+   printf("%d %d\n", potAngle(3), potAngle(2));
     /*
     if (PINB & 0x02) {
       conveyorPos(0);

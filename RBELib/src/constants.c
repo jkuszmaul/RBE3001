@@ -35,7 +35,7 @@ const float t1lowrad = -106 * PI / 180, t1highrad = PI / 2,
             t2lowrad = -114 * PI / 180.0, t2highrad = PI / 2;
 
 // Conveyor constants.
-const int kWeightHeight = 120;
+const int kWeightHeight = 117;
 const int kConveyorOffset = 190;
 
 // Ports for the servos.
@@ -50,15 +50,15 @@ const char kFarIR = 4, kNearIR = 5;
 
 // IR distance constants.
 const int kNoWeightCutoff = 200;
-const int kConveyorNear = 75;
-const float kConveyorScale = 1.45;
+const int kConveyorNear = 115;
+const float kConveyorScale = 1.3;
 
 // Time between IR sensors and arm.
-const int kFarIRTime = 650, kNearIRTime = 480; // hundredths of a second.
+const int kFarIRTime = 650, kNearIRTime = 495; // hundredths of a second.
 
 // time before arrival of a weight to start actuating.
-const unsigned long kArmMoveTime = 70;
-const unsigned long kGripMoveTime = 40;
+const unsigned long kArmMoveTime = 90;
+const unsigned long kGripMoveTime = 55;
 
 // Cutoff for weights.
 const unsigned int kWeightCutoff = 450;

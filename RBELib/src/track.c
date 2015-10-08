@@ -30,6 +30,9 @@ void monitor(char far) {
   static unsigned lowest[2] = {-1, -1};
   static unsigned long lowesttime[2] = {0, 0};
   int curdist = IRDist(far ? kFarIR : kNearIR);
+  static int curavg[2] = {0, 0};
+  static int avgcnt[2] = {0, 0};
+  //if(far) printf("%d, %d, %d\n", curdist, curavg[1], avgcnt[1]);
 
   // If relevant, set lowest.
   // When going down (ie, starting to see a weight), increment numchange every
@@ -40,7 +43,21 @@ void monitor(char far) {
     lowesttime[far] = getHundredths();
     numchange[far] = 0;
   }
-  else if (seeing[far]) numchange[far] += 1;
+  else if (seeing[far]) {
+    numchange[far] += 1;
+    // Once we bottom out, average several values.
+    const char kNumAvg = 5;
+    if (numchange[far] > kChangeCutoff - kNumAvg && numchange[far] < kChangeCutoff) {
+      if (avgcnt[far] < kNumAvg) {
+        curavg[far] += curdist * 10 / kNumAvg;
+        avgcnt[far]++;
+      }
+    }
+    else if (avgcnt[far] < kNumAvg - 1) {
+      avgcnt[far] = 0;
+      curavg[far] = 0;
+    }
+  }
   else if (curdist < kNoWeightCutoff) numchange[far] += 1;
   else numchange[far] = 0;
 
@@ -50,10 +67,12 @@ void monitor(char far) {
     if (seeing[far]) {
       if (!registered[far]) {
         if (far)
-          registerWeight(lowest[far], lowesttime[far] + kFarIRTime);
+          registerWeight(curavg[far] / 10, lowesttime[far] + kFarIRTime);
         else
-          updateWeight(lowest[far], lowesttime[far] + kNearIRTime);
+          updateWeight(curavg[far] / 10, lowesttime[far] + kNearIRTime);
         registered[far] = 1;
+        avgcnt[far] = 0;
+        curavg[far] = 0;
       }
       lowest[far] = kNoWeightCutoff;
       if (curdist > kNoWeightCutoff) {
@@ -65,6 +84,8 @@ void monitor(char far) {
       registered[far] = 0;
       seeing[far] = 1;
       numchange[far] = 0;
+      avgcnt[far] = 0;
+      curavg[far] = 0;
     }
   }
 
@@ -72,6 +93,7 @@ void monitor(char far) {
 
 void registerWeight(unsigned pos, unsigned long time) {
   // If the queue length is over QUEUELEN, undefined behavior occurs.
+  printf("Registered: %d\n", pos);
   weightqueue[queueend].pos = pos - kConveyorNear;
   if (weightqueue[queueend].pos > 200) weightqueue[queueend].pos = 0;
   weightqueue[queueend].time = time;

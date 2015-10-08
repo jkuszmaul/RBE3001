@@ -55,9 +55,9 @@ Joint getJoint(int x, int y) {
 }
 
 void conveyorPos(int x) {
-  gotoXY(-(x + kConveyorOffset), kWeightHeight);
+  gotoXY(-(x + kConveyorOffset), kWeightHeight + x / 4);
 }
 
 void liftArm(int x) {
-  gotoXY(-(kConveyorOffset + x), kWeightHeight + 30);
+  gotoXY(-(kConveyorOffset + x), kWeightHeight + 40);
 }
