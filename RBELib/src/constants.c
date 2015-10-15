@@ -50,11 +50,11 @@ const char kFarIR = 4, kNearIR = 5;
 
 // IR distance constants.
 const int kNoWeightCutoff = 200;
-const int kConveyorNear = 115;
-const float kConveyorScale = 1.3;
+const int kConveyorNear = 110;
+const float kConveyorScale = 1.40;
 
 // Time between IR sensors and arm.
-const int kFarIRTime = 650, kNearIRTime = 495; // hundredths of a second.
+const int kFarIRTime = 650, kNearIRTime = 505; // hundredths of a second.
 
 // time before arrival of a weight to start actuating.
 const unsigned long kArmMoveTime = 90;
